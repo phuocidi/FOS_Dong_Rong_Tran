@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0758FDF71E16F14300BFCF88 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 0758FDF61E16F14300BFCF88 /* login.png */; };
 		0E33A82E1E16E99A005CD961 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E33A82D1E16E99A005CD961 /* main.m */; };
 		0E33A8311E16E99A005CD961 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E33A8301E16E99A005CD961 /* AppDelegate.m */; };
 		0E33A8341E16E99A005CD961 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E33A8331E16E99A005CD961 /* ViewController.m */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0758FDF61E16F14300BFCF88 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		0E33A8291E16E99A005CD961 /* FOS_Dong_Rong_Tran.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FOS_Dong_Rong_Tran.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E33A82D1E16E99A005CD961 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0E33A82F1E16E99A005CD961 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				0E33A82C1E16E99A005CD961 /* Supporting Files */,
 				0E33A8431E16EE35005CD961 /* Webservice.h */,
 				0E33A8441E16EE35005CD961 /* Webservice.m */,
+				0758FDF61E16F14300BFCF88 /* login.png */,
 			);
 			path = FOS_Dong_Rong_Tran;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E33A83C1E16E99A005CD961 /* LaunchScreen.storyboard in Resources */,
+				0758FDF71E16F14300BFCF88 /* login.png in Resources */,
 				0E33A8391E16E99A005CD961 /* Assets.xcassets in Resources */,
 				0E33A8371E16E99A005CD961 /* Main.storyboard in Resources */,
 			);
