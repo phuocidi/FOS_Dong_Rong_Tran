@@ -13,6 +13,7 @@
 		0E33A8371E16E99A005CD961 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E33A8351E16E99A005CD961 /* Main.storyboard */; };
 		0E33A8391E16E99A005CD961 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E33A8381E16E99A005CD961 /* Assets.xcassets */; };
 		0E33A83C1E16E99A005CD961 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E33A83A1E16E99A005CD961 /* LaunchScreen.storyboard */; };
+		0E33A8451E16EE35005CD961 /* Webservice.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E33A8441E16EE35005CD961 /* Webservice.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		0E33A8381E16E99A005CD961 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E33A83B1E16E99A005CD961 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E33A83D1E16E99A005CD961 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E33A8431E16EE35005CD961 /* Webservice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Webservice.h; sourceTree = "<group>"; };
+		0E33A8441E16EE35005CD961 /* Webservice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webservice.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				0E33A83A1E16E99A005CD961 /* LaunchScreen.storyboard */,
 				0E33A83D1E16E99A005CD961 /* Info.plist */,
 				0E33A82C1E16E99A005CD961 /* Supporting Files */,
+				0E33A8431E16EE35005CD961 /* Webservice.h */,
+				0E33A8441E16EE35005CD961 /* Webservice.m */,
 			);
 			path = FOS_Dong_Rong_Tran;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 			files = (
 				0E33A8341E16E99A005CD961 /* ViewController.m in Sources */,
 				0E33A8311E16E99A005CD961 /* AppDelegate.m in Sources */,
+				0E33A8451E16EE35005CD961 /* Webservice.m in Sources */,
 				0E33A82E1E16E99A005CD961 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
