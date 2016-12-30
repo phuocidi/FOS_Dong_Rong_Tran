@@ -14,6 +14,7 @@
 		0E33A8391E16E99A005CD961 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E33A8381E16E99A005CD961 /* Assets.xcassets */; };
 		0E33A83C1E16E99A005CD961 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E33A83A1E16E99A005CD961 /* LaunchScreen.storyboard */; };
 		0E33A8451E16EE35005CD961 /* Webservice.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E33A8441E16EE35005CD961 /* Webservice.m */; };
+		7884C9AF1E16F19200207834 /* testFromDong.m in Sources */ = {isa = PBXBuildFile; fileRef = 7884C9AE1E16F19200207834 /* testFromDong.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		0E33A83D1E16E99A005CD961 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E33A8431E16EE35005CD961 /* Webservice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Webservice.h; sourceTree = "<group>"; };
 		0E33A8441E16EE35005CD961 /* Webservice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webservice.m; sourceTree = "<group>"; };
+		7884C9AD1E16F19200207834 /* testFromDong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testFromDong.h; sourceTree = "<group>"; };
+		7884C9AE1E16F19200207834 /* testFromDong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testFromDong.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,8 @@
 		0E33A82B1E16E99A005CD961 /* FOS_Dong_Rong_Tran */ = {
 			isa = PBXGroup;
 			children = (
+				7884C9AD1E16F19200207834 /* testFromDong.h */,
+				7884C9AE1E16F19200207834 /* testFromDong.m */,
 				0E33A82F1E16E99A005CD961 /* AppDelegate.h */,
 				0E33A8301E16E99A005CD961 /* AppDelegate.m */,
 				0E33A8321E16E99A005CD961 /* ViewController.h */,
@@ -156,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E33A8341E16E99A005CD961 /* ViewController.m in Sources */,
+				7884C9AF1E16F19200207834 /* testFromDong.m in Sources */,
 				0E33A8311E16E99A005CD961 /* AppDelegate.m in Sources */,
 				0E33A8451E16EE35005CD961 /* Webservice.m in Sources */,
 				0E33A82E1E16E99A005CD961 /* main.m in Sources */,
@@ -315,6 +321,7 @@
 				0E33A8421E16E99A005CD961 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
