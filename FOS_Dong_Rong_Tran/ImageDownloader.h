@@ -10,6 +10,9 @@
 #import <UIKit/UIKit.h>
 // ----------------------------------
 
+/**
+ @brief return save the image
+ */
 @interface ImageDownloader : NSObject
 
 + (instancetype) sharedInstance;

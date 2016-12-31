@@ -8,7 +8,7 @@
 
 #import "ImageDownloader.h"
 //--------------------------------
-@interface ImageDownloader ()
+@interface ImageDownloader () <NSURLSessionDelegate>
 
 
 @end

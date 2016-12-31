@@ -10,4 +10,13 @@
 
 @interface Constant : NSObject
 
++ (NSString*) foodKeyID;
++ (NSString*) foodKeyName;
++ (NSString*) foodKeyPrice;
++ (NSString*) foodKeyRecepiee;
++ (NSString*) foodKeyImgURL;
++ (NSString *) foodKeyCategoryVeg;
++ (NSString *)  foodKeyCategoryNonVeg;
++ (NSString *)  foodKey;
+
 @end

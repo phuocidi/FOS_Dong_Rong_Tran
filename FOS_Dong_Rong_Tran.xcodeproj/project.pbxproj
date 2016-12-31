@@ -15,6 +15,9 @@
 		0E33A8391E16E99A005CD961 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E33A8381E16E99A005CD961 /* Assets.xcassets */; };
 		0E33A83C1E16E99A005CD961 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E33A83A1E16E99A005CD961 /* LaunchScreen.storyboard */; };
 		0E33A8451E16EE35005CD961 /* Webservice.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E33A8441E16EE35005CD961 /* Webservice.m */; };
+		0EEAA0F71E16FBA600946EE1 /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAA0F31E16FBA600946EE1 /* ImageDownloader.m */; };
+		0EEAA0F81E16FBA600946EE1 /* WebserviceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAA0F61E16FBA600946EE1 /* WebserviceProvider.m */; };
+		0EEAA0FC1E1715D100946EE1 /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAA0FB1E1715D100946EE1 /* Constant.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,13 @@
 		0E33A83D1E16E99A005CD961 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E33A8431E16EE35005CD961 /* Webservice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Webservice.h; sourceTree = "<group>"; };
 		0E33A8441E16EE35005CD961 /* Webservice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webservice.m; sourceTree = "<group>"; };
+		0EEAA0F21E16FBA600946EE1 /* ImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloader.h; sourceTree = "<group>"; };
+		0EEAA0F31E16FBA600946EE1 /* ImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloader.m; sourceTree = "<group>"; };
+		0EEAA0F41E16FBA600946EE1 /* WebserviceCommunication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebserviceCommunication.h; sourceTree = "<group>"; };
+		0EEAA0F51E16FBA600946EE1 /* WebserviceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebserviceProvider.h; sourceTree = "<group>"; };
+		0EEAA0F61E16FBA600946EE1 /* WebserviceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebserviceProvider.m; sourceTree = "<group>"; };
+		0EEAA0FA1E1715D100946EE1 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		0EEAA0FB1E1715D100946EE1 /* Constant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constant.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +73,8 @@
 		0E33A82B1E16E99A005CD961 /* FOS_Dong_Rong_Tran */ = {
 			isa = PBXGroup;
 			children = (
+				0EEAA0F91E1715B400946EE1 /* Utilities */,
+				0EEAA0F11E16FB7100946EE1 /* WebService */,
 				0E33A82F1E16E99A005CD961 /* AppDelegate.h */,
 				0E33A8301E16E99A005CD961 /* AppDelegate.m */,
 				0E33A8321E16E99A005CD961 /* ViewController.h */,
@@ -72,8 +84,6 @@
 				0E33A83A1E16E99A005CD961 /* LaunchScreen.storyboard */,
 				0E33A83D1E16E99A005CD961 /* Info.plist */,
 				0E33A82C1E16E99A005CD961 /* Supporting Files */,
-				0E33A8431E16EE35005CD961 /* Webservice.h */,
-				0E33A8441E16EE35005CD961 /* Webservice.m */,
 				0758FDF61E16F14300BFCF88 /* login.png */,
 			);
 			path = FOS_Dong_Rong_Tran;
@@ -85,6 +95,29 @@
 				0E33A82D1E16E99A005CD961 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0EEAA0F11E16FB7100946EE1 /* WebService */ = {
+			isa = PBXGroup;
+			children = (
+				0EEAA0F21E16FBA600946EE1 /* ImageDownloader.h */,
+				0EEAA0F31E16FBA600946EE1 /* ImageDownloader.m */,
+				0EEAA0F41E16FBA600946EE1 /* WebserviceCommunication.h */,
+				0EEAA0F51E16FBA600946EE1 /* WebserviceProvider.h */,
+				0EEAA0F61E16FBA600946EE1 /* WebserviceProvider.m */,
+				0E33A8431E16EE35005CD961 /* Webservice.h */,
+				0E33A8441E16EE35005CD961 /* Webservice.m */,
+			);
+			name = WebService;
+			sourceTree = "<group>";
+		};
+		0EEAA0F91E1715B400946EE1 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0EEAA0FA1E1715D100946EE1 /* Constant.h */,
+				0EEAA0FB1E1715D100946EE1 /* Constant.m */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,7 +193,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E33A8341E16E99A005CD961 /* ViewController.m in Sources */,
+				0EEAA0F81E16FBA600946EE1 /* WebserviceProvider.m in Sources */,
+				0EEAA0FC1E1715D100946EE1 /* Constant.m in Sources */,
 				0E33A8311E16E99A005CD961 /* AppDelegate.m in Sources */,
+				0EEAA0F71E16FBA600946EE1 /* ImageDownloader.m in Sources */,
 				0E33A8451E16EE35005CD961 /* Webservice.m in Sources */,
 				0E33A82E1E16E99A005CD961 /* main.m in Sources */,
 			);

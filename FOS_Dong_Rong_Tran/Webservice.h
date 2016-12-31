@@ -1,16 +1,20 @@
-//
-//  Webservice.h
-//  FOS_Dong_Rong_Tran
-//
-//  Created by Huu Tran on 12/30/16.
-//  Copyright © 2016 rjtcompuquest. All rights reserved.
-//
+
 
 #import <Foundation/Foundation.h>
+#import "WebserviceCommunication.h"
+@interface WebService : NSObject
 
-@interface Webservice : NSObject
++( instancetype )sharedInstance;
 
+-( void )getCategory:( NSString*)foodCategoryType completionHandler:(void(^)(NSArray*)) completionBlock;
 
+- ( NSString* )registerUser:(NSDictionary*) data;
 
+-( NSString* )loginUser:(NSDictionary*) data;
 
+- ( void )getSubCategoryByID:(NSInteger)sid;
+
+-( void )getProductByID:(NSInteger)sid;
+
+-( NSString* )sendOrder:(NSDictionary*) orderData;
 @end
