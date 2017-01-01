@@ -31,9 +31,7 @@
 //        NSLog(@"%@", data);
 //    }];
     
-    [[WebService sharedInstance] checkOrderStatusID:@"12222228" completionHandler:^(NSArray *data) {
-        NSLog(@"%@", data);
-    }];
+
 }
 
 
