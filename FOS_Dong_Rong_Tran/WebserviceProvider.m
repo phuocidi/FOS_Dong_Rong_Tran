@@ -20,7 +20,6 @@
     {
         [ urlString appendFormat: @"%@=%@&", key, [ parameter objectForKey: key ] ];
     }
-    NSInteger offset = ([parameter count]) ? 2 : 1;
     NSString* urlStr = [ urlString substringToIndex: urlString.length - 1 ];
     urlStr = [urlStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     NSData* data = [ NSData dataWithContentsOfURL: [ NSURL URLWithString: urlStr ] ];
@@ -56,9 +55,7 @@
         }
     }];
     
-    [task resume];
-
-    
+    [task resume];    
 }
 
 

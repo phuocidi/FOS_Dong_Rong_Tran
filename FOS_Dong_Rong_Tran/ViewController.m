@@ -23,8 +23,12 @@
 //        NSLog(@"%@", data);
 //    }];
     
-    [[WebService sharedInstance] sendOrderWithMobile:@"7777777777" category:@"veg" orderName:@"meal" orderQuantity:@"7" totalCost:@"333" orderAddress:@"chitown" completionHandler:^(NSString *order_id) {
-        NSLog(@"%@", order_id);
+//    [[WebService sharedInstance] sendOrderWithMobile:@"7777777777" category:@"veg" orderName:@"meal" orderQuantity:@"7" totalCost:@"333" orderAddress:@"chitown" completionHandler:^(NSString *order_id) {
+//        NSLog(@"%@", order_id);
+//    }];
+    
+    [[WebService sharedInstance] checkRecentOrderWithMobile:@"55565454" completionHandler:^(NSArray *data) {
+        NSLog(@"%@", data);
     }];
 }
 

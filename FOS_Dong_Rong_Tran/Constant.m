@@ -28,6 +28,17 @@ static NSString* const orderKeyAddress = @"order_delivery_add";
 static NSString* const orderKeyDate = @"order_date";
 static NSString* const orderKeyCategory = @"order_category";
 
+static NSString* const orderRecentKeyMobile =  @"user_phone";
+static NSString* const orderRecentKey =  @"Order Detail";
+static NSString* const orderRecentKeyID =  @"OrderId";
+static NSString* const orderRecentKeyName =  @"OrderName";
+static NSString* const orderRecentKeyQuantity =  @"OrderQuantity";
+static NSString* const orderRecentKeyTotal =  @"TotalOrder";
+static NSString* const orderRecentKeyStatus =  @"OrderStatus";
+static NSString* const orderRecentKeyAddress =  @"OrderDeliverAdd";
+static NSString* const orderRecentKeyDate =  @"OrderDate";
+
+
 @implementation Constant
 + (NSString *)  foodKey { return foodKey; }
 + (NSString*) foodKeyID { return foodKeyID; }
@@ -46,5 +57,15 @@ static NSString* const orderKeyCategory = @"order_category";
 + (NSString*) orderKeyDate {return orderKeyDate;}
 + (NSString*) orderKeyCategory {return orderKeyCategory;}
 
+
++ (NSString*) orderRecentKey {return orderRecentKey;}
++ (NSString*) orderRecentKeyID {return orderRecentKeyID;}
++ (NSString*) orderRecentKeyName {return orderRecentKeyName;}
++ (NSString*) orderRecentKeyQuantity{return orderRecentKeyQuantity;}
++ (NSString*) orderRecentKeyTotal {return orderRecentKeyTotal;}
++ (NSString*) orderRecentKeyStatus {return orderRecentKeyStatus;}
++ (NSString*) orderRecentKeyAddress {return orderRecentKeyAddress;}
++ (NSString*) orderRecentKeyDate {return orderRecentKeyDate;}
++ (NSString*) orderRecentKeyMobile {return orderRecentKeyMobile;}
 
 @end

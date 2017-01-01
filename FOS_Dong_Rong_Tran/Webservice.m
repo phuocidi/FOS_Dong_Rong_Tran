@@ -70,7 +70,6 @@
         if ([jsonObject isKindOfClass:[NSDictionary class]]) {
             dataArray = [((NSDictionary*) jsonObject) objectForKey:[Constant foodKey]];
         }
-        
         // REFACTOR. YiFu, it's your call here
         // Should let ModelManager add object here and don't call the code below?
         if (completionBlock) {
@@ -103,9 +102,6 @@
     }
     return output;
 }
-
-
-//&order_category=veg&order_name=Biryani&order_quantity=2&total_order=700&order_delivery_add=noida&order_date=2016-12-21 11:32:56&user_phone=55565454
 
 // This could be done better with Order Object. Use it in the mean time
 -( void )sendOrderWithMobile:(NSString*)mobileNumber category:(NSString*)foodCategoryType orderName:(NSString*)orderName orderQuantity:(NSString*)orderQuantity totalCost:(NSString*)totalCost orderAddress:(NSString*) orderAddress completionHandler:(void(^)(NSString* order_id))completionBlock
@@ -142,8 +138,31 @@
             completionBlock (order_id);
         }
     }];
+}
+
+//http://rjtmobile.com/ansari/fos/fosapp/order_recent.php?&user_phone=
+-( void )checkRecentOrderWithMobile:(NSString*)mobileNumber completionHandler:(void(^)(NSArray* data))completionBlock
+{
+    // clean parameter
+    mobileNumber = [mobileNumber stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    
+    NSDictionary * dictParameter = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    mobileNumber, [Constant orderRecentKeyMobile],
+                                    nil];
     
     
+    [self.provider asyncWebserviceCall:@"order_recent.php" withDic:dictParameter completionHandler:^(NSString * responseMsg) {
+        id jsonOject = [NSJSONSerialization JSONObjectWithData:[responseMsg dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        
+        NSArray * dataArray;
+        if ([jsonOject isKindOfClass:[NSDictionary class]]) {
+            dataArray = [ ((NSDictionary*)jsonOject) objectForKey: [Constant orderRecentKey]];
+        }
+        
+        if (completionBlock) {
+            completionBlock (dataArray);
+        }
+    }];
 }
 
 @end
