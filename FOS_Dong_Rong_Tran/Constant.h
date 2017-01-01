@@ -19,4 +19,12 @@
 + (NSString *)  foodKeyCategoryNonVeg;
 + (NSString *)  foodKey;
 
+
++ (NSString*) orderKeyName;
++ (NSString*) orderKeyMobile;
++ (NSString*) orderKeyQuantity;
++ (NSString*) orderKeyTotal;
++ (NSString*) orderKeyAddress;
++ (NSString*) orderKeyDate;
++ (NSString*) orderKeyCategory;
 @end

@@ -59,13 +59,17 @@
 
 -( void )getCategory:( NSString*)foodCategoryType completionHandler:(void(^)(NSArray* data)) completionBlock
 {    
-
+    foodCategoryType = [foodCategoryType stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     NSDictionary * dictParameter = [NSDictionary dictionaryWithObjectsAndKeys:foodCategoryType, @"food_category", nil];
     [self.provider asyncWebserviceCall:@"fos_food.php" withDic:dictParameter completionHandler:^(NSString * responseMsg) {
         
         id jsonObject = [ NSJSONSerialization JSONObjectWithData: [ responseMsg dataUsingEncoding: NSUTF8StringEncoding ] options:NSJSONReadingAllowFragments error:nil ];
         
-        NSArray * dataArray = [((NSDictionary*) jsonObject) objectForKey:[Constant foodKey]];
+        NSArray * dataArray;
+        
+        if ([jsonObject isKindOfClass:[NSDictionary class]]) {
+            dataArray = [((NSDictionary*) jsonObject) objectForKey:[Constant foodKey]];
+        }
         
         // REFACTOR. YiFu, it's your call here
         // Should let ModelManager add object here and don't call the code below?
@@ -75,27 +79,6 @@
     }];
 }
 
--( void )getSubCategoryByID:(NSInteger)sid
-{
-    NSDictionary * dict = [NSDictionary dictionaryWithObject:[NSNumber numberWithInteger: sid] forKey:@"Id"];
-    NSString* output = [ self.provider syncWebserviceCall: @"cust_sub_category.php" withDic : dict];
-    
-    id jsonObject = [ NSJSONSerialization JSONObjectWithData: [ output dataUsingEncoding: NSUTF8StringEncoding ] options:NSJSONReadingAllowFragments error:nil ];
-    
-    
-}
-
--( void )getProductByID:(NSInteger)sid
-{
-    NSDictionary * dict = [NSDictionary dictionaryWithObject:[NSNumber numberWithInteger: sid] forKey:@"Id"];
-    NSString* output = [ self.provider syncWebserviceCall: @"cust_product.php" withDic : dict];
-    
-    id jsonObject = [ NSJSONSerialization JSONObjectWithData: [ output dataUsingEncoding: NSUTF8StringEncoding ] options:NSJSONReadingAllowFragments error:nil ];
-    
-    NSArray* data = [ jsonObject objectForKey : @"Product"];
-    
-    
-}
 
 
 
@@ -122,15 +105,45 @@
 }
 
 
--( NSString* )sendOrder:(NSDictionary*) orderData
+//&order_category=veg&order_name=Biryani&order_quantity=2&total_order=700&order_delivery_add=noida&order_date=2016-12-21 11:32:56&user_phone=55565454
+
+// This could be done better with Order Object. Use it in the mean time
+-( void )sendOrderWithMobile:(NSString*)mobileNumber category:(NSString*)foodCategoryType orderName:(NSString*)orderName orderQuantity:(NSString*)orderQuantity totalCost:(NSString*)totalCost orderAddress:(NSString*) orderAddress completionHandler:(void(^)(NSString* order_id))completionBlock
 {
-    NSString* output = [ self.provider syncWebserviceCall: @"orders.php" withDic : orderData ];
+    // clean parameter
+    mobileNumber = [mobileNumber stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    foodCategoryType = [foodCategoryType stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    orderName = [orderName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    orderQuantity = [orderQuantity stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    totalCost = [totalCost stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    orderAddress = [orderAddress stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     
-    id jsonObject = [ NSJSONSerialization JSONObjectWithData: [ output dataUsingEncoding: NSUTF8StringEncoding ] options:NSJSONReadingAllowFragments error:nil ];
+    NSDateFormatter * dateFormatter  = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"YYYY-MM-dd hh:mm a"];
+    NSDate * now = [NSDate date];
+    NSString * dateStr = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:now]];
+    dateStr = [dateStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     
-    NSArray* data = [ jsonObject objectForKey : @"Order Confirmed"];
+    NSDictionary * dictParameter = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    mobileNumber, [Constant orderKeyMobile],
+                                    foodCategoryType,[Constant orderKeyCategory],
+                                    orderName,[Constant orderKeyName],
+                                    orderQuantity,[Constant orderKeyQuantity],
+                                    totalCost,[Constant orderKeyTotal],
+                                    orderAddress,[Constant orderKeyAddress],
+                                    dateStr,[Constant orderKeyDate],nil];
     
-    return [data[0] objectForKey:@"OrderId"];
+    
+    [self.provider asyncWebserviceCall:@"order_request.php" withDic:dictParameter completionHandler:^(NSString * responseMsg) {
+        
+        NSString * order_id = [[ responseMsg componentsSeparatedByString:@":"] lastObject];
+        order_id = [order_id stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        if (completionBlock) {
+            completionBlock (order_id);
+        }
+    }];
+    
+    
 }
 
 @end

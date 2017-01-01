@@ -8,13 +8,10 @@
 
 -( void )getCategory:( NSString*)foodCategoryType completionHandler:(void(^)(NSArray*)) completionBlock;
 
+-( void )sendOrderWithMobile:(NSString*)mobileNumber category:(NSString*)foodCategoryType orderName:(NSString*)orderName orderQuantity:(NSString*)orderQuantity totalCost:(NSString*)totalCost orderAddress:(NSString*) orderAddress completionHandler:(void(^)(NSString* order_id))completionBlock;
+
 - ( NSString* )registerUser:(NSDictionary*) data;
 
 -( NSString* )loginUser:(NSDictionary*) data;
 
-- ( void )getSubCategoryByID:(NSInteger)sid;
-
--( void )getProductByID:(NSInteger)sid;
-
--( NSString* )sendOrder:(NSDictionary*) orderData;
 @end
