@@ -40,7 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lx8-rQ-ZpC">
-                                <rect key="frame" x="-50" y="-50" width="475" height="767"/>
+                                <rect key="frame" x="-30" y="-30" width="435" height="727"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaN-dt-P6p">
                                 <rect key="frame" x="10" y="571" width="354" height="40"/>
@@ -65,17 +65,21 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brand_logo" translatesAutoresizingMaskIntoConstraints="NO" id="9k8-px-JyV">
+                                <rect key="frame" x="16" y="20" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Lx8-rQ-ZpC" firstAttribute="top" secondItem="9GW-co-BzF" secondAttribute="top" constant="-50" id="D8h-F1-Bbe"/>
+                            <constraint firstItem="Lx8-rQ-ZpC" firstAttribute="top" secondItem="9GW-co-BzF" secondAttribute="top" constant="-30" id="D8h-F1-Bbe"/>
                             <constraint firstItem="XaN-dt-P6p" firstAttribute="centerX" secondItem="9GW-co-BzF" secondAttribute="centerX" id="N8Q-2w-VCW"/>
                             <constraint firstItem="UE8-dO-rte" firstAttribute="centerX" secondItem="9GW-co-BzF" secondAttribute="centerX" id="RSw-ek-rjv"/>
                             <constraint firstItem="owX-WD-oav" firstAttribute="top" secondItem="UE8-dO-rte" secondAttribute="bottom" constant="14" id="Sz5-f0-53d"/>
-                            <constraint firstItem="Lx8-rQ-ZpC" firstAttribute="leading" secondItem="9GW-co-BzF" secondAttribute="leading" constant="-50" id="d5v-ME-AOw"/>
+                            <constraint firstItem="Lx8-rQ-ZpC" firstAttribute="leading" secondItem="9GW-co-BzF" secondAttribute="leading" constant="-30" id="d5v-ME-AOw"/>
                             <constraint firstItem="owX-WD-oav" firstAttribute="top" secondItem="XaN-dt-P6p" secondAttribute="bottom" constant="56" id="sGh-3N-Bfi"/>
-                            <constraint firstItem="owX-WD-oav" firstAttribute="top" secondItem="Lx8-rQ-ZpC" secondAttribute="bottom" constant="-50" id="yR5-7W-oLC"/>
-                            <constraint firstAttribute="trailing" secondItem="Lx8-rQ-ZpC" secondAttribute="trailing" constant="-50" id="zcO-hs-15B"/>
+                            <constraint firstItem="owX-WD-oav" firstAttribute="top" secondItem="Lx8-rQ-ZpC" secondAttribute="bottom" constant="-30" id="yR5-7W-oLC"/>
+                            <constraint firstAttribute="trailing" secondItem="Lx8-rQ-ZpC" secondAttribute="trailing" constant="-30" id="zcO-hs-15B"/>
                         </constraints>
                     </view>
                     <connections>
@@ -88,4 +92,7 @@
             <point key="canvasLocation" x="794.39999999999998" y="112.89355322338831"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="brand_logo" width="160" height="160"/>
+    </resources>
 </document>
