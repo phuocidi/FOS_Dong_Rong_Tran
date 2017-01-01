@@ -39,22 +39,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lx8-rQ-ZpC">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lx8-rQ-ZpC">
+                                <rect key="frame" x="-50" y="-50" width="475" height="767"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaN-dt-P6p">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaN-dt-P6p">
                                 <rect key="frame" x="10" y="571" width="354" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.45047335378662229" green="0.74470872957694345" blue="0.22164724633838512" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="eMy-k4-xXP"/>
+                                    <constraint firstAttribute="width" constant="354" id="pK4-9s-AzY"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                                 <state key="normal" title="GET STARTED">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UE8-dO-rte">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UE8-dO-rte">
                                 <rect key="frame" x="10" y="613" width="354" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="354" id="576-fJ-kGy"/>
+                                    <constraint firstAttribute="height" constant="40" id="hXK-k1-VNa"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                 <state key="normal" title="LOGIN">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -62,6 +67,16 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Lx8-rQ-ZpC" firstAttribute="top" secondItem="9GW-co-BzF" secondAttribute="top" constant="-50" id="D8h-F1-Bbe"/>
+                            <constraint firstItem="XaN-dt-P6p" firstAttribute="centerX" secondItem="9GW-co-BzF" secondAttribute="centerX" id="N8Q-2w-VCW"/>
+                            <constraint firstItem="UE8-dO-rte" firstAttribute="centerX" secondItem="9GW-co-BzF" secondAttribute="centerX" id="RSw-ek-rjv"/>
+                            <constraint firstItem="owX-WD-oav" firstAttribute="top" secondItem="UE8-dO-rte" secondAttribute="bottom" constant="14" id="Sz5-f0-53d"/>
+                            <constraint firstItem="Lx8-rQ-ZpC" firstAttribute="leading" secondItem="9GW-co-BzF" secondAttribute="leading" constant="-50" id="d5v-ME-AOw"/>
+                            <constraint firstItem="owX-WD-oav" firstAttribute="top" secondItem="XaN-dt-P6p" secondAttribute="bottom" constant="56" id="sGh-3N-Bfi"/>
+                            <constraint firstItem="owX-WD-oav" firstAttribute="top" secondItem="Lx8-rQ-ZpC" secondAttribute="bottom" constant="-50" id="yR5-7W-oLC"/>
+                            <constraint firstAttribute="trailing" secondItem="Lx8-rQ-ZpC" secondAttribute="trailing" constant="-50" id="zcO-hs-15B"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="bgImageView" destination="Lx8-rQ-ZpC" id="g1X-rx-w9i"/>

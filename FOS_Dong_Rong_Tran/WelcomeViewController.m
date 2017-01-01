@@ -41,6 +41,10 @@
     
     self.registerButton.layer.cornerRadius = 3;
     self.registerButton.layer.masksToBounds = YES;
+    
+    // motion effect
+    [self applyMotionEffectToView:self.bgImageView magnitude:10];
+    [self applyMotionEffectToView:self.registerButton magnitude:-20];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,6 +72,21 @@
     if (currentImageIndex == self.bgImages.count){
         currentImageIndex = 0;
     }
+}
+
+- (void) applyMotionEffectToView:(UIView*)view magnitude:(CGFloat)magnitude {
+    UIInterpolatingMotionEffect * xMotion = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+    xMotion.minimumRelativeValue = @(-magnitude);
+    xMotion.maximumRelativeValue =@(magnitude);
+    
+    UIInterpolatingMotionEffect * yMotion = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y" type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+    yMotion.minimumRelativeValue = @(-magnitude);
+    yMotion.maximumRelativeValue =@(magnitude);
+    
+    UIMotionEffectGroup *group = [UIMotionEffectGroup new];
+    group.motionEffects = @[xMotion, yMotion];
+    
+    [view addMotionEffect:group];
 }
 
 /*
