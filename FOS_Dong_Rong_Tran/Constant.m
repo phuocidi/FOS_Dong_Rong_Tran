@@ -17,9 +17,6 @@ static NSString * const foodKeyRecepiee = @"FoodRecepiee";
 static NSString * const foodKeyImgURL = @"FoodThumb";
 static NSString * const foodKey = @"Food";
 
-
-//&order_category=veg&order_name=Biryani&order_quantity=2&total_order=700&order_delivery_add=noida&order_date=2016-12-21 11:32:56&user_phone=55565454
-
 static NSString* const orderKeyName = @"order_name";
 static NSString* const orderKeyMobile = @"user_phone";
 static NSString* const orderKeyQuantity = @"order_quantity";
@@ -38,6 +35,9 @@ static NSString* const orderRecentKeyStatus =  @"OrderStatus";
 static NSString* const orderRecentKeyAddress =  @"OrderDeliverAdd";
 static NSString* const orderRecentKeyDate =  @"OrderDate";
 
+
+static NSString* const orderStatusKeyID =  @"order_id";
+static NSString* const orderStatusKey =  @"Order Detail";
 
 @implementation Constant
 + (NSString *)  foodKey { return foodKey; }
@@ -67,5 +67,8 @@ static NSString* const orderRecentKeyDate =  @"OrderDate";
 + (NSString*) orderRecentKeyAddress {return orderRecentKeyAddress;}
 + (NSString*) orderRecentKeyDate {return orderRecentKeyDate;}
 + (NSString*) orderRecentKeyMobile {return orderRecentKeyMobile;}
+
++ (NSString*) orderStatusKeyID {return orderStatusKeyID;}
++ (NSString*) orderStatusKey {return orderStatusKey;}
 
 @end

@@ -140,8 +140,8 @@
     }];
 }
 
-//http://rjtmobile.com/ansari/fos/fosapp/order_recent.php?&user_phone=
--( void )checkRecentOrderWithMobile:(NSString*)mobileNumber completionHandler:(void(^)(NSArray* data))completionBlock
+
+-( void )checkOrderHistoryWithMobile:(NSString*)mobileNumber completionHandler:(void(^)(NSArray* data))completionBlock
 {
     // clean parameter
     mobileNumber = [mobileNumber stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
@@ -157,6 +157,31 @@
         NSArray * dataArray;
         if ([jsonOject isKindOfClass:[NSDictionary class]]) {
             dataArray = [ ((NSDictionary*)jsonOject) objectForKey: [Constant orderRecentKey]];
+        }
+        
+        if (completionBlock) {
+            completionBlock (dataArray);
+        }
+    }];
+}
+
+
+-( void )checkOrderStatusID:(NSString*)orderID completionHandler:(void(^)(NSArray* data))completionBlock
+{
+    // clean parameter
+    orderID = [orderID stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    
+    NSDictionary * dictParameter = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    orderID, [Constant orderStatusKeyID],
+                                    nil];
+    
+    
+    [self.provider asyncWebserviceCall:@"order_track.php" withDic:dictParameter completionHandler:^(NSString * responseMsg) {
+        id jsonOject = [NSJSONSerialization JSONObjectWithData:[responseMsg dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        
+        NSArray * dataArray;
+        if ([jsonOject isKindOfClass:[NSDictionary class]]) {
+            dataArray = [ ((NSDictionary*)jsonOject) objectForKey: [Constant orderStatusKey]];
         }
         
         if (completionBlock) {

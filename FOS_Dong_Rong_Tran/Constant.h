@@ -38,4 +38,7 @@
 + (NSString*) orderRecentKeyAddress;
 + (NSString*) orderRecentKeyDate;
 + (NSString*) orderRecentKeyMobile;
+
++ (NSString*) orderStatusKeyID;
++ (NSString*) orderStatusKey;
 @end

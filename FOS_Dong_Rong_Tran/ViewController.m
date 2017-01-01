@@ -27,7 +27,11 @@
 //        NSLog(@"%@", order_id);
 //    }];
     
-    [[WebService sharedInstance] checkRecentOrderWithMobile:@"55565454" completionHandler:^(NSArray *data) {
+//    [[WebService sharedInstance] checkOrderHistoryWithMobile:@"55565454" completionHandler:^(NSArray *data) {
+//        NSLog(@"%@", data);
+//    }];
+    
+    [[WebService sharedInstance] checkOrderStatusID:@"12222228" completionHandler:^(NSArray *data) {
         NSLog(@"%@", data);
     }];
 }
