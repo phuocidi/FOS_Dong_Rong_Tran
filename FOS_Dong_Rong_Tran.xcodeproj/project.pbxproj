@@ -18,6 +18,8 @@
 		0EEAA0F71E16FBA600946EE1 /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAA0F31E16FBA600946EE1 /* ImageDownloader.m */; };
 		0EEAA0F81E16FBA600946EE1 /* WebserviceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAA0F61E16FBA600946EE1 /* WebserviceProvider.m */; };
 		0EEAA0FC1E1715D100946EE1 /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAA0FB1E1715D100946EE1 /* Constant.m */; };
+		0EEAA1001E18EDA800946EE1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAA0FF1E18EDA800946EE1 /* LoginViewController.m */; };
+		0EEAA1031E1900A200946EE1 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAA1021E1900A200946EE1 /* WelcomeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,10 @@
 		0EEAA0F61E16FBA600946EE1 /* WebserviceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebserviceProvider.m; sourceTree = "<group>"; };
 		0EEAA0FA1E1715D100946EE1 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		0EEAA0FB1E1715D100946EE1 /* Constant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constant.m; sourceTree = "<group>"; };
+		0EEAA0FE1E18EDA800946EE1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		0EEAA0FF1E18EDA800946EE1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		0EEAA1011E1900A200946EE1 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		0EEAA1021E1900A200946EE1 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,7 @@
 		0E33A82B1E16E99A005CD961 /* FOS_Dong_Rong_Tran */ = {
 			isa = PBXGroup;
 			children = (
+				0EEAA0FD1E18ED9000946EE1 /* LoginView */,
 				0EEAA0F91E1715B400946EE1 /* Utilities */,
 				0EEAA0F11E16FB7100946EE1 /* WebService */,
 				0E33A82F1E16E99A005CD961 /* AppDelegate.h */,
@@ -118,6 +125,17 @@
 				0EEAA0FB1E1715D100946EE1 /* Constant.m */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		0EEAA0FD1E18ED9000946EE1 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				0EEAA0FE1E18EDA800946EE1 /* LoginViewController.h */,
+				0EEAA0FF1E18EDA800946EE1 /* LoginViewController.m */,
+				0EEAA1011E1900A200946EE1 /* WelcomeViewController.h */,
+				0EEAA1021E1900A200946EE1 /* WelcomeViewController.m */,
+			);
+			name = LoginView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,7 +210,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EEAA1001E18EDA800946EE1 /* LoginViewController.m in Sources */,
 				0E33A8341E16E99A005CD961 /* ViewController.m in Sources */,
+				0EEAA1031E1900A200946EE1 /* WelcomeViewController.m in Sources */,
 				0EEAA0F81E16FBA600946EE1 /* WebserviceProvider.m in Sources */,
 				0EEAA0FC1E1715D100946EE1 /* Constant.m in Sources */,
 				0E33A8311E16E99A005CD961 /* AppDelegate.m in Sources */,
