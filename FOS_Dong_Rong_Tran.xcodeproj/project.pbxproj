@@ -20,6 +20,11 @@
 		0EEAA0FC1E1715D100946EE1 /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAA0FB1E1715D100946EE1 /* Constant.m */; };
 		0EEAA1001E18EDA800946EE1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAA0FF1E18EDA800946EE1 /* LoginViewController.m */; };
 		0EEAA1031E1900A200946EE1 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAA1021E1900A200946EE1 /* WelcomeViewController.m */; };
+		0EF9D7E41E198EFF005E64C7 /* CartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D7DF1E198EFF005E64C7 /* CartModel.m */; };
+		0EF9D7E51E198EFF005E64C7 /* SQLiteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D7E11E198EFF005E64C7 /* SQLiteModel.m */; };
+		0EF9D7E61E198EFF005E64C7 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D7E31E198EFF005E64C7 /* UserModel.m */; };
+		0EF9D7EB1E198F2A005E64C7 /* Cart.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D7E81E198F2A005E64C7 /* Cart.m */; };
+		0EF9D7EC1E198F2A005E64C7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D7EA1E198F2A005E64C7 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +52,16 @@
 		0EEAA0FF1E18EDA800946EE1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		0EEAA1011E1900A200946EE1 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		0EEAA1021E1900A200946EE1 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		0EF9D7DE1E198EFF005E64C7 /* CartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartModel.h; sourceTree = "<group>"; };
+		0EF9D7DF1E198EFF005E64C7 /* CartModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartModel.m; sourceTree = "<group>"; };
+		0EF9D7E01E198EFF005E64C7 /* SQLiteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteModel.h; sourceTree = "<group>"; };
+		0EF9D7E11E198EFF005E64C7 /* SQLiteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteModel.m; sourceTree = "<group>"; };
+		0EF9D7E21E198EFF005E64C7 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		0EF9D7E31E198EFF005E64C7 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		0EF9D7E71E198F2A005E64C7 /* Cart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cart.h; sourceTree = "<group>"; };
+		0EF9D7E81E198F2A005E64C7 /* Cart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cart.m; sourceTree = "<group>"; };
+		0EF9D7E91E198F2A005E64C7 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		0EF9D7EA1E198F2A005E64C7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +94,8 @@
 		0E33A82B1E16E99A005CD961 /* FOS_Dong_Rong_Tran */ = {
 			isa = PBXGroup;
 			children = (
+				0EF9D7DD1E198EBB005E64C7 /* Model */,
+				0EF9D7DC1E198EA4005E64C7 /* SQLService */,
 				0EEAA0FD1E18ED9000946EE1 /* LoginView */,
 				0EEAA0F91E1715B400946EE1 /* Utilities */,
 				0EEAA0F11E16FB7100946EE1 /* WebService */,
@@ -136,6 +153,30 @@
 				0EEAA1021E1900A200946EE1 /* WelcomeViewController.m */,
 			);
 			name = LoginView;
+			sourceTree = "<group>";
+		};
+		0EF9D7DC1E198EA4005E64C7 /* SQLService */ = {
+			isa = PBXGroup;
+			children = (
+				0EF9D7DE1E198EFF005E64C7 /* CartModel.h */,
+				0EF9D7DF1E198EFF005E64C7 /* CartModel.m */,
+				0EF9D7E01E198EFF005E64C7 /* SQLiteModel.h */,
+				0EF9D7E11E198EFF005E64C7 /* SQLiteModel.m */,
+				0EF9D7E21E198EFF005E64C7 /* UserModel.h */,
+				0EF9D7E31E198EFF005E64C7 /* UserModel.m */,
+			);
+			name = SQLService;
+			sourceTree = "<group>";
+		};
+		0EF9D7DD1E198EBB005E64C7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0EF9D7E71E198F2A005E64C7 /* Cart.h */,
+				0EF9D7E81E198F2A005E64C7 /* Cart.m */,
+				0EF9D7E91E198F2A005E64C7 /* User.h */,
+				0EF9D7EA1E198F2A005E64C7 /* User.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,13 +251,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EF9D7EB1E198F2A005E64C7 /* Cart.m in Sources */,
 				0EEAA1001E18EDA800946EE1 /* LoginViewController.m in Sources */,
 				0E33A8341E16E99A005CD961 /* ViewController.m in Sources */,
+				0EF9D7E61E198EFF005E64C7 /* UserModel.m in Sources */,
 				0EEAA1031E1900A200946EE1 /* WelcomeViewController.m in Sources */,
 				0EEAA0F81E16FBA600946EE1 /* WebserviceProvider.m in Sources */,
+				0EF9D7E51E198EFF005E64C7 /* SQLiteModel.m in Sources */,
 				0EEAA0FC1E1715D100946EE1 /* Constant.m in Sources */,
+				0EF9D7EC1E198F2A005E64C7 /* User.m in Sources */,
 				0E33A8311E16E99A005CD961 /* AppDelegate.m in Sources */,
 				0EEAA0F71E16FBA600946EE1 /* ImageDownloader.m in Sources */,
+				0EF9D7E41E198EFF005E64C7 /* CartModel.m in Sources */,
 				0E33A8451E16EE35005CD961 /* Webservice.m in Sources */,
 				0E33A82E1E16E99A005CD961 /* main.m in Sources */,
 			);
