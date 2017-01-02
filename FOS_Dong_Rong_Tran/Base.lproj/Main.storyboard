@@ -162,10 +162,10 @@
             </objects>
             <point key="canvasLocation" x="1445.5999999999999" y="813.64317841079469"/>
         </scene>
-        <!--View Controller-->
+        <!--Reset Password View Controller-->
         <scene sceneID="nw1-yu-wVj">
             <objects>
-                <viewController id="dxZ-7V-aJx" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResetPasswordViewController" id="dxZ-7V-aJx" customClass="ResetPasswordViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zmv-h9-VIX"/>
                         <viewControllerLayoutGuide type="bottom" id="L2q-Ae-Dbv"/>
@@ -173,12 +173,107 @@
                     <view key="view" contentMode="scaleToFill" id="R1u-WY-qqx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_bg_0" translatesAutoresizingMaskIntoConstraints="NO" id="7cZ-5A-gXW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZO-OC-zoS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="8If-Xi-RhT">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brand_logo" translatesAutoresizingMaskIntoConstraints="NO" id="nDU-Rn-Obb">
+                                            <rect key="frame" x="137" y="480" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4L2-RP-dGy">
+                                            <rect key="frame" x="8" y="387" width="359" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="22"/>
+                                            <state key="normal" title="RESET PASSWORD">
+                                                <color key="titleColor" red="1" green="0.38912415150000002" blue="0.17421842930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Confirm password" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cR-b7-y9D">
+                                            <rect key="frame" x="8" y="209" width="146" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="14"/>
+                                            <color key="textColor" red="1" green="0.38912415150000002" blue="0.17421842930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nGi-Er-Mf6" customClass="SingleLineUITextField">
+                                            <rect key="frame" x="8" y="111" width="350" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="dxZ-7V-aJx" id="U3M-NK-jzp"/>
+                                            </connections>
+                                        </textField>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mobile number" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYS-P2-sac">
+                                            <rect key="frame" x="12" y="89" width="101" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="14"/>
+                                            <color key="textColor" red="1" green="0.38912415150000002" blue="0.17421842930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mbv-zm-pkn" customClass="SingleLineUITextField">
+                                            <rect key="frame" x="8" y="171" width="350" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="dxZ-7V-aJx" id="F0F-x9-gu9"/>
+                                            </connections>
+                                        </textField>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4PN-aS-see">
+                                            <rect key="frame" x="12" y="149" width="96" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="14"/>
+                                            <color key="textColor" red="1" green="0.38912415150000002" blue="0.17421842930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QTo-SH-qJU" customClass="SingleLineUITextField">
+                                            <rect key="frame" x="8" y="231" width="350" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="dxZ-7V-aJx" id="7MH-Qc-2ev"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="L2q-Ae-Dbv" firstAttribute="top" secondItem="7cZ-5A-gXW" secondAttribute="bottom" id="0yu-lE-yRy"/>
+                            <constraint firstAttribute="trailing" secondItem="7cZ-5A-gXW" secondAttribute="trailing" id="LPf-9a-9lU"/>
+                            <constraint firstItem="7cZ-5A-gXW" firstAttribute="top" secondItem="R1u-WY-qqx" secondAttribute="top" id="Rzd-Fp-A9v"/>
+                            <constraint firstItem="nZO-OC-zoS" firstAttribute="top" secondItem="R1u-WY-qqx" secondAttribute="top" id="Wpz-ht-g5i"/>
+                            <constraint firstItem="nZO-OC-zoS" firstAttribute="leading" secondItem="R1u-WY-qqx" secondAttribute="leading" id="XGr-f8-jan"/>
+                            <constraint firstAttribute="trailing" secondItem="nZO-OC-zoS" secondAttribute="trailing" id="XTQ-OB-Bpw"/>
+                            <constraint firstItem="L2q-Ae-Dbv" firstAttribute="top" secondItem="nZO-OC-zoS" secondAttribute="bottom" id="j55-pX-zUt"/>
+                            <constraint firstItem="7cZ-5A-gXW" firstAttribute="leading" secondItem="R1u-WY-qqx" secondAttribute="leading" id="zl2-NP-j5V"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="confirmField" destination="QTo-SH-qJU" id="tLy-MY-skl"/>
+                        <outlet property="mobileField" destination="nGi-Er-Mf6" id="UIP-ho-gbM"/>
+                        <outlet property="passwordField" destination="mbv-zm-pkn" id="9TY-ta-Wsd"/>
+                        <outlet property="resetButton" destination="4L2-RP-dGy" id="V5X-QY-IGB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nVb-XG-cZb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2135" y="815"/>
+            <point key="canvasLocation" x="2133.5999999999999" y="814.54272863568224"/>
         </scene>
         <!--Order Summary View Controller-->
         <scene sceneID="5Du-mn-sxu">
@@ -200,7 +295,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmb-N3-JQV">
                                 <rect key="frame" x="3.5" y="619" width="367" height="40"/>
-                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.38912415150000002" blue="0.17421842930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="JhJ-Hx-VKd"/>
                                 </constraints>
@@ -613,7 +708,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oo5-XS-efv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3128.8000000000002" y="162.3688155922039"/>
+            <point key="canvasLocation" x="3610" y="112"/>
         </scene>
         <!--Order Detail View Controller-->
         <scene sceneID="J1E-iU-c6W">
@@ -880,7 +975,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MapKit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGZ-zK-Llx">
                                 <rect key="frame" x="-0.5" y="571" width="375" height="88"/>
-                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.38912415150000002" blue="0.17421842930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                 <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1023,6 +1118,9 @@
                                             <state key="normal" title="Forgot password?">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="resetButtonClick:" destination="MqO-Vv-bHp" eventType="touchUpInside" id="4Hs-pL-189"/>
+                                            </connections>
                                         </button>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FD3-z9-A6k" customClass="SingleLineUITextField">
                                             <rect key="frame" x="24" y="274" width="323" height="30"/>
@@ -1140,6 +1238,7 @@
     <resources>
         <image name="Food" width="1623" height="868"/>
         <image name="brand_logo" width="160" height="160"/>
+        <image name="login_bg_0" width="540" height="960"/>
         <image name="login_bg_1" width="256" height="384"/>
         <image name="login_bg_2" width="540" height="960"/>
         <image name="minus" width="48" height="48"/>

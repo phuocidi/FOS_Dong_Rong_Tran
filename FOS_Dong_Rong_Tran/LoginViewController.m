@@ -108,9 +108,9 @@
 - (IBAction)doneButtonClick:(id)sender {
     // validate all field is not empty and push to navigation controller
     
-    HomeViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
-    
-    [self.navigationController pushViewController:vc animated:YES];
+//    HomeViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+//    
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)resetButtonClick:(id)sender
