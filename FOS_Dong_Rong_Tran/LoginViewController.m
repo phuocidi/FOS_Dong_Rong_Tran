@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 #import "SingleLineUITextField.h"
 #import "HomeViewController.h"
-#import "RegisterViewController.h"
+#import "ResetPasswordViewController.h"
 
 @interface LoginViewController () <UITextFieldDelegate>
 {
@@ -18,7 +18,7 @@
 @property(weak, nonatomic) IBOutlet SingleLineUITextField * mobileField;
 @property(weak, nonatomic) IBOutlet SingleLineUITextField * passwordField;
 @property(weak, nonatomic) IBOutlet UIButton * doneButton;
-@property(weak, nonatomic) IBOutlet UIButton * registerButton;
+@property(weak, nonatomic) IBOutlet UIButton * rerestButton;
 
 @end
 
@@ -34,6 +34,9 @@
     self.mobileField.textColor = [UIColor whiteColor];
     self.passwordField.textColor = [UIColor whiteColor];
     
+    self.doneButton.layer.cornerRadius = self.doneButton.layer.frame.size.height/2;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,11 +46,11 @@
 
 #pragma mark - UITextFieldDelegate
 
--(void)textFieldDidBeginEditing:(UITextField *)textField
+-(void)textFieldDidBeginEditing:(SingleLineUITextField *)textField
 {
     // restore effect once editting
-    [UIView animateWithDuration:0.4 animations:^{
-        textField.transform = CGAffineTransformMakeScale(1.2, 1.2) ;
+    [UIView animateWithDuration:0.5 animations:^{
+        textField.transform = CGAffineTransformMakeScale(1.1, 1.1) ;
     } completion:^(BOOL finished) {
         textField.transform = CGAffineTransformIdentity;
     }];
@@ -110,9 +113,9 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (IBAction)registerButtonClick:(id)sender
+- (IBAction)resetButtonClick:(id)sender
 {
-    RegisterViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"RegisterViewController"];
+    ResetPasswordViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ResetPasswordViewController"];
     
     [self.navigationController pushViewController:vc animated:YES];
 }

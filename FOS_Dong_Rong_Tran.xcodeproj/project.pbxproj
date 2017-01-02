@@ -40,6 +40,7 @@
 		0EF9D7FB1E19AB4A005E64C7 /* SingleLineUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D7FA1E19AB4A005E64C7 /* SingleLineUITextField.m */; };
 		0EF9D8061E1A0840005E64C7 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D8051E1A0840005E64C7 /* HomeViewController.m */; };
 		0EF9D80A1E1A08D7005E64C7 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D8091E1A08D7005E64C7 /* RegisterViewController.m */; };
+		0EF9D8311E1A2DFC005E64C7 /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D8301E1A2DFC005E64C7 /* ResetPasswordViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +106,8 @@
 		0EF9D8051E1A0840005E64C7 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		0EF9D8081E1A08D7005E64C7 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		0EF9D8091E1A08D7005E64C7 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		0EF9D82F1E1A2DFC005E64C7 /* ResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPasswordViewController.h; sourceTree = "<group>"; };
+		0EF9D8301E1A2DFC005E64C7 /* ResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +193,7 @@
 		0E33A82B1E16E99A005CD961 /* FOS_Dong_Rong_Tran */ = {
 			isa = PBXGroup;
 			children = (
+				0EF9D82E1E1A2DE3005E64C7 /* ResetPassWord View */,
 				0EF9D8071E1A08A3005E64C7 /* Register View */,
 				0EF9D8031E1A082B005E64C7 /* Home View */,
 				07379E9B1E19D50F0094F49D /* Order Detail Page */,
@@ -300,6 +304,15 @@
 			name = "Register View";
 			sourceTree = "<group>";
 		};
+		0EF9D82E1E1A2DE3005E64C7 /* ResetPassWord View */ = {
+			isa = PBXGroup;
+			children = (
+				0EF9D82F1E1A2DFC005E64C7 /* ResetPasswordViewController.h */,
+				0EF9D8301E1A2DFC005E64C7 /* ResetPasswordViewController.m */,
+			);
+			name = "ResetPassWord View";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -398,6 +411,7 @@
 				07379E941E19BD730094F49D /* FoodTableViewCell.m in Sources */,
 				0EF9D7EC1E198F2A005E64C7 /* User.m in Sources */,
 				0E33A8311E16E99A005CD961 /* AppDelegate.m in Sources */,
+				0EF9D8311E1A2DFC005E64C7 /* ResetPasswordViewController.m in Sources */,
 				07379EA91E19E5BB0094F49D /* DetailTotalTableViewCell.m in Sources */,
 				0EEAA0F71E16FBA600946EE1 /* ImageDownloader.m in Sources */,
 				0EF9D7E41E198EFF005E64C7 /* CartModel.m in Sources */,
