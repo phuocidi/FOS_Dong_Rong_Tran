@@ -17,11 +17,11 @@
 
 @implementation CartModel
 
--(BOOL)createUser:(int)food_id name:(NSString *)food_name recepiee:(NSString *)food_recepiee number:(int)numberOfNeed image:(NSString *)food_thumb price:(double)food_price {
+-(BOOL)createUser: (int)user_phone name: (NSString *)food_name category: (NSString *)food_category add: (NSString *)food_add number: (int)numberOfNeed date: ( NSString* )food_date price: (double)food_price {
     
     self.sql = [SQLiteModel sharedInstance];
     
-    NSString* userQuery = @"INSERT INTO tbl_Cart VALUES( 707, 'Chicken tikka meatballs', 'chicken tikka meatballs, chopped tomato makh', 1, 1550, 'Image URL');INSERT INTO tbl_Cart VALUES( 708, 'Chettinad chicken keema', 'chettinad chicken keema, curry leaf lemon se', 1, 1650, 'Image URL');";
+    NSString* userQuery = @"INSERT INTO tbl_Cart VALUES( NULL, 123, 'veg', 'Chicken tikka meatballs', 'Chicago', 1, 1550, 'date');INSERT INTO tbl_Cart VALUES( NULL, 123, 'veg', 'Chettinad chicken keema', 'Aruora', 1, 1650, 'date');";
     char* errMessage = NULL;
     errMessage = [self.sql excute:userQuery andError:errMessage];
     if( errMessage != NULL ) {
@@ -45,7 +45,7 @@
 -(BOOL)saveUser:(Cart *)user {
     self.sql = [SQLiteModel sharedInstance];
     
-    NSString* userQuery = @"UPDATE tbl_Cart SET numberOfNeed = 2, WHERE food_id = 708;";
+    NSString* userQuery = @"UPDATE tbl_Cart SET numberOfNeed = 2 WHERE id = 1;";
     char* errMessage = NULL;
     errMessage = [self.sql excute:userQuery andError:errMessage];
     if( errMessage != NULL ) {

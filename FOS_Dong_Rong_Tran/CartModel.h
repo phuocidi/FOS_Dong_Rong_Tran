@@ -15,7 +15,7 @@
     Creat new Cart object and put into tbl_Cart
     Need modify the query, it is hard code
  */
--(BOOL)createUser: (int)food_id name: (NSString *)food_name recepiee: (NSString *)food_recepiee number: (int)numberOfNeed image: ( NSString* )food_thumb price: (double)food_price;
+-(BOOL)createUser: (int)user_phone name: (NSString *)food_name category: (NSString *)food_category add: (NSString *)food_add number: (int)numberOfNeed date: ( NSString* )food_date price: (double)food_price;
 
 /*
     Get All Cart object, each object is a Dictionary
@@ -38,3 +38,20 @@
 -(BOOL)saveUser: (Cart *)user;
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

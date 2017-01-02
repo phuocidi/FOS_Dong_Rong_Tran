@@ -11,11 +11,12 @@
 @interface Cart : NSObject
 
 @property(readwrite, nonatomic) int id;
+@property(readwrite, nonatomic) int phone;
 @property(strong, nonatomic) NSString *name;
-@property(strong, nonatomic) NSString *recepiee;
+@property(strong, nonatomic) NSString *category;
 @property(readwrite, nonatomic) int numberOfNeed;
 @property(strong, nonatomic) NSString *address;
 @property(readwrite, nonatomic) double price;
-@property(strong, nonatomic) NSString *thumb;
+@property(strong, nonatomic) NSString *date;
 
 @end

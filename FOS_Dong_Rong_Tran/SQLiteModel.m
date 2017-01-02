@@ -46,7 +46,7 @@
 
 -( void )createTablesNeeded
 {
-    NSString* createQuery = @"CREATE TABLE IF NOT EXISTS tbl_User (user_phone INTEGER PRIMARY KEY, user_name VARCHAR(255) NOT NULL, user_email VARCHAR(255) NOT NULL, user_password VARCHAR(255) NOT NULL, user_add VARCHAR(255) NOT NULL, user_longitude DOUBLE NOT NULL, user_latitude DOUBLE NOT NULL);";
+    NSString* createQuery = @"CREATE TABLE IF NOT EXISTS tbl_Cart (id INTEGER PRIMARY KEY AUTOINCREMENT, user_phone INTEGER NOT NULL, food_category VARCHAR(255) NOT NULL, food_name VARCHAR(255) NOT NULL, food_add VARCHAR(255) NOT NULL, numberOfNeed INTEGER NOT NULL, food_price DOUBLE NOT NULL, food_date VARCHAR(255) NOT NULL);";
     char* errMessage = NULL;
     sqlite3_exec( _database, [ createQuery UTF8String ], NULL, NULL, &errMessage );
     if( errMessage != NULL )
