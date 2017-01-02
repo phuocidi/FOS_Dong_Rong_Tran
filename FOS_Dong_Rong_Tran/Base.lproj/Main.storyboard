@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rFC-9Q-fll">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xCS-5x-fbG">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -349,6 +350,119 @@
             </objects>
             <point key="canvasLocation" x="2472.8000000000002" y="-575.26236881559225"/>
         </scene>
+        <!--Recent Order View Controller-->
+        <scene sceneID="mSd-vl-A2v">
+            <objects>
+                <viewController id="xCS-5x-fbG" customClass="RecentOrderViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SIv-HL-5C2"/>
+                        <viewControllerLayoutGuide type="bottom" id="8cI-NU-2bJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dSR-cE-a0B">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lan-o9-gys">
+                                <rect key="frame" x="-0.5" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecentCell" rowHeight="100" id="1U4-Mp-3DF" customClass="RecentTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="376" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1U4-Mp-3DF" id="hCK-J9-cJk">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="order number" translatesAutoresizingMaskIntoConstraints="NO" id="Wea-NC-8N9">
+                                                    <rect key="frame" x="12" y="8" width="24" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="0at-UJ-Ctm"/>
+                                                        <constraint firstAttribute="width" constant="24" id="qE2-QE-vJN"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="order time" translatesAutoresizingMaskIntoConstraints="NO" id="gJa-FW-k7u">
+                                                    <rect key="frame" x="8" y="59" width="32" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="Iv1-aa-TpP"/>
+                                                        <constraint firstAttribute="width" constant="32" id="LRp-Tn-MxI"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjQ-b2-WK7">
+                                                    <rect key="frame" x="50" y="14" width="111" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gcz-7f-QGp">
+                                                    <rect key="frame" x="50" y="65" width="87" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1235.123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIS-Tq-1Bn">
+                                                    <rect key="frame" x="255" y="16" width="80" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="W2L-kr-jNY"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPt-GT-Isa">
+                                                    <rect key="frame" x="255" y="65" width="98" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="JPt-GT-Isa" firstAttribute="centerY" secondItem="Gcz-7f-QGp" secondAttribute="centerY" id="7o0-VR-qRT"/>
+                                                <constraint firstItem="wjQ-b2-WK7" firstAttribute="leading" secondItem="Wea-NC-8N9" secondAttribute="trailing" constant="14" id="9ct-Tw-y5s"/>
+                                                <constraint firstItem="Gcz-7f-QGp" firstAttribute="leading" secondItem="gJa-FW-k7u" secondAttribute="trailing" constant="10" id="9rq-8p-rZF"/>
+                                                <constraint firstAttribute="topMargin" secondItem="Wea-NC-8N9" secondAttribute="top" id="DxH-Nh-QHP"/>
+                                                <constraint firstItem="wjQ-b2-WK7" firstAttribute="centerY" secondItem="Wea-NC-8N9" secondAttribute="centerY" id="Eqj-7G-1fG"/>
+                                                <constraint firstItem="JPt-GT-Isa" firstAttribute="leading" secondItem="VIS-Tq-1Bn" secondAttribute="leading" id="FJE-zs-yQh"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="gJa-FW-k7u" secondAttribute="bottom" id="Pdm-Sa-NZP"/>
+                                                <constraint firstItem="Gcz-7f-QGp" firstAttribute="centerY" secondItem="gJa-FW-k7u" secondAttribute="centerY" id="RJ8-77-YTr"/>
+                                                <constraint firstItem="VIS-Tq-1Bn" firstAttribute="top" secondItem="hCK-J9-cJk" secondAttribute="topMargin" constant="8" id="UuN-wD-nb6"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="gJa-FW-k7u" secondAttribute="leading" id="VL0-ox-0Ah"/>
+                                                <constraint firstItem="Wea-NC-8N9" firstAttribute="centerX" secondItem="gJa-FW-k7u" secondAttribute="centerX" id="eDR-LS-dDz"/>
+                                                <constraint firstItem="VIS-Tq-1Bn" firstAttribute="centerY" secondItem="wjQ-b2-WK7" secondAttribute="centerY" id="ilX-VR-ieq"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="VIS-Tq-1Bn" secondAttribute="trailing" constant="40" id="DH7-3K-Rbd"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="orderNumber" destination="wjQ-b2-WK7" id="0hl-kd-VeL"/>
+                                            <outlet property="orderStatus" destination="JPt-GT-Isa" id="Jeo-65-xSd"/>
+                                            <outlet property="orderTime" destination="Gcz-7f-QGp" id="QD0-Ph-Dxw"/>
+                                            <outlet property="totalPrice" destination="VIS-Tq-1Bn" id="E4r-PE-x8a"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="xCS-5x-fbG" id="toG-cB-xqN"/>
+                                    <outlet property="delegate" destination="xCS-5x-fbG" id="zq7-yO-hRV"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lan-o9-gys" firstAttribute="width" secondItem="dSR-cE-a0B" secondAttribute="width" id="5Ze-ks-0yg"/>
+                            <constraint firstItem="8cI-NU-2bJ" firstAttribute="top" secondItem="lan-o9-gys" secondAttribute="bottom" id="Hix-HZ-bCd"/>
+                            <constraint firstItem="lan-o9-gys" firstAttribute="top" secondItem="SIv-HL-5C2" secondAttribute="bottom" id="keB-wA-aiS"/>
+                            <constraint firstItem="lan-o9-gys" firstAttribute="centerX" secondItem="dSR-cE-a0B" secondAttribute="centerX" id="zNN-hy-bdv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="lan-o9-gys" id="Fb9-8V-Pjk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oo5-XS-efv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2189.5999999999999" y="162.3688155922039"/>
+        </scene>
         <!--Order Detail View Controller-->
         <scene sceneID="J1E-iU-c6W">
             <objects>
@@ -604,7 +718,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a UILabel, need to discuss whether can change at here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaF-Jd-tqN">
-                                <rect key="frame" x="-1" y="513" width="376" height="50"/>
+                                <rect key="frame" x="-0.5" y="513" width="375" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Vgf-GP-qxp"/>
                                 </constraints>
@@ -613,7 +727,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MapKit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGZ-zK-Llx">
-                                <rect key="frame" x="-1" y="571" width="376" height="88"/>
+                                <rect key="frame" x="-0.5" y="571" width="375" height="88"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                 <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -715,7 +829,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ig3-ps-vMK" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vtA-Wg-tB2">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vtA-Wg-tB2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -733,6 +847,8 @@
         <image name="Food" width="1623" height="868"/>
         <image name="brand_logo" width="160" height="160"/>
         <image name="minus" width="48" height="48"/>
+        <image name="order number" width="24" height="32"/>
+        <image name="order time" width="32" height="32"/>
         <image name="plus" width="48" height="48"/>
         <image name="textField" width="800" height="211"/>
     </resources>

@@ -17,6 +17,8 @@
 		07379EA61E19E5AF0094F49D /* DetailSummaryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07379EA51E19E5AF0094F49D /* DetailSummaryTableViewCell.m */; };
 		07379EA91E19E5BB0094F49D /* DetailTotalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07379EA81E19E5BB0094F49D /* DetailTotalTableViewCell.m */; };
 		07379EAA1E19E9870094F49D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07379E9F1E19D79C0094F49D /* MapKit.framework */; };
+		07379EBC1E1A154F0094F49D /* RecentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07379EBB1E1A154F0094F49D /* RecentTableViewCell.m */; };
+		07379EBF1E1A15670094F49D /* RecentOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07379EBE1E1A15670094F49D /* RecentOrderViewController.m */; };
 		0758FDF71E16F14300BFCF88 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 0758FDF61E16F14300BFCF88 /* login.png */; };
 		0E33A82E1E16E99A005CD961 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E33A82D1E16E99A005CD961 /* main.m */; };
 		0E33A8311E16E99A005CD961 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E33A8301E16E99A005CD961 /* AppDelegate.m */; };
@@ -59,6 +61,10 @@
 		07379EA51E19E5AF0094F49D /* DetailSummaryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailSummaryTableViewCell.m; sourceTree = "<group>"; };
 		07379EA71E19E5BB0094F49D /* DetailTotalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTotalTableViewCell.h; sourceTree = "<group>"; };
 		07379EA81E19E5BB0094F49D /* DetailTotalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTotalTableViewCell.m; sourceTree = "<group>"; };
+		07379EBA1E1A154F0094F49D /* RecentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentTableViewCell.h; sourceTree = "<group>"; };
+		07379EBB1E1A154F0094F49D /* RecentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentTableViewCell.m; sourceTree = "<group>"; };
+		07379EBD1E1A15670094F49D /* RecentOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentOrderViewController.h; sourceTree = "<group>"; };
+		07379EBE1E1A15670094F49D /* RecentOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentOrderViewController.m; sourceTree = "<group>"; };
 		0758FDF61E16F14300BFCF88 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		0E33A8291E16E99A005CD961 /* FOS_Dong_Rong_Tran.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FOS_Dong_Rong_Tran.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E33A82D1E16E99A005CD961 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -153,6 +159,17 @@
 			name = "Order Detail Page";
 			sourceTree = "<group>";
 		};
+		07379EB91E1A15240094F49D /* Recent Order Page */ = {
+			isa = PBXGroup;
+			children = (
+				07379EBD1E1A15670094F49D /* RecentOrderViewController.h */,
+				07379EBE1E1A15670094F49D /* RecentOrderViewController.m */,
+				07379EBA1E1A154F0094F49D /* RecentTableViewCell.h */,
+				07379EBB1E1A154F0094F49D /* RecentTableViewCell.m */,
+			);
+			name = "Recent Order Page";
+			sourceTree = "<group>";
+		};
 		0E33A8201E16E99A005CD961 = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +194,7 @@
 				0EF9D8031E1A082B005E64C7 /* Home View */,
 				07379E9B1E19D50F0094F49D /* Order Detail Page */,
 				07379E911E19BC4C0094F49D /* Order Summary Page */,
+				07379EB91E1A15240094F49D /* Recent Order Page */,
 				0EF9D7DD1E198EBB005E64C7 /* Model */,
 				0EF9D7DC1E198EA4005E64C7 /* SQLService */,
 				0EEAA0FD1E18ED9000946EE1 /* LoginView */,
@@ -363,12 +381,14 @@
 				0EF9D7EB1E198F2A005E64C7 /* Cart.m in Sources */,
 				0EEAA1001E18EDA800946EE1 /* LoginViewController.m in Sources */,
 				07379EA31E19E5A50094F49D /* DetailFoodTableViewCell.m in Sources */,
+				07379EBC1E1A154F0094F49D /* RecentTableViewCell.m in Sources */,
 				07379E971E19BD7F0094F49D /* SummaryTableViewCell.m in Sources */,
 				07379E9E1E19D5730094F49D /* OrderDetailViewController.m in Sources */,
 				0E33A8341E16E99A005CD961 /* ViewController.m in Sources */,
 				0EF9D7FB1E19AB4A005E64C7 /* SingleLineUITextField.m in Sources */,
 				0EF9D7E61E198EFF005E64C7 /* UserModel.m in Sources */,
 				0EEAA1031E1900A200946EE1 /* WelcomeViewController.m in Sources */,
+				07379EBF1E1A15670094F49D /* RecentOrderViewController.m in Sources */,
 				0EEAA0F81E16FBA600946EE1 /* WebserviceProvider.m in Sources */,
 				0EF9D7E51E198EFF005E64C7 /* SQLiteModel.m in Sources */,
 				07379E9A1E19BD890094F49D /* TotalTableViewCell.m in Sources */,
