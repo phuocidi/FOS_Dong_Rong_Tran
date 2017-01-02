@@ -10,4 +10,9 @@
 
 @interface RecentTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *orderNumber;
+@property (weak, nonatomic) IBOutlet UILabel *orderTime;
+@property (weak, nonatomic) IBOutlet UILabel *totalPrice;
+@property (weak, nonatomic) IBOutlet UILabel *orderStatus;
+
 @end

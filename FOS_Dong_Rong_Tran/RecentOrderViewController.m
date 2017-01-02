@@ -7,8 +7,12 @@
 //
 
 #import "RecentOrderViewController.h"
+#import "RecentTableViewCell.h"
 
 @interface RecentOrderViewController ()
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property(nonatomic, strong)UIImageView *separatorLine;
 
 @end
 
@@ -19,19 +23,42 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+UIImageView* (^bottonLine)(void) = ^{
+    UIImageView *view = [[UIImageView alloc] init];
+    view.image = [UIImage imageNamed:@"bottonPage"];
+    view.translatesAutoresizingMaskIntoConstraints = false;
+    return view;
+};
+
+#pragma mark - Table View Data Source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 5;
 }
-*/
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    RecentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RecentCell" forIndexPath:indexPath];
+    
+    // Add separatorView
+    self.separatorLine = bottonLine();
+    [cell addSubview:self.separatorLine];
+    [self.separatorLine.centerXAnchor constraintEqualToAnchor:cell.centerXAnchor].active = true;
+    [self.separatorLine.bottomAnchor constraintEqualToAnchor:cell.bottomAnchor].active = true;
+    [self.separatorLine.heightAnchor constraintEqualToConstant:2].active = true;
+    [self.separatorLine.widthAnchor constraintEqualToAnchor:cell.widthAnchor constant:-8].active = true;
+    
+    return cell;
+}
+
+#pragma mark - Table View Delegate
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 100.0f;
+}
 
 @end
