@@ -8,6 +8,7 @@
 
 #import "FoodMenuViewController.h"
 #import "FoodTableViewCell.h"
+#import "SingleLineSegmentedControl.h"
 
 // --------------------------------
 @interface FoodMenuViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -24,6 +25,12 @@
     
     self.tableView.separatorColor = [UIColor clearColor];
     
+    
+    NSArray *items = @[@"Veg menu", @"Non-veg menu"];
+    SingleLineSegmentedControl *mySegmentedControl = [[SingleLineSegmentedControl alloc] initWithItems:items];
+    mySegmentedControl.frame = CGRectMake(10, 64, self.view.frame.size.width - 20, 35);
+    mySegmentedControl.selectedSegmentIndex = 0;
+    [self.view addSubview:mySegmentedControl];
     
 }
 

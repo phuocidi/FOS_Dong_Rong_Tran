@@ -16,13 +16,11 @@
 
 @end
 
-
-
 @implementation FoodMenuTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
+    [self.cardView setUserInteractionEnabled:NO];
     [self.cardView setAlpha:1];
     self.cardView.layer.masksToBounds = NO;
     self.cardView.layer.cornerRadius = 1;
