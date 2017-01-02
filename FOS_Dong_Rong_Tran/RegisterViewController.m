@@ -8,6 +8,7 @@
 
 #import "RegisterViewController.h"
 #import "SingleLineUITextField.h"
+#import "LoginViewController.h"
 
 
 //// Pass parameters for registration like "user_name=aamir" ," user_email=aa@gmail.com" , “user_phone=55565454", " user_password=7011”, “user_add=Delhi"
@@ -18,13 +19,16 @@
 @property (weak, nonatomic) IBOutlet SingleLineUITextField * userPhoneField;
 @property (weak, nonatomic) IBOutlet SingleLineUITextField * userPasswordField;
 @property (weak, nonatomic) IBOutlet SingleLineUITextField * userAddressField;
+
+@property (weak, nonatomic) IBOutlet UIButton *registerButton;
+
 @end
 
 @implementation RegisterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.registerButton.layer.cornerRadius = self.registerButton.layer.frame.size.height/2;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,6 +47,13 @@
         textField.transform = CGAffineTransformIdentity;
     }];
 }
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
 /*
 #pragma mark - Navigation
 
@@ -52,5 +63,8 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)registerButtonClicked:(id)sender {
+    LoginViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+}
 
 @end

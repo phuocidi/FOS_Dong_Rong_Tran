@@ -193,6 +193,7 @@
 		0E33A82B1E16E99A005CD961 /* FOS_Dong_Rong_Tran */ = {
 			isa = PBXGroup;
 			children = (
+				0EF9D8321E1A310E005E64C7 /* Welcome View */,
 				0EF9D82E1E1A2DE3005E64C7 /* ResetPassWord View */,
 				0EF9D8071E1A08A3005E64C7 /* Register View */,
 				0EF9D8031E1A082B005E64C7 /* Home View */,
@@ -256,8 +257,6 @@
 			children = (
 				0EEAA0FE1E18EDA800946EE1 /* LoginViewController.h */,
 				0EEAA0FF1E18EDA800946EE1 /* LoginViewController.m */,
-				0EEAA1011E1900A200946EE1 /* WelcomeViewController.h */,
-				0EEAA1021E1900A200946EE1 /* WelcomeViewController.m */,
 			);
 			name = LoginView;
 			sourceTree = "<group>";
@@ -311,6 +310,15 @@
 				0EF9D8301E1A2DFC005E64C7 /* ResetPasswordViewController.m */,
 			);
 			name = "ResetPassWord View";
+			sourceTree = "<group>";
+		};
+		0EF9D8321E1A310E005E64C7 /* Welcome View */ = {
+			isa = PBXGroup;
+			children = (
+				0EEAA1011E1900A200946EE1 /* WelcomeViewController.h */,
+				0EEAA1021E1900A200946EE1 /* WelcomeViewController.m */,
+			);
+			name = "Welcome View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

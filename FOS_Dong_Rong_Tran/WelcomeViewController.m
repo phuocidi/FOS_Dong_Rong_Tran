@@ -7,6 +7,8 @@
 //
 
 #import "WelcomeViewController.h"
+#import "RegisterViewController.h"
+#import "LoginViewController.h"
 //----------------------------------
 @interface WelcomeViewController ()
 {
@@ -23,7 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     UIImage * image0 = [UIImage imageNamed:@"login_bg_0"];
     UIImage * image1 = [UIImage imageNamed:@"login_bg_1"];
     UIImage * image2 = [UIImage imageNamed:@"login_bg_2"];
@@ -98,5 +99,15 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)registerButtonClicked:(id)sender {
+    RegisterViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"RegisterViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)loginButtonClicked:(id)sender {
+    LoginViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 @end
