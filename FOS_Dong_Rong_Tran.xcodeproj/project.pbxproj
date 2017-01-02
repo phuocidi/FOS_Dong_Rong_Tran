@@ -36,6 +36,8 @@
 		0EF9D7EB1E198F2A005E64C7 /* Cart.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D7E81E198F2A005E64C7 /* Cart.m */; };
 		0EF9D7EC1E198F2A005E64C7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D7EA1E198F2A005E64C7 /* User.m */; };
 		0EF9D7FB1E19AB4A005E64C7 /* SingleLineUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D7FA1E19AB4A005E64C7 /* SingleLineUITextField.m */; };
+		0EF9D8061E1A0840005E64C7 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D8051E1A0840005E64C7 /* HomeViewController.m */; };
+		0EF9D80A1E1A08D7005E64C7 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D8091E1A08D7005E64C7 /* RegisterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,8 +95,10 @@
 		0EF9D7EA1E198F2A005E64C7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		0EF9D7F91E19AB4A005E64C7 /* SingleLineUITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleLineUITextField.h; sourceTree = "<group>"; };
 		0EF9D7FA1E19AB4A005E64C7 /* SingleLineUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleLineUITextField.m; sourceTree = "<group>"; };
-		E4239794B9802BAFDC42377A /* Pods-FOS_Dong_Rong_Tran.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOS_Dong_Rong_Tran.release.xcconfig"; path = "Pods/Target Support Files/Pods-FOS_Dong_Rong_Tran/Pods-FOS_Dong_Rong_Tran.release.xcconfig"; sourceTree = "<group>"; };
-		F62F120770DB4BF15CCE8356 /* Pods-FOS_Dong_Rong_Tran.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOS_Dong_Rong_Tran.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FOS_Dong_Rong_Tran/Pods-FOS_Dong_Rong_Tran.debug.xcconfig"; sourceTree = "<group>"; };
+		0EF9D8041E1A0840005E64C7 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		0EF9D8051E1A0840005E64C7 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		0EF9D8081E1A08D7005E64C7 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		0EF9D8091E1A08D7005E64C7 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,22 +153,12 @@
 			name = "Order Detail Page";
 			sourceTree = "<group>";
 		};
-		07379EB01E19F7320094F49D /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				F62F120770DB4BF15CCE8356 /* Pods-FOS_Dong_Rong_Tran.debug.xcconfig */,
-				E4239794B9802BAFDC42377A /* Pods-FOS_Dong_Rong_Tran.release.xcconfig */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		0E33A8201E16E99A005CD961 = {
 			isa = PBXGroup;
 			children = (
 				0E33A82B1E16E99A005CD961 /* FOS_Dong_Rong_Tran */,
 				0E33A82A1E16E99A005CD961 /* Products */,
 				07379E8B1E19997E0094F49D /* Frameworks */,
-				07379EB01E19F7320094F49D /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -179,6 +173,10 @@
 		0E33A82B1E16E99A005CD961 /* FOS_Dong_Rong_Tran */ = {
 			isa = PBXGroup;
 			children = (
+				0EF9D8071E1A08A3005E64C7 /* Register View */,
+				0EF9D8031E1A082B005E64C7 /* Home View */,
+				07379E9B1E19D50F0094F49D /* Order Detail Page */,
+				07379E911E19BC4C0094F49D /* Order Summary Page */,
 				0EF9D7DD1E198EBB005E64C7 /* Model */,
 				0EF9D7DC1E198EA4005E64C7 /* SQLService */,
 				0EEAA0FD1E18ED9000946EE1 /* LoginView */,
@@ -238,8 +236,6 @@
 				0EEAA0FF1E18EDA800946EE1 /* LoginViewController.m */,
 				0EEAA1011E1900A200946EE1 /* WelcomeViewController.h */,
 				0EEAA1021E1900A200946EE1 /* WelcomeViewController.m */,
-				07379E911E19BC4C0094F49D /* Order Summary Page */,
-				07379E9B1E19D50F0094F49D /* Order Detail Page */,
 			);
 			name = LoginView;
 			sourceTree = "<group>";
@@ -266,6 +262,24 @@
 				0EF9D7EA1E198F2A005E64C7 /* User.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		0EF9D8031E1A082B005E64C7 /* Home View */ = {
+			isa = PBXGroup;
+			children = (
+				0EF9D8041E1A0840005E64C7 /* HomeViewController.h */,
+				0EF9D8051E1A0840005E64C7 /* HomeViewController.m */,
+			);
+			name = "Home View";
+			sourceTree = "<group>";
+		};
+		0EF9D8071E1A08A3005E64C7 /* Register View */ = {
+			isa = PBXGroup;
+			children = (
+				0EF9D8081E1A08D7005E64C7 /* RegisterViewController.h */,
+				0EF9D8091E1A08D7005E64C7 /* RegisterViewController.m */,
+			);
+			name = "Register View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,6 +374,7 @@
 				07379E9A1E19BD890094F49D /* TotalTableViewCell.m in Sources */,
 				07379E901E199CFC0094F49D /* OrderSummaryViewController.m in Sources */,
 				0EEAA0FC1E1715D100946EE1 /* Constant.m in Sources */,
+				0EF9D80A1E1A08D7005E64C7 /* RegisterViewController.m in Sources */,
 				07379E941E19BD730094F49D /* FoodTableViewCell.m in Sources */,
 				0EF9D7EC1E198F2A005E64C7 /* User.m in Sources */,
 				0E33A8311E16E99A005CD961 /* AppDelegate.m in Sources */,
@@ -368,6 +383,7 @@
 				0EF9D7E41E198EFF005E64C7 /* CartModel.m in Sources */,
 				0E33A8451E16EE35005CD961 /* Webservice.m in Sources */,
 				0E33A82E1E16E99A005CD961 /* main.m in Sources */,
+				0EF9D8061E1A0840005E64C7 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,7 +501,6 @@
 		};
 		0E33A8411E16E99A005CD961 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F62F120770DB4BF15CCE8356 /* Pods-FOS_Dong_Rong_Tran.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
@@ -498,7 +513,6 @@
 		};
 		0E33A8421E16E99A005CD961 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E4239794B9802BAFDC42377A /* Pods-FOS_Dong_Rong_Tran.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";

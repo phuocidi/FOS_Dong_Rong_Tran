@@ -34,7 +34,6 @@
         self.border.borderColor = [UIColor colorWithRed:211.0/255.0 green:84.0/255 blue:0.0 alpha:1].CGColor;
 
         self.border.frame = CGRectMake(0, self.frame.size.height - borderWidth, self.frame.size.width, self.frame.size.height);
-        
         [self.layer addSublayer: self.border];
         self.layer.masksToBounds = YES;
         
@@ -65,9 +64,9 @@
 }
 
 // tap error image to see error
-//- (void)imageTapped:(UITapGestureRecognizer*)sender {
+- (void)imageTapped:(UITapGestureRecognizer*)sender {
 //    [self.popTip showText:self.message direction:AMPopTipDirectionUp maxWidth:300 inView:self.superview fromFrame:self.frame];
-//}
+}
 
 
 -(instancetype) init{
