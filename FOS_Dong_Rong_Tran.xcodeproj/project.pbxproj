@@ -35,9 +35,7 @@
 		0EF9D7E61E198EFF005E64C7 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D7E31E198EFF005E64C7 /* UserModel.m */; };
 		0EF9D7EB1E198F2A005E64C7 /* Cart.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D7E81E198F2A005E64C7 /* Cart.m */; };
 		0EF9D7EC1E198F2A005E64C7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D7EA1E198F2A005E64C7 /* User.m */; };
-		0EF9D7EF1E199ECD005E64C7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EF9D7EE1E199ECD005E64C7 /* libsqlite3.tbd */; };
 		0EF9D7FB1E19AB4A005E64C7 /* SingleLineUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D7FA1E19AB4A005E64C7 /* SingleLineUITextField.m */; };
-		ECA3A040C9EC1C014725D907 /* libPods-FOS_Dong_Rong_Tran.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC3054F462B70449474439C /* libPods-FOS_Dong_Rong_Tran.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,12 +91,10 @@
 		0EF9D7E81E198F2A005E64C7 /* Cart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cart.m; sourceTree = "<group>"; };
 		0EF9D7E91E198F2A005E64C7 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		0EF9D7EA1E198F2A005E64C7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		0EF9D7EE1E199ECD005E64C7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		0EF9D7F91E19AB4A005E64C7 /* SingleLineUITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleLineUITextField.h; sourceTree = "<group>"; };
 		0EF9D7FA1E19AB4A005E64C7 /* SingleLineUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleLineUITextField.m; sourceTree = "<group>"; };
 		E4239794B9802BAFDC42377A /* Pods-FOS_Dong_Rong_Tran.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOS_Dong_Rong_Tran.release.xcconfig"; path = "Pods/Target Support Files/Pods-FOS_Dong_Rong_Tran/Pods-FOS_Dong_Rong_Tran.release.xcconfig"; sourceTree = "<group>"; };
 		F62F120770DB4BF15CCE8356 /* Pods-FOS_Dong_Rong_Tran.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOS_Dong_Rong_Tran.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FOS_Dong_Rong_Tran/Pods-FOS_Dong_Rong_Tran.debug.xcconfig"; sourceTree = "<group>"; };
-		FDC3054F462B70449474439C /* libPods-FOS_Dong_Rong_Tran.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FOS_Dong_Rong_Tran.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,12 +149,22 @@
 			name = "Order Detail Page";
 			sourceTree = "<group>";
 		};
+		07379EB01E19F7320094F49D /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				F62F120770DB4BF15CCE8356 /* Pods-FOS_Dong_Rong_Tran.debug.xcconfig */,
+				E4239794B9802BAFDC42377A /* Pods-FOS_Dong_Rong_Tran.release.xcconfig */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		0E33A8201E16E99A005CD961 = {
 			isa = PBXGroup;
 			children = (
 				0E33A82B1E16E99A005CD961 /* FOS_Dong_Rong_Tran */,
 				0E33A82A1E16E99A005CD961 /* Products */,
 				07379E8B1E19997E0094F49D /* Frameworks */,
+				07379EB01E19F7320094F49D /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -262,24 +268,6 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		0EF9D7ED1E199ECD005E64C7 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0EF9D7EE1E199ECD005E64C7 /* libsqlite3.tbd */,
-				FDC3054F462B70449474439C /* libPods-FOS_Dong_Rong_Tran.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E178049DF052D15F2EB9B671 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F62F120770DB4BF15CCE8356 /* Pods-FOS_Dong_Rong_Tran.debug.xcconfig */,
-				E4239794B9802BAFDC42377A /* Pods-FOS_Dong_Rong_Tran.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -287,12 +275,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E33A8401E16E99A005CD961 /* Build configuration list for PBXNativeTarget "FOS_Dong_Rong_Tran" */;
 			buildPhases = (
-				C0FF1976268B22DC5168905E /* [CP] Check Pods Manifest.lock */,
 				0E33A8251E16E99A005CD961 /* Sources */,
 				0E33A8261E16E99A005CD961 /* Frameworks */,
 				0E33A8271E16E99A005CD961 /* Resources */,
-				1A1A41A5F4498B9CDE3A445A /* [CP] Embed Pods Frameworks */,
-				B8164891B40F8F85C5464411 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -354,54 +339,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		1A1A41A5F4498B9CDE3A445A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FOS_Dong_Rong_Tran/Pods-FOS_Dong_Rong_Tran-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B8164891B40F8F85C5464411 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FOS_Dong_Rong_Tran/Pods-FOS_Dong_Rong_Tran-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C0FF1976268B22DC5168905E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0E33A8251E16E99A005CD961 /* Sources */ = {

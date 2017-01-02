@@ -39,9 +39,9 @@
         self.layer.masksToBounds = YES;
         
         // Set up poptip
-        self.popTip = [AMPopTip popTip];
-        self.popTip.shouldDismissOnTap = YES;
-        self.popTip.popoverColor = [UIColor purpleColor];
+//        self.popTip = [AMPopTip popTip];
+//        self.popTip.shouldDismissOnTap = YES;
+//        self.popTip.popoverColor = [UIColor purpleColor];
         
         self.imgViewError = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"error"]];
         self.imgViewError.hidden = YES;
@@ -65,9 +65,9 @@
 }
 
 // tap error image to see error
-- (void)imageTapped:(UITapGestureRecognizer*)sender {
-    [self.popTip showText:self.message direction:AMPopTipDirectionUp maxWidth:300 inView:self.superview fromFrame:self.frame];
-}
+//- (void)imageTapped:(UITapGestureRecognizer*)sender {
+//    [self.popTip showText:self.message direction:AMPopTipDirectionUp maxWidth:300 inView:self.superview fromFrame:self.frame];
+//}
 
 
 -(instancetype) init{
@@ -134,7 +134,7 @@
         self.imgViewError.hidden = YES;
         self.layer.borderWidth = 0;
         
-        [self.popTip hide];
+//        [self.popTip hide];
     }
 }
 
