@@ -649,7 +649,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="mk0-Kr-V32">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="rFC-9Q-fll" customClass="WelcomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeViewController" id="rFC-9Q-fll" customClass="WelcomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NdU-co-0X3"/>
                         <viewControllerLayoutGuide type="bottom" id="owX-WD-oav"/>
@@ -685,7 +685,7 @@
                                 </state>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brand_logo" translatesAutoresizingMaskIntoConstraints="NO" id="9k8-px-JyV">
-                                <rect key="frame" x="16" y="20" width="80" height="80"/>
+                                <rect key="frame" x="16" y="20" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>

@@ -35,6 +35,9 @@
 		0EF9D7E61E198EFF005E64C7 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D7E31E198EFF005E64C7 /* UserModel.m */; };
 		0EF9D7EB1E198F2A005E64C7 /* Cart.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D7E81E198F2A005E64C7 /* Cart.m */; };
 		0EF9D7EC1E198F2A005E64C7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D7EA1E198F2A005E64C7 /* User.m */; };
+		0EF9D7EF1E199ECD005E64C7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EF9D7EE1E199ECD005E64C7 /* libsqlite3.tbd */; };
+		0EF9D7FB1E19AB4A005E64C7 /* SingleLineUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D7FA1E19AB4A005E64C7 /* SingleLineUITextField.m */; };
+		ECA3A040C9EC1C014725D907 /* libPods-FOS_Dong_Rong_Tran.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC3054F462B70449474439C /* libPods-FOS_Dong_Rong_Tran.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +93,12 @@
 		0EF9D7E81E198F2A005E64C7 /* Cart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cart.m; sourceTree = "<group>"; };
 		0EF9D7E91E198F2A005E64C7 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		0EF9D7EA1E198F2A005E64C7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		0EF9D7EE1E199ECD005E64C7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		0EF9D7F91E19AB4A005E64C7 /* SingleLineUITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleLineUITextField.h; sourceTree = "<group>"; };
+		0EF9D7FA1E19AB4A005E64C7 /* SingleLineUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleLineUITextField.m; sourceTree = "<group>"; };
+		E4239794B9802BAFDC42377A /* Pods-FOS_Dong_Rong_Tran.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOS_Dong_Rong_Tran.release.xcconfig"; path = "Pods/Target Support Files/Pods-FOS_Dong_Rong_Tran/Pods-FOS_Dong_Rong_Tran.release.xcconfig"; sourceTree = "<group>"; };
+		F62F120770DB4BF15CCE8356 /* Pods-FOS_Dong_Rong_Tran.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FOS_Dong_Rong_Tran.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FOS_Dong_Rong_Tran/Pods-FOS_Dong_Rong_Tran.debug.xcconfig"; sourceTree = "<group>"; };
+		FDC3054F462B70449474439C /* libPods-FOS_Dong_Rong_Tran.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FOS_Dong_Rong_Tran.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +219,8 @@
 			children = (
 				0EEAA0FA1E1715D100946EE1 /* Constant.h */,
 				0EEAA0FB1E1715D100946EE1 /* Constant.m */,
+				0EF9D7F91E19AB4A005E64C7 /* SingleLineUITextField.h */,
+				0EF9D7FA1E19AB4A005E64C7 /* SingleLineUITextField.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -251,6 +262,24 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		0EF9D7ED1E199ECD005E64C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0EF9D7EE1E199ECD005E64C7 /* libsqlite3.tbd */,
+				FDC3054F462B70449474439C /* libPods-FOS_Dong_Rong_Tran.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E178049DF052D15F2EB9B671 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F62F120770DB4BF15CCE8356 /* Pods-FOS_Dong_Rong_Tran.debug.xcconfig */,
+				E4239794B9802BAFDC42377A /* Pods-FOS_Dong_Rong_Tran.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -258,9 +287,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E33A8401E16E99A005CD961 /* Build configuration list for PBXNativeTarget "FOS_Dong_Rong_Tran" */;
 			buildPhases = (
+				C0FF1976268B22DC5168905E /* [CP] Check Pods Manifest.lock */,
 				0E33A8251E16E99A005CD961 /* Sources */,
 				0E33A8261E16E99A005CD961 /* Frameworks */,
 				0E33A8271E16E99A005CD961 /* Resources */,
+				1A1A41A5F4498B9CDE3A445A /* [CP] Embed Pods Frameworks */,
+				B8164891B40F8F85C5464411 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -323,6 +355,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1A1A41A5F4498B9CDE3A445A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FOS_Dong_Rong_Tran/Pods-FOS_Dong_Rong_Tran-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B8164891B40F8F85C5464411 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FOS_Dong_Rong_Tran/Pods-FOS_Dong_Rong_Tran-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0FF1976268B22DC5168905E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0E33A8251E16E99A005CD961 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -335,6 +415,7 @@
 				07379E971E19BD7F0094F49D /* SummaryTableViewCell.m in Sources */,
 				07379E9E1E19D5730094F49D /* OrderDetailViewController.m in Sources */,
 				0E33A8341E16E99A005CD961 /* ViewController.m in Sources */,
+				0EF9D7FB1E19AB4A005E64C7 /* SingleLineUITextField.m in Sources */,
 				0EF9D7E61E198EFF005E64C7 /* UserModel.m in Sources */,
 				0EEAA1031E1900A200946EE1 /* WelcomeViewController.m in Sources */,
 				0EEAA0F81E16FBA600946EE1 /* WebserviceProvider.m in Sources */,
@@ -467,24 +548,26 @@
 		};
 		0E33A8411E16E99A005CD961 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F62F120770DB4BF15CCE8356 /* Pods-FOS_Dong_Rong_Tran.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FOS_Dong_Rong_Tran/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rjtcompuquest.Test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rjtCompuquest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		0E33A8421E16E99A005CD961 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4239794B9802BAFDC42377A /* Pods-FOS_Dong_Rong_Tran.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FOS_Dong_Rong_Tran/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rjtcompuquest.Test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rjtCompuquest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
