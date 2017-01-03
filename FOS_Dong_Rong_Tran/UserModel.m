@@ -21,7 +21,18 @@
     
     self.sql = [SQLiteModel sharedInstance];
     
-    NSString* userQuery = @"INSERT INTO tbl_User VALUES( 1, 'Yifu Rong', 'yifu@gamil.com', '123', 'Michigan', -88.2024, 41.5359);INSERT INTO tbl_User VALUES( 2, 'Huu Tran', 'huu@gmail.com', '123', 'Chicago', -88.2023, 41.5358);INSERT INTO tbl_User VALUES( 3, 'Yupeng Dong', 'yupeng@gmail.com', '123', 'Chicago', -88.2025, 41.5360);";
+    NSString* userQuery_old = @"INSERT INTO tbl_User VALUES( 1, 'Yifu Rong', 'yifu@gamil.com', '123', 'Michigan', -88.2024, 41.5359);INSERT INTO tbl_User VALUES( 2, 'Huu Tran', 'huu@gmail.com', '123', 'Chicago', -88.2023, 41.5358);INSERT INTO tbl_User VALUES( 3, 'Yupeng Dong', 'yupeng@gmail.com', '123', 'Chicago', -88.2025, 41.5360);";
+    
+    NSString* templateQuery = @"INSERT INTO tbl_User VALUES( %d, '%@', '%@', '%@', '%@', %0.04f, %0.04f);";
+    
+    NSString * userQuery = [NSString stringWithFormat:templateQuery,
+                            user_phone,
+                            user_name,
+                            user_email,
+                            user_password,
+                            user_add,
+                            user_longitude,
+                            user_latitude];
     char* errMessage = NULL;
     errMessage = [self.sql excute:userQuery andError:errMessage];
     if( errMessage != NULL ) {
