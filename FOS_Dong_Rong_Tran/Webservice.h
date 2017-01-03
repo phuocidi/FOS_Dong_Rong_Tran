@@ -6,7 +6,7 @@
 
 +( instancetype )sharedInstance;
 
--( void )getCategory:( NSString*)foodCategoryType completionHandler:(void(^)(NSArray*)) completionBlock;
+-( void )getFoodMenu:( NSString*)foodCategoryType completionHandler:(void(^)(NSArray* data)) completionBlock;
 
 -( void )sendOrderWithMobile:(NSString*)mobileNumber category:(NSString*)foodCategoryType orderName:(NSString*)orderName orderQuantity:(NSString*)orderQuantity totalCost:(NSString*)totalCost orderAddress:(NSString*) orderAddress completionHandler:(void(^)(NSString* order_id))completionBlock;
 

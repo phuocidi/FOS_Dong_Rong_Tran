@@ -9,11 +9,7 @@
 #import "FoodMenuTableViewCell.h"
 
 @interface FoodMenuTableViewCell ()
-
 @property (weak, nonatomic) IBOutlet UIView *cardView;
-@property (weak, nonatomic) IBOutlet UIImageView *foodImageView;
-@property (weak, nonatomic) IBOutlet UILabel *foodLabel;
-
 @end
 
 @implementation FoodMenuTableViewCell
@@ -30,6 +26,11 @@
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:self.cardView.bounds];
     self.cardView.layer.shadowPath = path.CGPath;
     self.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
+    
+    self.priceLabel.layer.cornerRadius = self.priceLabel.layer.frame.size.height/2;
+    self.nameLabel.layer.cornerRadius = self.nameLabel.layer.frame.size.height/2;
+    self.buyNowButton.layer.cornerRadius = self.buyNowButton.layer.frame.size.height/2;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

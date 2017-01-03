@@ -57,7 +57,7 @@
 
 
 
--( void )getCategory:( NSString*)foodCategoryType completionHandler:(void(^)(NSArray* data)) completionBlock
+-( void )getFoodMenu:( NSString*)foodCategoryType completionHandler:(void(^)(NSArray* data)) completionBlock
 {    
     foodCategoryType = [foodCategoryType stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     NSDictionary * dictParameter = [NSDictionary dictionaryWithObjectsAndKeys:foodCategoryType, @"food_category", nil];

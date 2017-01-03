@@ -9,11 +9,14 @@
 #import "FoodMenuViewController.h"
 #import "FoodTableViewCell.h"
 #import "SingleLineSegmentedControl.h"
-
+#import "Webservice.h"
+#import "Constant.h"
 // --------------------------------
 @interface FoodMenuViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView * tableView;
+@property (strong, nonatomic) SingleLineSegmentedControl * segmentedControl;
+@property (retain, nonatomic) NSMutableArray * datasource;
 
 @end
 
@@ -27,11 +30,30 @@
     
     
     NSArray *items = @[@"Veg menu", @"Non-veg menu"];
-    SingleLineSegmentedControl *mySegmentedControl = [[SingleLineSegmentedControl alloc] initWithItems:items];
-    mySegmentedControl.frame = CGRectMake(10, 64, self.view.frame.size.width - 20, 35);
-    mySegmentedControl.selectedSegmentIndex = 0;
-    [self.view addSubview:mySegmentedControl];
+    self.segmentedControl = [[SingleLineSegmentedControl alloc] initWithItems:items];
+    self.segmentedControl.frame = CGRectMake(10, 64, self.view.frame.size.width - 20, 35);
+    self.segmentedControl.selectedSegmentIndex = 0;
+    [self.segmentedControl addTarget:self action:@selector(handleSegmentControl:) forControlEvents: UIControlEventValueChanged];
+    [self.view addSubview: self.segmentedControl];
     
+    self.datasource = [NSMutableArray array];
+    [[WebService sharedInstance] getFoodMenu:[Constant foodKeyCategoryVeg] completionHandler:^(NSArray *data) {
+        self.datasource = data;
+        [self.tableView reloadData];
+        
+    }];
+    
+}
+
+- (void) handleSegmentControl:(UISegmentedControl*)sender {
+    switch (sender.selectedSegmentIndex) {
+        case 0:
+            NSLog(@"Vegie");
+            break;
+        case 1:
+            NSLog(@"Non-Vegie");
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,7 +78,7 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 3;
+    return (self.datasource.count) ? 3 : self.datasource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

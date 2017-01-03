@@ -614,7 +614,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecentCell" rowHeight="100" id="1U4-Mp-3DF" customClass="RecentTableViewCell">
-                                        <rect key="frame" x="0.0" y="28" width="376" height="100"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1U4-Mp-3DF" id="hCK-J9-cJk">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
@@ -1215,13 +1215,42 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9y-F8-jF5">
                                                     <rect key="frame" x="5" y="5" width="365" height="339"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNv-0q-ujX">
+                                                            <rect key="frame" x="202" y="261" width="149" height="30"/>
+                                                            <color key="backgroundColor" red="1" green="0.38912415150000002" blue="0.17421842930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="22"/>
+                                                            <state key="normal" title="BUY NOW">
+                                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                        </button>
+                                                    </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="rNv-0q-ujX" secondAttribute="trailing" constant="14" id="Bfz-ra-cHY"/>
+                                                        <constraint firstAttribute="bottom" secondItem="rNv-0q-ujX" secondAttribute="bottom" constant="48" id="eEl-9s-90D"/>
+                                                        <constraint firstItem="rNv-0q-ujX" firstAttribute="top" secondItem="N9y-F8-jF5" secondAttribute="top" constant="261" id="m0E-HP-NS1"/>
+                                                        <constraint firstItem="rNv-0q-ujX" firstAttribute="leading" secondItem="N9y-F8-jF5" secondAttribute="leading" constant="202" id="pNI-H7-TI2"/>
+                                                    </constraints>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Food" translatesAutoresizingMaskIntoConstraints="NO" id="yr7-cv-YsY">
                                                     <rect key="frame" x="5" y="6" width="365" height="205"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pN6-Fu-y5t">
+                                                    <rect key="frame" x="6" y="211" width="187" height="132"/>
+                                                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
+                                                    <color key="textColor" red="0.83710739209999996" green="0.32346047020000002" blue="0.2218693045" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$9.99" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8y-Kn-W8a">
+                                                    <rect key="frame" x="-23" y="186" width="206" height="25"/>
+                                                    <color key="backgroundColor" red="0.45047335379999998" green="0.74470872960000001" blue="0.22164724629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$9.99" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUk-Tl-QxX">
-                                                    <rect key="frame" x="231" y="189" width="139" height="21"/>
+                                                    <rect key="frame" x="207" y="186" width="182" height="25"/>
                                                     <color key="backgroundColor" red="1" green="0.38912415150000002" blue="0.17421842930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1229,24 +1258,35 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="R8y-Kn-W8a" secondAttribute="bottom" constant="138" id="04h-bP-AUQ"/>
                                                 <constraint firstItem="yr7-cv-YsY" firstAttribute="leading" secondItem="PCz-ne-8pW" secondAttribute="leading" constant="5" id="2ib-CH-PmV"/>
-                                                <constraint firstItem="aUk-Tl-QxX" firstAttribute="leading" secondItem="PCz-ne-8pW" secondAttribute="leading" constant="231" id="34f-Dn-mbw"/>
-                                                <constraint firstItem="aUk-Tl-QxX" firstAttribute="top" secondItem="PCz-ne-8pW" secondAttribute="top" constant="189" id="37n-V3-hub"/>
+                                                <constraint firstItem="aUk-Tl-QxX" firstAttribute="leading" secondItem="PCz-ne-8pW" secondAttribute="leading" constant="207" id="34f-Dn-mbw"/>
+                                                <constraint firstItem="aUk-Tl-QxX" firstAttribute="top" secondItem="PCz-ne-8pW" secondAttribute="top" constant="186" id="37n-V3-hub"/>
                                                 <constraint firstAttribute="bottom" secondItem="N9y-F8-jF5" secondAttribute="bottom" constant="5" id="6Tc-2H-mko"/>
                                                 <constraint firstAttribute="trailing" secondItem="N9y-F8-jF5" secondAttribute="trailing" constant="5" id="Jmu-8e-AEu"/>
+                                                <constraint firstItem="aUk-Tl-QxX" firstAttribute="leading" secondItem="R8y-Kn-W8a" secondAttribute="trailing" constant="24" id="Kb2-KT-n5R"/>
+                                                <constraint firstAttribute="bottom" secondItem="pN6-Fu-y5t" secondAttribute="bottom" constant="6" id="Q9F-Q6-bOC"/>
+                                                <constraint firstItem="R8y-Kn-W8a" firstAttribute="top" secondItem="PCz-ne-8pW" secondAttribute="top" constant="186" id="Tue-yC-6dW"/>
                                                 <constraint firstItem="N9y-F8-jF5" firstAttribute="top" secondItem="PCz-ne-8pW" secondAttribute="top" constant="5" id="VEP-q4-rNK"/>
+                                                <constraint firstAttribute="trailing" secondItem="pN6-Fu-y5t" secondAttribute="trailing" constant="182" id="YOJ-zD-Da9"/>
                                                 <constraint firstItem="yr7-cv-YsY" firstAttribute="top" secondItem="PCz-ne-8pW" secondAttribute="top" constant="6" id="coe-3G-La0"/>
+                                                <constraint firstItem="pN6-Fu-y5t" firstAttribute="leading" secondItem="PCz-ne-8pW" secondAttribute="leading" constant="6" id="cvg-6g-QMK"/>
+                                                <constraint firstItem="pN6-Fu-y5t" firstAttribute="top" secondItem="R8y-Kn-W8a" secondAttribute="bottom" id="dNF-Au-MCi"/>
+                                                <constraint firstItem="R8y-Kn-W8a" firstAttribute="leading" secondItem="PCz-ne-8pW" secondAttribute="leading" constant="-23" id="g3M-iu-iyT"/>
                                                 <constraint firstAttribute="bottom" secondItem="yr7-cv-YsY" secondAttribute="bottom" constant="138" id="heK-Ip-Umt"/>
-                                                <constraint firstAttribute="bottom" secondItem="aUk-Tl-QxX" secondAttribute="bottom" constant="139" id="hj3-3l-vT5"/>
+                                                <constraint firstAttribute="bottom" secondItem="aUk-Tl-QxX" secondAttribute="bottom" constant="138" id="hj3-3l-vT5"/>
                                                 <constraint firstItem="N9y-F8-jF5" firstAttribute="leading" secondItem="PCz-ne-8pW" secondAttribute="leading" constant="5" id="lfA-0s-PuY"/>
                                                 <constraint firstAttribute="trailing" secondItem="yr7-cv-YsY" secondAttribute="trailing" constant="5" id="utI-h6-oQF"/>
-                                                <constraint firstAttribute="trailing" secondItem="aUk-Tl-QxX" secondAttribute="trailing" constant="5" id="xJh-v8-QyQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="aUk-Tl-QxX" secondAttribute="trailing" constant="-14" id="xJh-v8-QyQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="buyNowButton" destination="rNv-0q-ujX" id="PaC-zU-fiy"/>
                                             <outlet property="cardView" destination="N9y-F8-jF5" id="pJV-qp-bPn"/>
                                             <outlet property="foodImageView" destination="yr7-cv-YsY" id="Td4-ds-0o9"/>
-                                            <outlet property="foodLabel" destination="aUk-Tl-QxX" id="FOa-MV-yoI"/>
+                                            <outlet property="nameLabel" destination="R8y-Kn-W8a" id="S5j-wf-dhJ"/>
+                                            <outlet property="priceLabel" destination="aUk-Tl-QxX" id="KVY-Me-19w"/>
+                                            <outlet property="recepieeLabel" destination="pN6-Fu-y5t" id="gAa-KD-CTl"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
