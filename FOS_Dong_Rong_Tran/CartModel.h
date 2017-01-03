@@ -22,11 +22,13 @@
     ** And the type of each parameter is samve with Cart Model
  
     Example:
-    "food_id" = 707;
+    "id" = 1;
+    "user_phone" = 123;
+    "food_category" = "non-veg";
     "food_name" = "Chicken tikka meatballs";
     "food_price" = 1550;
-    "food_recepiee" = "chicken tikka meatballs, chopped tomato makh";
-    "food_thumb" = "Image URL";
+    "food_add" = "Chicago";
+    "food_date" = "date..";
     numberOfNeed = 1;
  */
 -(NSMutableArray *)allUsers;
@@ -36,6 +38,8 @@
     Need to modify the query, find which parameter you want to change
  */
 -(BOOL)saveUser: (Cart *)user;
+
+-(BOOL)deleteUser:(Cart *)user;
 
 @end
 

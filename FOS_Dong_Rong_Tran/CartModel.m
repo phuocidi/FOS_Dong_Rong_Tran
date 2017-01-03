@@ -45,7 +45,20 @@
 -(BOOL)saveUser:(Cart *)user {
     self.sql = [SQLiteModel sharedInstance];
     
-    NSString* userQuery = @"UPDATE tbl_Cart SET numberOfNeed = 2 WHERE id = 1;";
+    NSString *userQuery = [NSString stringWithFormat: @"UPDATE tbl_Cart SET numberOfNeed = %d WHERE id = %d;UPDATE tbl_Cart SET food_price = %f WHERE id = %d;", user.numberOfNeed, user.id, user.price, user.id];
+    char* errMessage = NULL;
+    errMessage = [self.sql excute:userQuery andError:errMessage];
+    if( errMessage != NULL ) {
+        return FALSE;
+    }
+    
+    return TRUE;
+}
+
+-(BOOL)deleteUser:(Cart *)user {
+    self.sql = [SQLiteModel sharedInstance];
+    
+    NSString *userQuery = [NSString stringWithFormat: @"DELETE FROM tbl_Cart WHERE id = %d;",user.id];
     char* errMessage = NULL;
     errMessage = [self.sql excute:userQuery andError:errMessage];
     if( errMessage != NULL ) {
