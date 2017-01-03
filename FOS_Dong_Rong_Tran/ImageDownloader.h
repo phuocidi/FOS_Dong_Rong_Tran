@@ -17,6 +17,7 @@
 
 + (instancetype) sharedInstance;
 
-- (void)downloadImageForCell:(UITableViewCell *)cell withURL:(NSURL*)url completionHandler:(void(^)())completionBlock;
+- (void)downloadImageForCellwithURL:(NSURL*)url completionHandler:(void(^)(UIImage * image))completionBlock ;
 
+-(void)fetchImage: (NSString *) url completionHandler: (void (^) (NSData *image)) completionHandler;
 @end
