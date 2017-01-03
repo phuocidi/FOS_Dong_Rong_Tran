@@ -14,6 +14,8 @@
 
 -( void )checkOrderStatusID:(NSString*)orderID completionHandler:(void(^)(NSArray* data))completionBlock;
 
+-( void )checkComfirmID:(NSString*)orderID completionHandler:(void(^)(NSArray* data))completionBlock;
+
 - ( NSString* )registerUser:(NSDictionary*) data;
 
 -( NSString* )loginUser:(NSDictionary*) data;

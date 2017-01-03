@@ -10,6 +10,8 @@
 #import "DetailFoodTableViewCell.h"
 #import "DetailSummaryTableViewCell.h"
 #import "DetailTotalTableViewCell.h"
+#import "Webservice.h"
+#import "Cart.h"
 #import <MapKit/MapKit.h>
 
 @interface OrderDetailViewController ()
@@ -18,6 +20,14 @@
 @property (weak, nonatomic) IBOutlet MKMapView *map;
 @property (weak, nonatomic) IBOutlet UILabel *deliveryAddress;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) WebService *webService;
+@property (strong, nonatomic) NSMutableArray *shoppingList;
+@property (readwrite, nonatomic) double subTotal;
+@property (readwrite, nonatomic) double tax;
+@property (readwrite, nonatomic) double discount;
+@property (readwrite, nonatomic) double deliveryCharges;
+@property (readwrite, nonatomic) double containerCharges;
+@property (readwrite, nonatomic) double orderTotal;
 
 @end
 
@@ -26,8 +36,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
     NSLog(@"%@", self.orderId);
+    self.webService = [WebService sharedInstance];
+    self.shoppingList = [[NSMutableArray alloc] init];
+//    for (NSString *str in self.orderId) {
+//        [self.webService checkComfirmID:str completionHandler:^(NSArray *data) {
+//            Cart *cart = [self createCartModel:data[0]];
+//            [self.shoppingList addObject:cart];
+//            [self.tableView reloadData];
+//        }];
+//    }
+    for (int i = 0; i < self.orderId.count; i ++) {
+        [self.webService checkComfirmID:self.orderId[i] completionHandler:^(NSArray *data) {
+            Cart *cart = [self createCartModel:data[0]];
+            [self.shoppingList addObject:cart];
+            if (i == self.orderId.count - 1) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.deliveryAddress.text = cart.address;
+                    [self.tableView reloadData];
+                });
+            }
+        }];
+    }
+    
 }
 
 UIImageView* (^separatorV)(void) = ^{
@@ -36,6 +71,16 @@ UIImageView* (^separatorV)(void) = ^{
     view.translatesAutoresizingMaskIntoConstraints = false;
     return view;
 };
+
+- (Cart *)createCartModel:(NSDictionary *) food {
+    Cart *cart = [[Cart alloc] init];
+    cart.date = food[@"OrderDate"];
+    cart.name = [food[@"OrderName"] stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
+    cart.price = [food[@"TotalOrder"] intValue];
+    cart.numberOfNeed = [food[@"OrderQuantity"] intValue];
+    cart.address = [food[@"OrderDeliverAdd"] stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
+    return cart;
+}
 
 #pragma mark - Table View Data Source
 
@@ -50,20 +95,40 @@ UIImageView* (^separatorV)(void) = ^{
     if (section == 2) {
         return 1;
     }
-    return 2;
+    return self.shoppingList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1) {
+        self.subTotal = 0.0;
+        self.tax = 0.0;
+        self.discount = 0.0;
+        self.deliveryCharges = 0.0;
+        self.containerCharges = 0.0;
         DetailSummaryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SummaryCell" forIndexPath:indexPath];
+        for (Cart *c in self.shoppingList) {
+            Cart *cart = c;
+            self.subTotal += cart.price;
+        }
+        self.tax = self.subTotal * 0.06;
+        cell.subTotal.text = [NSString stringWithFormat:@"%.2f", self.subTotal];
+        cell.tax.text = [NSString stringWithFormat:@"%.2f", self.tax];
         return cell;
     }
     if (indexPath.section == 2) {
+        self.orderTotal = 0.0;
         DetailTotalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TotalCell" forIndexPath:indexPath];
+        self.orderTotal = self.subTotal + self.tax + self.discount + self.deliveryCharges + self.containerCharges;
+        cell.totalPrice.text = [NSString stringWithFormat:@"%.2f", self.orderTotal];
         return cell;
     }
     
     DetailFoodTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FoodCell" forIndexPath:indexPath];
+    
+    Cart *cart = self.shoppingList[indexPath.row];
+    cell.foodName.text = cart.name;
+    double singlePrice = cart.price / cart.numberOfNeed;
+    cell.foodPrice.text = [NSString stringWithFormat:@"%.2f", singlePrice];    cell.numberOfNeed.text = [NSString stringWithFormat:@"%d", cart.numberOfNeed];
     
     // Add separatorView
     self.separatorLine = separatorV();

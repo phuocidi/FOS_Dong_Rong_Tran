@@ -59,6 +59,7 @@
     
 }
 
+// Delete
 - (IBAction)checkOut:(UIButton *)sender {
     // Send Order
     
