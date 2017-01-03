@@ -13,6 +13,7 @@
 #import "SQLiteModel.h"
 #import "CartModel.h"
 #import "Cart.h"
+#import "Webservice.h"
 
 @interface OrderSummaryViewController () <UITextFieldDelegate>
 
@@ -23,6 +24,7 @@
 // Remove later
 @property (strong, nonatomic) SQLiteModel *sql;
 @property (strong, nonatomic) CartModel *cartModel;
+@property (strong, nonatomic) WebService *webService;
 @property (strong, nonatomic) NSMutableArray *cartList;
 @property (readwrite, nonatomic) double subTotal;
 @property (readwrite, nonatomic) double tax;
@@ -42,6 +44,7 @@
     self.sql = [SQLiteModel sharedInstance];
     self.cartModel = [[CartModel alloc] init];
     self.cartList = [[NSMutableArray alloc] init];
+    self.webService = [WebService sharedInstance];
     
 //    [self.cartModel createUser:1 name:@"Hard Code" category:@"Hard Code" add:@"Hard Code" number:1 date:@"Hard Code" price:1];
     NSArray *allUsers = [self.cartModel allUsers];
@@ -55,7 +58,11 @@
 
 - (IBAction)checkOut:(UIButton *)sender {
     // Send Order
-    
+    for (Cart *cart in self.cartList) {
+        [self.webService sendOrderWithMobile:[NSString stringWithFormat:@"%d", cart.phone] category:cart.category orderName:cart.name orderQuantity:[NSString stringWithFormat:@"%d", cart.numberOfNeed] totalCost:[NSString stringWithFormat:@"%.2f", cart.price] orderAddress:cart.address completionHandler:^(NSString *order_id) {
+            NSLog(@"%@", order_id);
+        }];
+    }
 }
 
 - (void)changeNumberOfNeed:(UIButton *)sender {
