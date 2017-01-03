@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GS7-mh-pr9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ig3-ps-vMK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -303,8 +303,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="checkOut:" destination="2gT-Yt-FPv" eventType="touchUpInside" id="avT-Z0-JH8"/>
-                                    <segue destination="wtG-nl-6eF" kind="show" id="aJQ-aQ-yKs"/>
+                                    <segue destination="wtG-nl-6eF" kind="show" identifier="CheckOut" id="aJQ-aQ-yKs"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="107" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mwJ-6O-sQN">
@@ -562,7 +561,7 @@
                                     <outlet property="delegate" destination="2gT-Yt-FPv" id="aXi-t9-8NO"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Delivery Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gEw-9f-ySj">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="My Location" borderStyle="roundedRect" placeholder="Delivery Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gEw-9f-ySj">
                                 <rect key="frame" x="0.0" y="554" width="375" height="50"/>
                                 <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -593,6 +592,7 @@
                     <navigationItem key="navigationItem" id="LqO-Sp-k5a"/>
                     <connections>
                         <outlet property="DeliveryAddress" destination="gEw-9f-ySj" id="33j-xm-tMN"/>
+                        <outlet property="checkOut" destination="pmb-N3-JQV" id="Oy3-lj-Lxy"/>
                         <outlet property="tableView" destination="mwJ-6O-sQN" id="2aT-ui-ZvJ"/>
                         <outlet property="titleImageView" destination="1s9-O8-Yld" id="0rf-7Y-f6Z"/>
                     </connections>
@@ -618,10 +618,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecentCell" rowHeight="100" id="1U4-Mp-3DF" customClass="RecentTableViewCell">
-                                        <rect key="frame" x="0.0" y="28" width="376" height="100"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1U4-Mp-3DF" id="hCK-J9-cJk">
-                                            <rect key="frame" x="0.0" y="0.0" width="376" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="order number" translatesAutoresizingMaskIntoConstraints="NO" id="Wea-NC-8N9">
@@ -1391,7 +1391,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6O2-qM-iRu" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="Emx-Zf-pMv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Emx-Zf-pMv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

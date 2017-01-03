@@ -10,4 +10,6 @@
 
 @interface OrderDetailViewController : UIViewController
 
+@property (strong, nonatomic) NSArray *orderId;
+
 @end

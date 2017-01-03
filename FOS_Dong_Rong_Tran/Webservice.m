@@ -115,10 +115,11 @@
     orderAddress = [orderAddress stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     
     NSDateFormatter * dateFormatter  = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"YYYY-MM-dd hh:mm a"];
+    [dateFormatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
     NSDate * now = [NSDate date];
     NSString * dateStr = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:now]];
     dateStr = [dateStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSLog(@"%@", dateStr);
     
     NSDictionary * dictParameter = [NSDictionary dictionaryWithObjectsAndKeys:
                                     mobileNumber, [Constant orderKeyMobile],

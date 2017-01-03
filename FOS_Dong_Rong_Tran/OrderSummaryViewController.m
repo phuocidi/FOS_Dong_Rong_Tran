@@ -14,6 +14,7 @@
 #import "CartModel.h"
 #import "Cart.h"
 #import "Webservice.h"
+#import "OrderDetailViewController.h"
 
 @interface OrderSummaryViewController () <UITextFieldDelegate>
 
@@ -25,6 +26,7 @@
 @property (strong, nonatomic) SQLiteModel *sql;
 @property (strong, nonatomic) CartModel *cartModel;
 @property (strong, nonatomic) WebService *webService;
+@property (strong, nonatomic) OrderDetailViewController *orderDetailVC;
 @property (strong, nonatomic) NSMutableArray *cartList;
 @property (readwrite, nonatomic) double subTotal;
 @property (readwrite, nonatomic) double tax;
@@ -32,7 +34,8 @@
 @property (readwrite, nonatomic) double deliveryCharges;
 @property (readwrite, nonatomic) double containerCharges;
 @property (readwrite, nonatomic) double orderTotal;
-- (IBAction)checkOut:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *checkOut;
+
 
 @end
 
@@ -46,7 +49,7 @@
     self.cartList = [[NSMutableArray alloc] init];
     self.webService = [WebService sharedInstance];
     
-//    [self.cartModel createUser:1 name:@"Hard Code" category:@"Hard Code" add:@"Hard Code" number:1 date:@"Hard Code" price:1];
+//    [self.cartModel createCart:1 name:@"Hard Code" category:@"Hard Code" add:@"Hard Code" number:1 date:@"Hard Code" price:1];
     NSArray *allUsers = [self.cartModel allUsers];
     for (NSDictionary *dic in allUsers) {
         Cart *cart = [self createCartModel:dic];
@@ -58,11 +61,33 @@
 
 - (IBAction)checkOut:(UIButton *)sender {
     // Send Order
+    
     for (Cart *cart in self.cartList) {
-        [self.webService sendOrderWithMobile:[NSString stringWithFormat:@"%d", cart.phone] category:cart.category orderName:cart.name orderQuantity:[NSString stringWithFormat:@"%d", cart.numberOfNeed] totalCost:[NSString stringWithFormat:@"%.2f", cart.price] orderAddress:cart.address completionHandler:^(NSString *order_id) {
+        [self.webService sendOrderWithMobile:[NSString stringWithFormat:@"%d", cart.phone] category:cart.category orderName:cart.name orderQuantity:[NSString stringWithFormat:@"%d", cart.numberOfNeed] totalCost:[NSString stringWithFormat:@"%.2f", cart.price] orderAddress:self.DeliveryAddress.text completionHandler:^(NSString *order_id) {
             NSLog(@"%@", order_id);
         }];
     }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"CheckOut"]) {
+        OrderDetailViewController *destinationVC = [segue destinationViewController];
+        
+        // Send Order
+//        NSMutableArray *orderIds = [[NSMutableArray alloc] init];
+//        for (Cart *cart in self.cartList) {
+//            [self.webService sendOrderWithMobile:[NSString stringWithFormat:@"%d", cart.phone] category:cart.category orderName:cart.name orderQuantity:[NSString stringWithFormat:@"%d", cart.numberOfNeed] totalCost:[NSString stringWithFormat:@"%.2f", cart.price] orderAddress:self.DeliveryAddress.text completionHandler:^(NSString *order_id) {
+//                NSLog(@"%@", order_id);
+//                [orderIds addObject:order_id];
+//            }];
+//        }
+//        destinationVC.orderId = orderIds;
+        
+        // Remove later
+        NSArray *orderid = @[@"12222252", @"12222253"];
+        destinationVC.orderId = orderid;
+    }
+    
 }
 
 - (void)changeNumberOfNeed:(UIButton *)sender {
