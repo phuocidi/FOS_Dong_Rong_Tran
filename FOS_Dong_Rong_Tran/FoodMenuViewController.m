@@ -108,8 +108,9 @@
     cell.buyNowButton.tag = indexPath.row;
     [cell.buyNowButton addTarget:self action:@selector(orderButtonCicked:) forControlEvents: UIControlEventTouchUpInside];
     
-    cell.buyNowButton.userInteractionEnabled = NO;
-    
+    //cell.buyNowButton.userInteractionEnabled = NO;
+    //[cell.contentView addSubview: cell.buyNowButton];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSDictionary * item = (NSDictionary *) self.datasource[indexPath.row];
     dispatch_async(dispatch_get_main_queue(), ^{
             cell.priceTag.titleLabel.text = [NSString stringWithFormat:@"$%ld", [item[[Constant foodKeyPrice]] integerValue]];
