@@ -53,7 +53,7 @@
     {
         NSLog( @"%s", errMessage );
     }
-    createQuery = @"CREATE TABLE IF NOT EXISTS tbl_Cart (food_id INTEGER PRIMARY KEY, food_name VARCHAR(255) NOT NULL, food_recepiee VARCHAR(255) NOT NULL, numberOfNeed INTEGER NOT NULL, food_price DOUBLE NOT NULL, food_thumb VARCHAR(255) NOT NULL);";
+    createQuery = @"CREATE TABLE IF NOT EXISTS tbl_User (user_phone INTEGER PRIMARY KEY, user_name VARCHAR(255) NOT NULL, user_email VARCHAR(255) NOT NULL, user_password VARCHAR(255) NOT NULL, user_add VARCHAR(255) NOT NULL, user_longitude DOUBLE NOT NULL, user_latitude DOUBLE NOT NULL);";
     sqlite3_exec( _database, [ createQuery UTF8String ], NULL, NULL, &errMessage );
     if( errMessage != NULL )
     {

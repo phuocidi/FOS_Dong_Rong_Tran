@@ -43,13 +43,7 @@
     NSLog(@"%@", self.orderId);
     self.webService = [WebService sharedInstance];
     self.shoppingList = [[NSMutableArray alloc] init];
-//    for (NSString *str in self.orderId) {
-//        [self.webService checkComfirmID:str completionHandler:^(NSArray *data) {
-//            Cart *cart = [self createCartModel:data[0]];
-//            [self.shoppingList addObject:cart];
-//            [self.tableView reloadData];
-//        }];
-//    }
+    
     for (int i = 0; i < self.orderId.count; i ++) {
         [self.webService checkComfirmID:self.orderId[i] completionHandler:^(NSArray *data) {
             Cart *cart = [self createCartModel:data[0]];

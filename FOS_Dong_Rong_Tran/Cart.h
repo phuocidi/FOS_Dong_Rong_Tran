@@ -11,6 +11,8 @@
 @interface Cart : NSObject
 
 @property(readwrite, nonatomic) int id;
+@property(readwrite, nonatomic) int orderId;
+@property(strong, nonatomic) NSString *orderStatus;
 @property(readwrite, nonatomic) int phone;
 @property(strong, nonatomic) NSString *name;
 @property(strong, nonatomic) NSString *category;
