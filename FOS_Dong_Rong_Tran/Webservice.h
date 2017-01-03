@@ -13,6 +13,7 @@
 -( void )checkOrderHistoryWithMobile:(NSString*)mobileNumber completionHandler:(void(^)(NSArray* data))completionBlock;
 
 -( void )checkOrderStatusID:(NSString*)orderID completionHandler:(void(^)(NSArray* data))completionBlock;
+-( void )checkComfirmID:(NSString*)orderID completionHandler:(void(^)(NSArray* data))completionBlock;
 
 -( void )loginByPhone:(NSString*)mobilePhone userPassword:(NSString *)userPassword completionHandler:(void(^)(BOOL successful))completionBlock;
 

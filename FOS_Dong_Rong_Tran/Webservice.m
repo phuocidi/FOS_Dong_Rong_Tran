@@ -216,4 +216,27 @@
     }];
 }
 
+-( void )checkComfirmID:(NSString*)orderID completionHandler:(void(^)(NSArray* data))completionBlock
+{
+    // clean parameter
+    orderID = [orderID stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    
+    NSDictionary * dictParameter = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    orderID, [Constant orderStatusKeyID],
+                                    nil];
+    
+    [self.provider asyncWebserviceCall:@"order_confirmation.php" withDic:dictParameter completionHandler:^(NSString * responseMsg) {
+        id jsonOject = [NSJSONSerialization JSONObjectWithData:[responseMsg dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        
+        NSArray * dataArray;
+        if ([jsonOject isKindOfClass:[NSDictionary class]]) {
+            dataArray = [ ((NSDictionary*)jsonOject) objectForKey: [Constant orderStatusKey]];
+        }
+        
+        if (completionBlock) {
+            completionBlock (dataArray);
+        }
+    }];
+}
+
 @end

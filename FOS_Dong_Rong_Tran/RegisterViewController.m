@@ -77,7 +77,7 @@
     
     [[WebService sharedInstance] registerByPhone:self.userPhoneField.text userName:userName userEmail:userEmail userPassword:password address:address completionHandler:^(BOOL successful) {
         if (successful) {
-            [userManager createUserByPhone:user_phone name:userName email:userEmail password:password add:address longtitude:-88.2024 latitude:41.5359];
+            [userManager createUser:user_phone name:userName email:userEmail password:password add:address longtitude:-88.2024 latitude:41.5359];
             
             LoginViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
             [self.navigationController pushViewController:vc animated:YES];
