@@ -60,7 +60,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.mapView.delegate = self;
     _coordinate.longitude = -76.580806;
     _coordinate.latitude = 39.281516;
     ( ( AppDelegate* )[ UIApplication sharedApplication ].delegate ).locationChanged = self;
