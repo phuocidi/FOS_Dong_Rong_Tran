@@ -20,17 +20,18 @@
     [self.cardView setAlpha:1];
     self.cardView.layer.masksToBounds = NO;
     self.cardView.layer.cornerRadius = 1;
-    self.cardView.layer.shadowOffset = CGSizeMake(-.2f, .2f);
+    self.cardView.layer.shadowOffset = CGSizeMake(-.4f, .4f);
     self.cardView.layer.shadowRadius = 1;
-    self.cardView.layer.shadowOpacity = 0.2;
+    self.cardView.layer.shadowOpacity = 0.5;
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:self.cardView.bounds];
     self.cardView.layer.shadowPath = path.CGPath;
     self.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1];
     
-    self.priceLabel.layer.cornerRadius = self.priceLabel.layer.frame.size.height/2;
-    self.nameLabel.layer.cornerRadius = self.nameLabel.layer.frame.size.height/2;
+    //self.priceLabel.layer.cornerRadius = self.priceLabel.layer.frame.size.height/2;
+    self.priceTag.userInteractionEnabled = NO;
+    [self.priceTag setBackgroundImage:[UIImage imageNamed:@"pricetag"] forState:UIControlStateNormal];
     self.buyNowButton.layer.cornerRadius = self.buyNowButton.layer.frame.size.height/2;
-    
+    self.buyNowButton.layer.masksToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

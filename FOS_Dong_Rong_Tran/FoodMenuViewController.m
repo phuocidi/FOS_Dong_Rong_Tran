@@ -7,10 +7,11 @@
 //
 
 #import "FoodMenuViewController.h"
-#import "FoodTableViewCell.h"
+#import "FoodMenuTableViewCell.h"
 #import "SingleLineSegmentedControl.h"
 #import "Webservice.h"
 #import "Constant.h"
+#import "ImageDownloader.h"
 // --------------------------------
 @interface FoodMenuViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -35,25 +36,44 @@
     self.segmentedControl.selectedSegmentIndex = 0;
     [self.segmentedControl addTarget:self action:@selector(handleSegmentControl:) forControlEvents: UIControlEventValueChanged];
     [self.view addSubview: self.segmentedControl];
-    
     self.datasource = [NSMutableArray array];
-    [[WebService sharedInstance] getFoodMenu:[Constant foodKeyCategoryVeg] completionHandler:^(NSArray *data) {
-        self.datasource = data;
-        [self.tableView reloadData];
-        
-    }];
+    
+    [self updateDatasource:[Constant foodKeyCategoryVeg]];
+
     
 }
 
 - (void) handleSegmentControl:(UISegmentedControl*)sender {
+    NSString * choice;
     switch (sender.selectedSegmentIndex) {
         case 0:
-            NSLog(@"Vegie");
+            choice = [Constant foodKeyCategoryVeg];
             break;
         case 1:
-            NSLog(@"Non-Vegie");
+            choice = [Constant foodKeyCategoryNonVeg];
             break;
     }
+    
+    [self updateDatasource:choice];
+    
+
+}
+
+- (void) updateDatasource:(NSString*) choice {
+    [[WebService sharedInstance] getFoodMenu:choice completionHandler:^(NSArray *data) {
+        self.datasource = [NSMutableArray arrayWithArray: data];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [UIView transitionWithView: self.tableView
+                              duration: 0.4f
+                               options: UIViewAnimationOptionTransitionCrossDissolve
+                            animations: ^(void)
+             {
+                 [self.tableView reloadData];
+             }
+                            completion: nil];
+        });
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,13 +98,53 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return (self.datasource.count) ? 3 : self.datasource.count;
+    return self.datasource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    FoodTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"foodMenuCell"];
+    FoodMenuTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"foodMenuCell"];
+    // dummy cell if empty
+    
+    cell.buyNowButton.tag = indexPath.row;
+    [cell.buyNowButton addTarget:self action:@selector(orderButtonCicked:) forControlEvents: UIControlEventTouchUpInside];
+    
+    cell.buyNowButton.userInteractionEnabled = NO;
+    
+    NSDictionary * item = (NSDictionary *) self.datasource[indexPath.row];
+    dispatch_async(dispatch_get_main_queue(), ^{
+            cell.priceTag.titleLabel.text = [NSString stringWithFormat:@"$%ld", [item[[Constant foodKeyPrice]] integerValue]];
+    });
+
+    cell.nameLabel.text = item[[Constant foodKeyName]];
+    cell.recepieeLabel.text = item [[Constant foodKeyRecepiee]];
+    
+    NSString * urlStr = item[[Constant foodKeyImgURL]];
+
+    [[ImageDownloader sharedInstance] downloadImageForCellwithURL:[NSURL URLWithString:urlStr]
+                                                completionHandler:^(UIImage *image) {
+                                                   
+                                                    dispatch_async(dispatch_get_main_queue(), ^{
+                                                        if (image) {
+                                                           cell.foodImageView.image = image;
+                                                        }
+                                                        else {
+                                                            cell.foodImageView.image = [UIImage imageNamed:@"Food"];
+                                                        }
+                                                   });
+                                                }];
+    
+//    [[ImageDownloader sharedInstance] fetchImage:urlStr completionHandler:^(NSData *image) {
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            cell.foodImageView.image = [UIImage imageWithData:image];
+//        });
+//        
+//    }];
     
     return cell;
+}
+
+- (void) orderButtonCicked: (id) sender {
+    NSLog(@"IT's clicked");
 }
 
 #pragma mark - UITableViewDelegate
