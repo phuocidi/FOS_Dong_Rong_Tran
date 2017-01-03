@@ -10,6 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "Annotation.h"
 #import "AppDelegate.h"
+#import "FoodMenuViewController.h"
 
 
 #define METERS_PER_MILE     1609.34
@@ -78,7 +79,9 @@
 {
     view.selected = YES;
     NSLog(@"select an annotation");
-
+    FoodMenuViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodMenuViewController"];
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

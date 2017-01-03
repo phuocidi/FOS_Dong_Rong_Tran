@@ -118,8 +118,7 @@
         }];
 
     }
-    while(tempBool==NO);
-    return tempBool;
+    return (tempBool)?tempBool:YES;
 }
 
 #pragma mark - Navigation

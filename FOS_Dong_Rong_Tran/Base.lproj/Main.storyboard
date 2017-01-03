@@ -296,7 +296,7 @@
         <!--Order Summary View Controller-->
         <scene sceneID="5Du-mn-sxu">
             <objects>
-                <viewController id="2gT-Yt-FPv" customClass="OrderSummaryViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrderSummaryViewController" id="2gT-Yt-FPv" customClass="OrderSummaryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="u5N-lD-61b"/>
                         <viewControllerLayoutGuide type="bottom" id="qF7-f8-nXv"/>
@@ -306,7 +306,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Food" translatesAutoresizingMaskIntoConstraints="NO" id="1s9-O8-Yld">
-                                <rect key="frame" x="0.0" y="64" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="qkT-qb-Tp8"/>
                                 </constraints>
@@ -325,7 +325,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="107" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mwJ-6O-sQN">
-                                <rect key="frame" x="0.0" y="218" width="375" height="331"/>
+                                <rect key="frame" x="0.0" y="174" width="375" height="375"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodCell" rowHeight="80" id="iqb-p9-6iq" customClass="FoodTableViewCell">
@@ -622,7 +622,7 @@
         <!--Recent Order View Controller-->
         <scene sceneID="mSd-vl-A2v">
             <objects>
-                <viewController id="xCS-5x-fbG" customClass="RecentOrderViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecentOrderViewController" id="xCS-5x-fbG" customClass="RecentOrderViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SIv-HL-5C2"/>
                         <viewControllerLayoutGuide type="bottom" id="8cI-NU-2bJ"/>
@@ -774,7 +774,7 @@
         <!--Order Detail View Controller-->
         <scene sceneID="J1E-iU-c6W">
             <objects>
-                <viewController id="wtG-nl-6eF" customClass="OrderDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrderDetailViewController" id="wtG-nl-6eF" customClass="OrderDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wK8-wg-mkF"/>
                         <viewControllerLayoutGuide type="bottom" id="ORs-zg-TJH"/>
@@ -784,7 +784,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="107" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="amR-Li-paV">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="450"/>
+                                <rect key="frame" x="0.0" y="-44" width="375" height="450"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="450" id="UuG-us-pnc"/>
@@ -1016,7 +1016,7 @@
                                 </connections>
                             </tableView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Delivery Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="100-qi-AD5">
-                                <rect key="frame" x="0.0" y="455" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="411" width="375" height="50"/>
                                 <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="8hj-Kn-UWx"/>
@@ -1026,7 +1026,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a UILabel, need to discuss whether can change at here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaF-Jd-tqN">
-                                <rect key="frame" x="-0.5" y="513" width="375" height="50"/>
+                                <rect key="frame" x="-0.5" y="469" width="375" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Vgf-GP-qxp"/>
                                 </constraints>
@@ -1035,7 +1035,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MapKit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGZ-zK-Llx">
-                                <rect key="frame" x="-0.5" y="571" width="375" height="88"/>
+                                <rect key="frame" x="-0.5" y="527" width="375" height="132"/>
                                 <color key="backgroundColor" red="1" green="0.38912415150000002" blue="0.17421842930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                 <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1172,7 +1172,7 @@
                                                 <color key="titleColor" red="1" green="0.38912415150000002" blue="0.17421842930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
-                                                <segue destination="6O2-qM-iRu" kind="show" id="dqq-yY-kTQ"/>
+                                                <segue destination="6O2-qM-iRu" kind="show" identifier="loginToHomeSegue" id="dqq-yY-kTQ"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npu-kj-UkB">
@@ -1254,7 +1254,7 @@
             </objects>
             <point key="canvasLocation" x="2270" y="112"/>
         </scene>
-        <!--Menus-->
+        <!--Title-->
         <scene sceneID="Ybe-ZV-ujN">
             <objects>
                 <viewController storyboardIdentifier="FoodMenuViewController" id="Vq0-j4-G6C" customClass="FoodMenuViewController" sceneMemberID="viewController">
@@ -1267,7 +1267,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pmK-Yg-Nsl">
-                                <rect key="frame" x="0.0" y="127" width="375" height="540"/>
+                                <rect key="frame" x="0.0" y="127" width="375" height="496"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FoodMenuTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodMenuCell" rowHeight="350" id="ah2-DS-imK" customClass="FoodMenuTableViewCell">
@@ -1353,38 +1353,23 @@
                             <constraint firstItem="zvr-Vh-3oO" firstAttribute="top" secondItem="pmK-Yg-Nsl" secondAttribute="bottom" id="sKr-pe-Bhp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Menus" id="dvY-OO-7SO">
-                        <barButtonItem key="backBarButtonItem" title=" " id="V4I-wI-TLP"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="ock-qb-RRm">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="g0g-RG-rcS">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="toSummary:" destination="Vq0-j4-G6C" id="0HE-Ct-Znx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="pmK-Yg-Nsl" id="9qv-XA-HCz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5BG-o4-Tdh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1959" y="-1250"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="uzp-7Y-EqM">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ig3-ps-vMK" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="vtA-Wg-tB2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="2gT-Yt-FPv" kind="relationship" relationship="rootViewController" id="dHo-FK-0ih"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KQk-so-OYA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1533.5999999999999" y="-575.26236881559225"/>
+            <point key="canvasLocation" x="1698" y="-575"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LoJ-VA-n80">

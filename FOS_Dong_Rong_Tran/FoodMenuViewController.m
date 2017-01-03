@@ -12,9 +12,14 @@
 #import "Webservice.h"
 #import "Constant.h"
 #import "ImageDownloader.h"
+#import "OrderSummaryViewController.h"
+#import "CartModel.h"
 // --------------------------------
 @interface FoodMenuViewController () <UITableViewDelegate, UITableViewDataSource>
-
+{
+        NSString * choice;
+    
+}
 @property (weak, nonatomic) IBOutlet UITableView * tableView;
 @property (strong, nonatomic) SingleLineSegmentedControl * segmentedControl;
 @property (retain, nonatomic) NSMutableArray * datasource;
@@ -44,7 +49,7 @@
 }
 
 - (void) handleSegmentControl:(UISegmentedControl*)sender {
-    NSString * choice;
+
     switch (sender.selectedSegmentIndex) {
         case 0:
             choice = [Constant foodKeyCategoryVeg];
@@ -144,13 +149,29 @@
     return cell;
 }
 
-- (void) orderButtonCicked: (id) sender {
-    NSLog(@"IT's clicked");
+- (void) orderButtonCicked: (UIButton*) sender {
+    NSLog(@"sender.tag");
+    NSDictionary * item = [self.datasource objectAtIndex:sender.tag];
+    int phone = 666666;
+    NSString* add = @"Chicago";
+    
+    NSDateFormatter * dateFormatter  = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
+    NSDate * now = [NSDate date];
+    NSString * dateStr = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:now]];
+    
+    
+    CartModel * cartModel = [[CartModel alloc] init];
+    [cartModel createCart:666666 name:item[[Constant foodKeyName]] category:choice add:add number:phone date:dateStr price:[item[[Constant foodKeyPrice]] doubleValue] ];
 }
 
 #pragma mark - UITableViewDelegate
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 350.0;
+}
+- (IBAction)toSummary:(id)sender {
+    OrderSummaryViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"OrderSummaryViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end
