@@ -69,7 +69,7 @@
     [ self.mapView setRegion: region ];
     [ self.mapView addAnnotation: [ Annotation annotationWithLatitude: 39.281516 longitude:-76.580806 title:@"Title1" subtitle:@"subtitle"] ];
     [ self.mapView addAnnotation: [ Annotation annotationWithLatitude: 39.3 longitude:-76.580806 title:@"Title2" subtitle:@"subtitle"] ];
-    [ self.mapView addAnnotation: [ Annotation annotationWithLatitude: 39.4 longitude:-76.580806 title:@"Title3" subtitle:@"subtitle"] ];
+    [ self.mapView addAnnotation: [ Annotation annotationWithLatitude: 39.33 longitude:-76.580806 title:@"Title3" subtitle:@"subtitle"] ];
     self.mapView.mapType = MKMapTypeStandard;
     
     // Do any additional setup after loading the view, typically from a nib.
@@ -91,9 +91,9 @@
         result.annotation = annotation;
     UIImage* image = nil;
     if( [annotation.title isEqualToString: @"My Location" ] )
-        image = [ UIImage imageNamed: @"greenmarker" ];
+        image = [ UIImage imageNamed: @"myLocation" ];
     else
-        image = [ UIImage imageNamed: @"pinkmarker" ];
+        image = [ UIImage imageNamed: @"restaurant" ];
     result.image = image;
     result.canShowCallout = YES;
     return result;
