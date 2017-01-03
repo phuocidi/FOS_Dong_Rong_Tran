@@ -23,7 +23,7 @@
 		0E170D8A1E1C0ED9003A162E /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E170D871E1C0ED9003A162E /* Annotation.m */; };
 		0E170D8B1E1C0ED9003A162E /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E170D891E1C0ED9003A162E /* HomePageViewController.m */; };
 		0E170D8D1E1C0EF7003A162E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E170D8C1E1C0EF7003A162E /* CoreLocation.framework */; };
-		0E170D901E1C0F21003A162E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E170D8F1E1C0F21003A162E /* AppDelegate.m */; };
+		0E170D931E1C1564003A162E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E170D921E1C1564003A162E /* AppDelegate.m */; };
 		0E2024D31E1AEA2F00414489 /* FoodMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E2024D21E1AEA2F00414489 /* FoodMenuTableViewCell.m */; };
 		0E2024D91E1AEAD400414489 /* FoodMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E2024D81E1AEAD400414489 /* FoodMenuViewController.m */; };
 		0E2024DC1E1B05A400414489 /* SingleLineSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E2024DB1E1B05A400414489 /* SingleLineSegmentedControl.m */; };
@@ -78,8 +78,8 @@
 		0E170D881E1C0ED9003A162E /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
 		0E170D891E1C0ED9003A162E /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
 		0E170D8C1E1C0EF7003A162E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		0E170D8E1E1C0F21003A162E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "../../../Downloads/food order/Mapkit/AppDelegate.h"; sourceTree = "<group>"; };
-		0E170D8F1E1C0F21003A162E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "../../../Downloads/food order/Mapkit/AppDelegate.m"; sourceTree = "<group>"; };
+		0E170D911E1C1564003A162E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0E170D921E1C1564003A162E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0E2024D11E1AEA2F00414489 /* FoodMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodMenuTableViewCell.h; sourceTree = "<group>"; };
 		0E2024D21E1AEA2F00414489 /* FoodMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodMenuTableViewCell.m; sourceTree = "<group>"; };
 		0E2024D71E1AEAD400414489 /* FoodMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodMenuViewController.h; sourceTree = "<group>"; };
@@ -261,8 +261,8 @@
 		0E33A82C1E16E99A005CD961 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0E170D8E1E1C0F21003A162E /* AppDelegate.h */,
-				0E170D8F1E1C0F21003A162E /* AppDelegate.m */,
+				0E170D911E1C1564003A162E /* AppDelegate.h */,
+				0E170D921E1C1564003A162E /* AppDelegate.m */,
 				0E33A83A1E16E99A005CD961 /* LaunchScreen.storyboard */,
 				0E33A83D1E16E99A005CD961 /* Info.plist */,
 				0E33A8321E16E99A005CD961 /* ViewController.h */,
@@ -454,7 +454,7 @@
 				07379EBC1E1A154F0094F49D /* RecentTableViewCell.m in Sources */,
 				07379E971E19BD7F0094F49D /* SummaryTableViewCell.m in Sources */,
 				07379E9E1E19D5730094F49D /* OrderDetailViewController.m in Sources */,
-				0E170D901E1C0F21003A162E /* AppDelegate.m in Sources */,
+				0E170D931E1C1564003A162E /* AppDelegate.m in Sources */,
 				0E33A8341E16E99A005CD961 /* ViewController.m in Sources */,
 				0EF9D7FB1E19AB4A005E64C7 /* SingleLineUITextField.m in Sources */,
 				0EF9D7E61E198EFF005E64C7 /* UserModel.m in Sources */,
