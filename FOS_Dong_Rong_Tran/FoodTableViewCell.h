@@ -12,7 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *foodName;
 @property (weak, nonatomic) IBOutlet UILabel *foodPrice;
-@property (weak, nonatomic) IBOutlet UILabel *numberOfNeed;
+@property (weak, nonatomic) IBOutlet UITextField *numberOfNeed;
 @property (weak, nonatomic) IBOutlet UIButton *add;
 @property (weak, nonatomic) IBOutlet UIButton *minus;
 

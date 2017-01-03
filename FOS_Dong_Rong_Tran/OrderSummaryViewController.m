@@ -14,7 +14,7 @@
 #import "CartModel.h"
 #import "Cart.h"
 
-@interface OrderSummaryViewController ()
+@interface OrderSummaryViewController () <UITextFieldDelegate>
 
 @property(nonatomic, strong)UIImageView *separatorLine;
 @property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
@@ -54,6 +54,11 @@
 }
 
 - (IBAction)checkOut:(UIButton *)sender {
+    // Send Order
+    
+}
+
+- (void)changeNumberOfNeed:(UIButton *)sender {
     Cart *cart = [self.cartList objectAtIndex:sender.tag];
     double singlePrice = cart.price / cart.numberOfNeed;
     if ([sender.titleLabel.text isEqualToString:@"1"]) {
@@ -140,12 +145,15 @@ UIImageView* (^separatorView)(void) = ^{
     
     Cart *cart = self.cartList[indexPath.row];
     cell.foodName.text = cart.name;
-    cell.foodPrice.text = [NSString stringWithFormat:@"%.2f", cart.price];
+    double singlePrice = cart.price / cart.numberOfNeed;
+    cell.foodPrice.text = [NSString stringWithFormat:@"%.2f", singlePrice];
+    cell.numberOfNeed.delegate = self;
+    cell.numberOfNeed.tag = [indexPath row];
     cell.numberOfNeed.text = [NSString stringWithFormat:@"%d", cart.numberOfNeed];
     
-    [cell.minus addTarget:self action:@selector(checkOut:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.minus addTarget:self action:@selector(changeNumberOfNeed:) forControlEvents:UIControlEventTouchUpInside];
     cell.minus.tag = [indexPath row];
-    [cell.add addTarget:self action:@selector(checkOut:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.add addTarget:self action:@selector(changeNumberOfNeed:) forControlEvents:UIControlEventTouchUpInside];
     cell.add.tag = [indexPath row];
     
     // Add separatorView
@@ -183,6 +191,23 @@ UIImageView* (^separatorView)(void) = ^{
 //    return headerView;
 //}
 
+#pragma mark - TextField Delegate
+
+-(void)textFieldDidEndEditing:(UITextField *)textField {
+    NSLog(@"%@", textField.text);
+    [textField resignFirstResponder];
+    Cart *cart = [self.cartList objectAtIndex:textField.tag];
+    double singlePrice = cart.price / cart.numberOfNeed;
+    cart.numberOfNeed = [textField.text intValue];
+    cart.price = cart.numberOfNeed * singlePrice;
+    [self.cartModel saveUser:cart];
+    if (cart.numberOfNeed == 0) {
+        [self.cartList removeObjectAtIndex:textField.tag];
+        // update database
+        [self.cartModel deleteUser:cart];
+    }
+    [self.tableView reloadData];
+}
 
 @end
 

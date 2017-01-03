@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GS7-mh-pr9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ig3-ps-vMK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -342,12 +342,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gta-1U-FhW">
-                                                    <rect key="frame" x="99" y="50" width="8" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emG-kV-UoK">
                                                     <rect key="frame" x="59" y="44" width="32" height="32"/>
                                                     <constraints>
@@ -356,8 +350,18 @@
                                                     </constraints>
                                                     <state key="normal" title="1" image="minus"/>
                                                 </button>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CR2-jL-zlk">
+                                                    <rect key="frame" x="99" y="45" width="60" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="TBe-vw-CPG"/>
+                                                        <constraint firstAttribute="height" constant="30" id="WqQ-ZC-RdO"/>
+                                                    </constraints>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1f-Hm-rsf">
-                                                    <rect key="frame" x="115" y="44" width="32" height="32"/>
+                                                    <rect key="frame" x="167" y="44" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="NNR-P0-JHB"/>
                                                         <constraint firstAttribute="width" constant="32" id="VNQ-sJ-tjx"/>
@@ -366,12 +370,12 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="E1f-Hm-rsf" firstAttribute="centerY" secondItem="gta-1U-FhW" secondAttribute="centerY" id="1pf-Mp-K09"/>
+                                                <constraint firstItem="CR2-jL-zlk" firstAttribute="centerY" secondItem="emG-kV-UoK" secondAttribute="centerY" id="6Lv-iM-TnC"/>
+                                                <constraint firstItem="E1f-Hm-rsf" firstAttribute="centerY" secondItem="CR2-jL-zlk" secondAttribute="centerY" id="CGe-Ma-jv9"/>
                                                 <constraint firstItem="emG-kV-UoK" firstAttribute="centerY" secondItem="h8W-DY-l92" secondAttribute="centerY" id="DBb-GZ-WAT"/>
-                                                <constraint firstItem="gta-1U-FhW" firstAttribute="leading" secondItem="emG-kV-UoK" secondAttribute="trailing" constant="8" id="RYD-h3-gRW"/>
-                                                <constraint firstItem="E1f-Hm-rsf" firstAttribute="leading" secondItem="gta-1U-FhW" secondAttribute="trailing" constant="8" id="Vvc-yc-BAL"/>
+                                                <constraint firstItem="E1f-Hm-rsf" firstAttribute="leading" secondItem="CR2-jL-zlk" secondAttribute="trailing" constant="8" id="N1v-uf-RMx"/>
                                                 <constraint firstItem="emG-kV-UoK" firstAttribute="leading" secondItem="h8W-DY-l92" secondAttribute="trailing" constant="10" id="dUb-LW-RIf"/>
-                                                <constraint firstItem="gta-1U-FhW" firstAttribute="centerY" secondItem="emG-kV-UoK" secondAttribute="centerY" id="oxj-7h-QYG"/>
+                                                <constraint firstItem="CR2-jL-zlk" firstAttribute="leading" secondItem="emG-kV-UoK" secondAttribute="trailing" constant="8" id="mau-Ae-jOY"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -388,7 +392,7 @@
                                             <outlet property="foodName" destination="K8J-A4-0a3" id="VkK-cz-OxU"/>
                                             <outlet property="foodPrice" destination="DpC-oI-NUp" id="ntR-2m-svO"/>
                                             <outlet property="minus" destination="emG-kV-UoK" id="9mr-1N-3uJ"/>
-                                            <outlet property="numberOfNeed" destination="gta-1U-FhW" id="mUS-uh-28A"/>
+                                            <outlet property="numberOfNeed" destination="CR2-jL-zlk" id="Xpx-t7-xgv"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SummaryCell" rowHeight="165" id="g2y-SA-mBO" customClass="SummaryTableViewCell">
@@ -614,7 +618,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecentCell" rowHeight="100" id="1U4-Mp-3DF" customClass="RecentTableViewCell">
-                                        <rect key="frame" x="0.0" y="28" width="376" height="100"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1U4-Mp-3DF" id="hCK-J9-cJk">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
@@ -1210,7 +1214,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="350"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ah2-DS-imK" id="PCz-ne-8pW">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="349"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="349.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9y-F8-jF5">
