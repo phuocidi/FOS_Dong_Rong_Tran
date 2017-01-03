@@ -43,6 +43,7 @@
     [self.view addSubview: self.segmentedControl];
     self.datasource = [NSMutableArray array];
     
+    choice = [Constant foodKeyCategoryVeg];
     [self updateDatasource:[Constant foodKeyCategoryVeg]];
 
     
@@ -152,7 +153,6 @@
 - (void) orderButtonCicked: (UIButton*) sender {
     NSLog(@"sender.tag");
     NSDictionary * item = [self.datasource objectAtIndex:sender.tag];
-    int phone = 666666;
     NSString* add = @"Chicago";
     
     NSDateFormatter * dateFormatter  = [[NSDateFormatter alloc] init];
@@ -162,7 +162,7 @@
     
     
     CartModel * cartModel = [[CartModel alloc] init];
-    [cartModel createCart:666666 name:item[[Constant foodKeyName]] category:choice add:add number:phone date:dateStr price:[item[[Constant foodKeyPrice]] doubleValue] ];
+    [cartModel createCart:[item[[Constant foodKeyID]] intValue] name:item[[Constant foodKeyName]] category:choice add:add number:1 date:dateStr price:[item[[Constant foodKeyPrice]] doubleValue] ];
 }
 
 #pragma mark - UITableViewDelegate

@@ -21,7 +21,9 @@
     
     self.sql = [SQLiteModel sharedInstance];
     
-    NSString* userQuery = @"INSERT INTO tbl_Cart VALUES( NULL, 123, 'veg', 'Chicken tikka meatballs', 'Chicago', 1, 1550, 'date');INSERT INTO tbl_Cart VALUES( NULL, 123, 'veg', 'Chettinad chicken keema', 'Aruora', 1, 1650, 'date');";
+    NSString* userQuery_old = @"INSERT INTO tbl_Cart VALUES( NULL, 123, 'veg', 'Chicken tikka meatballs', 'Chicago', 1, 1550, 'date');INSERT INTO tbl_Cart VALUES( NULL, 123, 'veg', 'Chettinad chicken keema', 'Aruora', 1, 1650, 'date');";
+    
+    NSString* userQuery = [NSString stringWithFormat:@"INSERT INTO tbl_Cart VALUES( NULL, %d, '%@', '%@', 'Chicago', %d, %0.2f, '%@');", food_id,food_category, food_name,numberOfNeed,food_price,food_date   ];
     char* errMessage = NULL;
     errMessage = [self.sql excute:userQuery andError:errMessage];
     if( errMessage != NULL ) {
