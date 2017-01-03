@@ -79,8 +79,12 @@
         if (successful) {
             [userManager createUser:user_phone name:userName email:userEmail password:password add:address longtitude:-88.2024 latitude:41.5359];
             
-            LoginViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-            [self.navigationController pushViewController:vc animated:YES];
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+                LoginViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+                [self.navigationController pushViewController:vc animated:YES];
+            });
+            
         }
     }];
     
