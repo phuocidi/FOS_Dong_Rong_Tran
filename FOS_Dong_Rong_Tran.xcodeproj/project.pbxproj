@@ -20,6 +20,9 @@
 		07379EBC1E1A154F0094F49D /* RecentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07379EBB1E1A154F0094F49D /* RecentTableViewCell.m */; };
 		07379EBF1E1A15670094F49D /* RecentOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07379EBE1E1A15670094F49D /* RecentOrderViewController.m */; };
 		0758FDF71E16F14300BFCF88 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 0758FDF61E16F14300BFCF88 /* login.png */; };
+		07E615031E1C4E56007BA036 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E615021E1C4E56007BA036 /* LoginViewController.m */; };
+		07E615061E1C4E61007BA036 /* Webservice.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E615051E1C4E61007BA036 /* Webservice.m */; };
+		07E615091E1C4E6C007BA036 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E615081E1C4E6C007BA036 /* RegisterViewController.m */; };
 		0E170D8A1E1C0ED9003A162E /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E170D871E1C0ED9003A162E /* Annotation.m */; };
 		0E170D8B1E1C0ED9003A162E /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E170D891E1C0ED9003A162E /* HomePageViewController.m */; };
 		0E170D8D1E1C0EF7003A162E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E170D8C1E1C0EF7003A162E /* CoreLocation.framework */; };
@@ -32,11 +35,9 @@
 		0E33A8371E16E99A005CD961 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E33A8351E16E99A005CD961 /* Main.storyboard */; };
 		0E33A8391E16E99A005CD961 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E33A8381E16E99A005CD961 /* Assets.xcassets */; };
 		0E33A83C1E16E99A005CD961 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E33A83A1E16E99A005CD961 /* LaunchScreen.storyboard */; };
-		0E33A8451E16EE35005CD961 /* Webservice.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E33A8441E16EE35005CD961 /* Webservice.m */; };
 		0EEAA0F71E16FBA600946EE1 /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAA0F31E16FBA600946EE1 /* ImageDownloader.m */; };
 		0EEAA0F81E16FBA600946EE1 /* WebserviceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAA0F61E16FBA600946EE1 /* WebserviceProvider.m */; };
 		0EEAA0FC1E1715D100946EE1 /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAA0FB1E1715D100946EE1 /* Constant.m */; };
-		0EEAA1001E18EDA800946EE1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAA0FF1E18EDA800946EE1 /* LoginViewController.m */; };
 		0EEAA1031E1900A200946EE1 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAA1021E1900A200946EE1 /* WelcomeViewController.m */; };
 		0EF9D7E41E198EFF005E64C7 /* CartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D7DF1E198EFF005E64C7 /* CartModel.m */; };
 		0EF9D7E51E198EFF005E64C7 /* SQLiteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D7E11E198EFF005E64C7 /* SQLiteModel.m */; };
@@ -45,7 +46,6 @@
 		0EF9D7EC1E198F2A005E64C7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D7EA1E198F2A005E64C7 /* User.m */; };
 		0EF9D7FB1E19AB4A005E64C7 /* SingleLineUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D7FA1E19AB4A005E64C7 /* SingleLineUITextField.m */; };
 		0EF9D8061E1A0840005E64C7 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D8051E1A0840005E64C7 /* HomeViewController.m */; };
-		0EF9D80A1E1A08D7005E64C7 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D8091E1A08D7005E64C7 /* RegisterViewController.m */; };
 		0EF9D8311E1A2DFC005E64C7 /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF9D8301E1A2DFC005E64C7 /* ResetPasswordViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +73,12 @@
 		07379EBD1E1A15670094F49D /* RecentOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentOrderViewController.h; sourceTree = "<group>"; };
 		07379EBE1E1A15670094F49D /* RecentOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentOrderViewController.m; sourceTree = "<group>"; };
 		0758FDF61E16F14300BFCF88 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
+		07E615011E1C4E56007BA036 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		07E615021E1C4E56007BA036 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		07E615041E1C4E61007BA036 /* Webservice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Webservice.h; sourceTree = "<group>"; };
+		07E615051E1C4E61007BA036 /* Webservice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webservice.m; sourceTree = "<group>"; };
+		07E615071E1C4E6C007BA036 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		07E615081E1C4E6C007BA036 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		0E170D861E1C0ED9003A162E /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
 		0E170D871E1C0ED9003A162E /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
 		0E170D881E1C0ED9003A162E /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
@@ -94,8 +100,6 @@
 		0E33A8381E16E99A005CD961 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E33A83B1E16E99A005CD961 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E33A83D1E16E99A005CD961 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0E33A8431E16EE35005CD961 /* Webservice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Webservice.h; sourceTree = "<group>"; };
-		0E33A8441E16EE35005CD961 /* Webservice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Webservice.m; sourceTree = "<group>"; };
 		0EEAA0F21E16FBA600946EE1 /* ImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloader.h; sourceTree = "<group>"; };
 		0EEAA0F31E16FBA600946EE1 /* ImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloader.m; sourceTree = "<group>"; };
 		0EEAA0F41E16FBA600946EE1 /* WebserviceCommunication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebserviceCommunication.h; sourceTree = "<group>"; };
@@ -103,8 +107,6 @@
 		0EEAA0F61E16FBA600946EE1 /* WebserviceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebserviceProvider.m; sourceTree = "<group>"; };
 		0EEAA0FA1E1715D100946EE1 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		0EEAA0FB1E1715D100946EE1 /* Constant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constant.m; sourceTree = "<group>"; };
-		0EEAA0FE1E18EDA800946EE1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		0EEAA0FF1E18EDA800946EE1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		0EEAA1011E1900A200946EE1 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		0EEAA1021E1900A200946EE1 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		0EF9D7DE1E198EFF005E64C7 /* CartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartModel.h; sourceTree = "<group>"; };
@@ -121,8 +123,6 @@
 		0EF9D7FA1E19AB4A005E64C7 /* SingleLineUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleLineUITextField.m; sourceTree = "<group>"; };
 		0EF9D8041E1A0840005E64C7 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		0EF9D8051E1A0840005E64C7 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		0EF9D8081E1A08D7005E64C7 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
-		0EF9D8091E1A08D7005E64C7 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		0EF9D82F1E1A2DFC005E64C7 /* ResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPasswordViewController.h; sourceTree = "<group>"; };
 		0EF9D8301E1A2DFC005E64C7 /* ResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -280,8 +280,8 @@
 				0EEAA0F41E16FBA600946EE1 /* WebserviceCommunication.h */,
 				0EEAA0F51E16FBA600946EE1 /* WebserviceProvider.h */,
 				0EEAA0F61E16FBA600946EE1 /* WebserviceProvider.m */,
-				0E33A8431E16EE35005CD961 /* Webservice.h */,
-				0E33A8441E16EE35005CD961 /* Webservice.m */,
+				07E615041E1C4E61007BA036 /* Webservice.h */,
+				07E615051E1C4E61007BA036 /* Webservice.m */,
 			);
 			name = WebService;
 			sourceTree = "<group>";
@@ -300,8 +300,8 @@
 		0EEAA0FD1E18ED9000946EE1 /* LoginView */ = {
 			isa = PBXGroup;
 			children = (
-				0EEAA0FE1E18EDA800946EE1 /* LoginViewController.h */,
-				0EEAA0FF1E18EDA800946EE1 /* LoginViewController.m */,
+				07E615011E1C4E56007BA036 /* LoginViewController.h */,
+				07E615021E1C4E56007BA036 /* LoginViewController.m */,
 			);
 			name = LoginView;
 			sourceTree = "<group>";
@@ -342,8 +342,8 @@
 		0EF9D8071E1A08A3005E64C7 /* Register View */ = {
 			isa = PBXGroup;
 			children = (
-				0EF9D8081E1A08D7005E64C7 /* RegisterViewController.h */,
-				0EF9D8091E1A08D7005E64C7 /* RegisterViewController.m */,
+				07E615071E1C4E6C007BA036 /* RegisterViewController.h */,
+				07E615081E1C4E6C007BA036 /* RegisterViewController.m */,
 			);
 			name = "Register View";
 			sourceTree = "<group>";
@@ -449,7 +449,6 @@
 				0E170D8A1E1C0ED9003A162E /* Annotation.m in Sources */,
 				0E2024D31E1AEA2F00414489 /* FoodMenuTableViewCell.m in Sources */,
 				0EF9D7EB1E198F2A005E64C7 /* Cart.m in Sources */,
-				0EEAA1001E18EDA800946EE1 /* LoginViewController.m in Sources */,
 				07379EA31E19E5A50094F49D /* DetailFoodTableViewCell.m in Sources */,
 				07379EBC1E1A154F0094F49D /* RecentTableViewCell.m in Sources */,
 				07379E971E19BD7F0094F49D /* SummaryTableViewCell.m in Sources */,
@@ -465,17 +464,18 @@
 				07379E9A1E19BD890094F49D /* TotalTableViewCell.m in Sources */,
 				07379E901E199CFC0094F49D /* OrderSummaryViewController.m in Sources */,
 				0EEAA0FC1E1715D100946EE1 /* Constant.m in Sources */,
-				0EF9D80A1E1A08D7005E64C7 /* RegisterViewController.m in Sources */,
 				07379E941E19BD730094F49D /* FoodTableViewCell.m in Sources */,
+				07E615091E1C4E6C007BA036 /* RegisterViewController.m in Sources */,
+				07E615061E1C4E61007BA036 /* Webservice.m in Sources */,
 				0EF9D7EC1E198F2A005E64C7 /* User.m in Sources */,
 				0EF9D8311E1A2DFC005E64C7 /* ResetPasswordViewController.m in Sources */,
 				07379EA91E19E5BB0094F49D /* DetailTotalTableViewCell.m in Sources */,
 				0EEAA0F71E16FBA600946EE1 /* ImageDownloader.m in Sources */,
 				0EF9D7E41E198EFF005E64C7 /* CartModel.m in Sources */,
-				0E33A8451E16EE35005CD961 /* Webservice.m in Sources */,
 				0E2024D91E1AEAD400414489 /* FoodMenuViewController.m in Sources */,
 				0E33A82E1E16E99A005CD961 /* main.m in Sources */,
 				0EF9D8061E1A0840005E64C7 /* HomeViewController.m in Sources */,
+				07E615031E1C4E56007BA036 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

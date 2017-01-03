@@ -81,26 +81,51 @@
 
 
 
--( NSString* )registerUser:(NSDictionary*) userData
+-( void)registerByPhone:(NSString*)mobilePhone userName:(NSString*)userName userEmail:(NSString*)userEmail userPassword:(NSString*)userPassword address:(NSString*) address completionHandler:(void(^)(BOOL successful))completionBlock
 {
-    NSString* output = [ self.provider syncWebserviceCall: @"shop_reg.php" withDic : userData ];
-
-    return output;
+        // // Pass parameters for registration like "user_name=aamir" ," user_email=aa@gmail.com" , “user_phone=55565454", " user_password=7011”, “user_add=Delhi"
+    
+    
+    NSDictionary * userData = [NSDictionary dictionaryWithObjectsAndKeys:
+                               mobilePhone, @"user_phone",
+                               userPassword, @"user_password",
+                               userName, @"user_name",
+                               userEmail, @"user_email",
+                               address, @"user_add", nil];
+    
+     [self.provider asyncWebserviceCall:@"fos_reg.php" withDic:userData completionHandler:^(NSString * output){
+         BOOL sucessful = ([output isEqualToString:@"successfully registered"]);
+         
+         if(completionBlock) {
+             completionBlock (sucessful);
+         }
+         
+         
+     }];
 }
 
--( NSString* )loginUser:(NSDictionary*) userData
+-( void )loginByPhone:(NSString*)mobilePhone userPassword:(NSString *)userPassword completionHandler:(void(^)(BOOL successful))completionBlock
 {
-    NSString* output = [ self.provider syncWebserviceCall: @"shop_login.php" withDic : userData ];
+    //http://rjtmobile.com/ansari/fos/fosapp/fos_login.php?user_phone=123&user_password=123
+
+    NSDictionary * userData = [NSDictionary dictionaryWithObjectsAndKeys:
+                               mobilePhone, @"user_phone",
+                               userPassword, @"user_password", nil];
+        
+    //NSString* output = [ self.provider syncWebserviceCall: @"fos_login.php" withDic : userData ];
     
-    id jsonObject = [ NSJSONSerialization JSONObjectWithData: [ output dataUsingEncoding: NSUTF8StringEncoding ] options:NSJSONReadingAllowFragments error:nil ];
-    //NSArray* data = [ jsonObject objectForKey : @"msg"];
-    if ([jsonObject isKindOfClass:[NSDictionary class]]) {
-        return @"failed";
-    }
-    else {
-        return @"sucessful";
-    }
-    return output;
+    [self.provider asyncWebserviceCall:@"fos_login.php" withDic:userData completionHandler:^(NSString * output){
+        
+        id jsonObject = [ NSJSONSerialization JSONObjectWithData: [ output dataUsingEncoding: NSUTF8StringEncoding ] options:NSJSONReadingAllowFragments error:nil ];
+        NSArray* data = [ jsonObject objectForKey : @"msg"];
+        
+        BOOL sucessful = [data[0] isEqualToString:@"success"];
+        
+        if (completionBlock){
+            completionBlock (sucessful);
+        }
+    }];
+    
 }
 
 // This could be done better with Order Object. Use it in the mean time
@@ -178,30 +203,6 @@
     
     
     [self.provider asyncWebserviceCall:@"order_track.php" withDic:dictParameter completionHandler:^(NSString * responseMsg) {
-        id jsonOject = [NSJSONSerialization JSONObjectWithData:[responseMsg dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
-        
-        NSArray * dataArray;
-        if ([jsonOject isKindOfClass:[NSDictionary class]]) {
-            dataArray = [ ((NSDictionary*)jsonOject) objectForKey: [Constant orderStatusKey]];
-        }
-        
-        if (completionBlock) {
-            completionBlock (dataArray);
-        }
-    }];
-}
-
--( void )checkComfirmID:(NSString*)orderID completionHandler:(void(^)(NSArray* data))completionBlock
-{
-    // clean parameter
-    orderID = [orderID stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    
-    NSDictionary * dictParameter = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    orderID, [Constant orderStatusKeyID],
-                                    nil];
-    
-    
-    [self.provider asyncWebserviceCall:@"order_confirmation.php" withDic:dictParameter completionHandler:^(NSString * responseMsg) {
         id jsonOject = [NSJSONSerialization JSONObjectWithData:[responseMsg dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
         
         NSArray * dataArray;

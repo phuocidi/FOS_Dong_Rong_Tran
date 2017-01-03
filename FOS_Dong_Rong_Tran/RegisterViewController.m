@@ -9,6 +9,8 @@
 #import "RegisterViewController.h"
 #import "SingleLineUITextField.h"
 #import "LoginViewController.h"
+#import "UserModel.h"
+#import "Webservice.h"
 
 
 //// Pass parameters for registration like "user_name=aamir" ," user_email=aa@gmail.com" , “user_phone=55565454", " user_password=7011”, “user_add=Delhi"
@@ -64,7 +66,25 @@
 }
 */
 - (IBAction)registerButtonClicked:(id)sender {
-    LoginViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    UserModel * userManager = [[UserModel alloc] init];
+    
+    int user_phone = [self.userPhoneField.text intValue];
+    NSString * userName = self.userNameField.text;
+    NSString * userEmail = self.userEmailField.text;
+    NSString * password = self.userPasswordField.text;
+    NSString * address = self.userAddressField.text;
+    
+    
+    [[WebService sharedInstance] registerByPhone:self.userPhoneField.text userName:userName userEmail:userEmail userPassword:password address:address completionHandler:^(BOOL successful) {
+        if (successful) {
+            [userManager createUserByPhone:user_phone name:userName email:userEmail password:password add:address longtitude:-88.2024 latitude:41.5359];
+            
+            LoginViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }];
+    
+
 }
 
 @end

@@ -14,10 +14,8 @@
 
 -( void )checkOrderStatusID:(NSString*)orderID completionHandler:(void(^)(NSArray* data))completionBlock;
 
--( void )checkComfirmID:(NSString*)orderID completionHandler:(void(^)(NSArray* data))completionBlock;
+-( void )loginByPhone:(NSString*)mobilePhone userPassword:(NSString *)userPassword completionHandler:(void(^)(BOOL successful))completionBlock;
 
-- ( NSString* )registerUser:(NSDictionary*) data;
-
--( NSString* )loginUser:(NSDictionary*) data;
+-( void)registerByPhone:(NSString*)mobilePhone userName:(NSString*)userName userEmail:(NSString*)userEmail userPassword:(NSString*)userPassword address:(NSString*) address completionHandler:(void(^)(BOOL successful))completionBlock;
 
 @end

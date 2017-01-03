@@ -10,6 +10,8 @@
 #import "SingleLineUITextField.h"
 #import "HomeViewController.h"
 #import "ResetPasswordViewController.h"
+#import "WebService.h"
+#import "UserModel.h"
 
 @interface LoginViewController () <UITextFieldDelegate>
 {
@@ -104,14 +106,24 @@
     // Pass the selected object to the new view controller.
 }
 */
-#pragma mark - Navigation
-- (IBAction)doneButtonClick:(id)sender {
-    // validate all field is not empty and push to navigation controller
-    
-//    HomeViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
-//    
-//    [self.navigationController pushViewController:vc animated:YES];
+
+- (BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    BOOL __block tempBool = NO;
+    if ([identifier isEqualToString:@"loginToHomeSegue"]) {
+        
+        [[WebService sharedInstance] loginByPhone:self.mobileField.text userPassword:self.passwordField.text completionHandler:^(BOOL successful) {
+            tempBool= successful;
+            UserModel * userModel = [[UserModel alloc] init];
+            NSMutableArray* array =  [userModel allUsers];
+        }];
+
+    }
+    while(tempBool==NO);
+    return tempBool;
 }
+
+#pragma mark - Navigation
+
 
 - (IBAction)resetButtonClick:(id)sender
 {
@@ -119,5 +131,7 @@
     
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+
 
 @end
