@@ -75,18 +75,18 @@
         OrderDetailViewController *destinationVC = [segue destinationViewController];
         
         // Send Order
-//        NSMutableArray *orderIds = [[NSMutableArray alloc] init];
-//        for (Cart *cart in self.cartList) {
-//            [self.webService sendOrderWithMobile:[NSString stringWithFormat:@"%d", cart.phone] category:cart.category orderName:cart.name orderQuantity:[NSString stringWithFormat:@"%d", cart.numberOfNeed] totalCost:[NSString stringWithFormat:@"%.2f", cart.price] orderAddress:self.DeliveryAddress.text completionHandler:^(NSString *order_id) {
-//                NSLog(@"%@", order_id);
-//                [orderIds addObject:order_id];
-//            }];
-//        }
-//        destinationVC.orderId = orderIds;
+        NSMutableArray *orderIds = [[NSMutableArray alloc] init];
+        for (Cart *cart in self.cartList) {
+            [self.webService sendOrderWithMobile:[NSString stringWithFormat:@"%d", cart.phone] category:cart.category orderName:cart.name orderQuantity:[NSString stringWithFormat:@"%d", cart.numberOfNeed] totalCost:[NSString stringWithFormat:@"%.2f", cart.price] orderAddress:self.DeliveryAddress.text completionHandler:^(NSString *order_id) {
+                NSLog(@"%@", order_id);
+                [orderIds addObject:order_id];
+            }];
+        }
+        destinationVC.orderId = orderIds;
         
-        // Remove later
-        NSArray *orderid = @[@"12222252", @"12222253"];
-        destinationVC.orderId = orderid;
+//        // Remove later
+//        NSArray *orderid = @[@"12222252", @"12222253"];
+//        destinationVC.orderId = orderid;
     }
     
 }
