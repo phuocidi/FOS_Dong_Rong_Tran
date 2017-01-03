@@ -16,9 +16,12 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self.cardView setUserInteractionEnabled:NO];
+    
+    //[self.contentView setUserInteractionEnabled:NO];
+    
+    //[self.cardView setUserInteractionEnabled:NO];
     [self.cardView setAlpha:1];
-    self.cardView.layer.masksToBounds = NO;
+    self.cardView.layer.masksToBounds = YES;
     self.cardView.layer.cornerRadius = 1;
     self.cardView.layer.shadowOffset = CGSizeMake(-.4f, .4f);
     self.cardView.layer.shadowRadius = 1;
@@ -31,7 +34,7 @@
     self.priceTag.userInteractionEnabled = NO;
     [self.priceTag setBackgroundImage:[UIImage imageNamed:@"pricetag"] forState:UIControlStateNormal];
     self.buyNowButton.layer.cornerRadius = self.buyNowButton.layer.frame.size.height/2;
-    self.buyNowButton.layer.masksToBounds = YES;
+    //self.buyNowButton.layer.masksToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
