@@ -20,11 +20,14 @@
 		07379EBC1E1A154F0094F49D /* RecentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07379EBB1E1A154F0094F49D /* RecentTableViewCell.m */; };
 		07379EBF1E1A15670094F49D /* RecentOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07379EBE1E1A15670094F49D /* RecentOrderViewController.m */; };
 		0758FDF71E16F14300BFCF88 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 0758FDF61E16F14300BFCF88 /* login.png */; };
+		0E170D8A1E1C0ED9003A162E /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E170D871E1C0ED9003A162E /* Annotation.m */; };
+		0E170D8B1E1C0ED9003A162E /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E170D891E1C0ED9003A162E /* HomePageViewController.m */; };
+		0E170D8D1E1C0EF7003A162E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E170D8C1E1C0EF7003A162E /* CoreLocation.framework */; };
+		0E170D901E1C0F21003A162E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E170D8F1E1C0F21003A162E /* AppDelegate.m */; };
 		0E2024D31E1AEA2F00414489 /* FoodMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E2024D21E1AEA2F00414489 /* FoodMenuTableViewCell.m */; };
 		0E2024D91E1AEAD400414489 /* FoodMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E2024D81E1AEAD400414489 /* FoodMenuViewController.m */; };
 		0E2024DC1E1B05A400414489 /* SingleLineSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E2024DB1E1B05A400414489 /* SingleLineSegmentedControl.m */; };
 		0E33A82E1E16E99A005CD961 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E33A82D1E16E99A005CD961 /* main.m */; };
-		0E33A8311E16E99A005CD961 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E33A8301E16E99A005CD961 /* AppDelegate.m */; };
 		0E33A8341E16E99A005CD961 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E33A8331E16E99A005CD961 /* ViewController.m */; };
 		0E33A8371E16E99A005CD961 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E33A8351E16E99A005CD961 /* Main.storyboard */; };
 		0E33A8391E16E99A005CD961 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E33A8381E16E99A005CD961 /* Assets.xcassets */; };
@@ -70,6 +73,13 @@
 		07379EBD1E1A15670094F49D /* RecentOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentOrderViewController.h; sourceTree = "<group>"; };
 		07379EBE1E1A15670094F49D /* RecentOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentOrderViewController.m; sourceTree = "<group>"; };
 		0758FDF61E16F14300BFCF88 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
+		0E170D861E1C0ED9003A162E /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
+		0E170D871E1C0ED9003A162E /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
+		0E170D881E1C0ED9003A162E /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
+		0E170D891E1C0ED9003A162E /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
+		0E170D8C1E1C0EF7003A162E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		0E170D8E1E1C0F21003A162E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "../../../Downloads/food order/Mapkit/AppDelegate.h"; sourceTree = "<group>"; };
+		0E170D8F1E1C0F21003A162E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "../../../Downloads/food order/Mapkit/AppDelegate.m"; sourceTree = "<group>"; };
 		0E2024D11E1AEA2F00414489 /* FoodMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodMenuTableViewCell.h; sourceTree = "<group>"; };
 		0E2024D21E1AEA2F00414489 /* FoodMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodMenuTableViewCell.m; sourceTree = "<group>"; };
 		0E2024D71E1AEAD400414489 /* FoodMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodMenuViewController.h; sourceTree = "<group>"; };
@@ -78,8 +88,6 @@
 		0E2024DB1E1B05A400414489 /* SingleLineSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleLineSegmentedControl.m; sourceTree = "<group>"; };
 		0E33A8291E16E99A005CD961 /* FOS_Dong_Rong_Tran.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FOS_Dong_Rong_Tran.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E33A82D1E16E99A005CD961 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0E33A82F1E16E99A005CD961 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		0E33A8301E16E99A005CD961 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0E33A8321E16E99A005CD961 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		0E33A8331E16E99A005CD961 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0E33A8361E16E99A005CD961 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E170D8D1E1C0EF7003A162E /* CoreLocation.framework in Frameworks */,
 				07379EAA1E19E9870094F49D /* MapKit.framework in Frameworks */,
 				07379E8D1E19997E0094F49D /* libsqlite3.tbd in Frameworks */,
 			);
@@ -135,6 +144,7 @@
 		07379E8B1E19997E0094F49D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0E170D8C1E1C0EF7003A162E /* CoreLocation.framework */,
 				07379E9F1E19D79C0094F49D /* MapKit.framework */,
 				07379E8C1E19997E0094F49D /* libsqlite3.tbd */,
 			);
@@ -182,6 +192,17 @@
 			name = "Recent Order Page";
 			sourceTree = "<group>";
 		};
+		0E170D851E1C0EB5003A162E /* HomePageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0E170D861E1C0ED9003A162E /* Annotation.h */,
+				0E170D871E1C0ED9003A162E /* Annotation.m */,
+				0E170D881E1C0ED9003A162E /* HomePageViewController.h */,
+				0E170D891E1C0ED9003A162E /* HomePageViewController.m */,
+			);
+			name = HomePageViewController;
+			sourceTree = "<group>";
+		};
 		0E2024D01E1AEA1300414489 /* Food Menu View */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +236,7 @@
 		0E33A82B1E16E99A005CD961 /* FOS_Dong_Rong_Tran */ = {
 			isa = PBXGroup;
 			children = (
+				0E170D851E1C0EB5003A162E /* HomePageViewController */,
 				0E2024D01E1AEA1300414489 /* Food Menu View */,
 				0EF9D8321E1A310E005E64C7 /* Welcome View */,
 				0EF9D82E1E1A2DE3005E64C7 /* ResetPassWord View */,
@@ -239,10 +261,10 @@
 		0E33A82C1E16E99A005CD961 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0E170D8E1E1C0F21003A162E /* AppDelegate.h */,
+				0E170D8F1E1C0F21003A162E /* AppDelegate.m */,
 				0E33A83A1E16E99A005CD961 /* LaunchScreen.storyboard */,
 				0E33A83D1E16E99A005CD961 /* Info.plist */,
-				0E33A82F1E16E99A005CD961 /* AppDelegate.h */,
-				0E33A8301E16E99A005CD961 /* AppDelegate.m */,
 				0E33A8321E16E99A005CD961 /* ViewController.h */,
 				0E33A8331E16E99A005CD961 /* ViewController.m */,
 				0E33A82D1E16E99A005CD961 /* main.m */,
@@ -423,6 +445,8 @@
 			files = (
 				07379EA61E19E5AF0094F49D /* DetailSummaryTableViewCell.m in Sources */,
 				0E2024DC1E1B05A400414489 /* SingleLineSegmentedControl.m in Sources */,
+				0E170D8B1E1C0ED9003A162E /* HomePageViewController.m in Sources */,
+				0E170D8A1E1C0ED9003A162E /* Annotation.m in Sources */,
 				0E2024D31E1AEA2F00414489 /* FoodMenuTableViewCell.m in Sources */,
 				0EF9D7EB1E198F2A005E64C7 /* Cart.m in Sources */,
 				0EEAA1001E18EDA800946EE1 /* LoginViewController.m in Sources */,
@@ -430,6 +454,7 @@
 				07379EBC1E1A154F0094F49D /* RecentTableViewCell.m in Sources */,
 				07379E971E19BD7F0094F49D /* SummaryTableViewCell.m in Sources */,
 				07379E9E1E19D5730094F49D /* OrderDetailViewController.m in Sources */,
+				0E170D901E1C0F21003A162E /* AppDelegate.m in Sources */,
 				0E33A8341E16E99A005CD961 /* ViewController.m in Sources */,
 				0EF9D7FB1E19AB4A005E64C7 /* SingleLineUITextField.m in Sources */,
 				0EF9D7E61E198EFF005E64C7 /* UserModel.m in Sources */,
@@ -443,7 +468,6 @@
 				0EF9D80A1E1A08D7005E64C7 /* RegisterViewController.m in Sources */,
 				07379E941E19BD730094F49D /* FoodTableViewCell.m in Sources */,
 				0EF9D7EC1E198F2A005E64C7 /* User.m in Sources */,
-				0E33A8311E16E99A005CD961 /* AppDelegate.m in Sources */,
 				0EF9D8311E1A2DFC005E64C7 /* ResetPasswordViewController.m in Sources */,
 				07379EA91E19E5BB0094F49D /* DetailTotalTableViewCell.m in Sources */,
 				0EEAA0F71E16FBA600946EE1 /* ImageDownloader.m in Sources */,
