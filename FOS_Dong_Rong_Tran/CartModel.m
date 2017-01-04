@@ -70,6 +70,19 @@
     return TRUE;
 }
 
+-(BOOL)deleteAllFood {
+    self.sql = [SQLiteModel sharedInstance];
+    
+    NSString *userQuery = @"DELETE FROM tbl_Cart;";
+    char* errMessage = NULL;
+    errMessage = [self.sql excute:userQuery andError:errMessage];
+    if( errMessage != NULL ) {
+        return FALSE;
+    }
+    
+    return TRUE;
+}
+
 @end
 
 

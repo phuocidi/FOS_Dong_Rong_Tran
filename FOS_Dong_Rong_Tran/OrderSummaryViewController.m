@@ -75,17 +75,19 @@
         User *user = [User sharedInstance];
         // Send Order
         NSMutableArray *orderIds = [[NSMutableArray alloc] init];
-        for (Cart *cart in self.cartList) {
+        
+        for (int i = 0; i < self.cartList.count; i ++) {
+            Cart *cart = self.cartList[i];
             [self.webService sendOrderWithMobile:user.phone category:cart.category orderName:cart.name orderQuantity:[NSString stringWithFormat:@"%d", cart.numberOfNeed] totalCost:[NSString stringWithFormat:@"%.2f", cart.price] orderAddress:self.DeliveryAddress.text completionHandler:^(NSString *order_id) {
                 NSLog(@"%@", order_id);
                 [orderIds addObject:order_id];
+                if (i == self.cartList.count - 1) {
+                    destinationVC.orderId = orderIds;
+                    [destinationVC setputTableView];
+                }
             }];
         }
-        destinationVC.orderId = orderIds;
-        
-//        // Remove later
-//        NSArray *orderid = @[@"12222252", @"12222253"];
-//        destinationVC.orderId = orderid;
+        [self.cartModel deleteAllFood];
     }
     
 }
