@@ -118,7 +118,6 @@
             UserModel * userModel = [[UserModel alloc] init];
             NSMutableArray* array =  [userModel allUsers];
         }];
-
     }
     return (tempBool)?tempBool:YES;
 }
