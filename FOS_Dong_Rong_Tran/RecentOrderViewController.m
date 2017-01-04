@@ -34,7 +34,7 @@
     self.recentOrderList = [[NSMutableArray alloc] init];
     User *user = [User sharedInstance];
     
-    [self.webService checkOrderHistoryWithMobile:[NSString stringWithFormat:@"%d", user.phone] completionHandler:^(NSArray *data) {
+    [self.webService checkOrderHistoryWithMobile:user.phone completionHandler:^(NSArray *data) {
         for (int i = 0; i < data.count; i ++) {
             Cart *cart = [self createCartModel:data[i]];
             [self.recentOrderList addObject:cart];
