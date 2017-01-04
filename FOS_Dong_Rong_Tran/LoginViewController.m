@@ -110,6 +110,8 @@
 - (BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     BOOL __block tempBool = NO;
     if ([identifier isEqualToString:@"loginToHomeSegue"]) {
+        User *user = [User sharedInstance];
+        user.phone = self.mobileField.text;
         
         [[WebService sharedInstance] loginByPhone:self.mobileField.text userPassword:self.passwordField.text completionHandler:^(BOOL successful) {
             tempBool= successful;

@@ -32,8 +32,7 @@
     [super viewWillAppear:YES];
     self.webService = [WebService sharedInstance];
     self.recentOrderList = [[NSMutableArray alloc] init];
-    User *user = [[User alloc] init];
-    user.phone = 123;
+    User *user = [User sharedInstance];
     
     [self.webService checkOrderHistoryWithMobile:[NSString stringWithFormat:@"%d", user.phone] completionHandler:^(NSArray *data) {
         for (int i = 0; i < data.count; i ++) {
