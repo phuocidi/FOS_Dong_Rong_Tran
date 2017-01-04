@@ -8,10 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "SideBarTableViewController.h"
-#import "ShoppingCartTableViewController.h"
-#import "OrderHistoryTableViewController.h"
-#import "LoginViewController.h"
-#import "ViewController.h"
 #import "SideBarDelegate.h"
 //------------------------------------
 
@@ -33,8 +29,8 @@
 @property (readwrite, nonatomic) BOOL isSideBarOpen;
 
 @property (weak, nonatomic) id<SideBarDelegate> delegate;
-@property (strong, nonatomic) UINavigationController * weakNavigationController;
-@property (strong, nonatomic) UIStoryboard * weakStoryBoard;
+@property (weak, nonatomic) UINavigationController * weakNavigationController;
+@property (weak, nonatomic) UIStoryboard * weakStoryBoard;
 
 
 @end

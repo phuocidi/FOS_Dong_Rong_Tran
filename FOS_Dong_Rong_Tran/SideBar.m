@@ -127,24 +127,24 @@
     
     [self.weakNavigationController popToRootViewControllerAnimated:NO];
     
-    ViewController *  vc0 = [self.weakStoryBoard instantiateViewControllerWithIdentifier:@"ViewController"];
-     
-    ShoppingCartTableViewController * vc1 = [self.weakStoryBoard instantiateViewControllerWithIdentifier:@"ShoppingCartTableViewController"];
-
-    OrderHistoryTableViewController *vc2 = [self.weakStoryBoard instantiateViewControllerWithIdentifier:@"OrderHistoryTableViewController"];
-
-    
-    if(indexPath.row == 0) {
-        //[self.weakNavigationController pushViewController:vc0 animated:YES];
-        [self.weakNavigationController popToRootViewControllerAnimated:YES];
-    }else if (indexPath.row == 1) {
-        [self.weakNavigationController pushViewController:vc1 animated:YES];
-    }else if (indexPath.row == 2) {
-        [self.weakNavigationController pushViewController:vc1 animated:NO];
-        [self.weakNavigationController pushViewController:vc2 animated:YES];
-    }else{
-        
-    }
+//    ViewController *  vc0 = [self.weakStoryBoard instantiateViewControllerWithIdentifier:@"ViewController"];
+//     
+//    ShoppingCartTableViewController * vc1 = [self.weakStoryBoard instantiateViewControllerWithIdentifier:@"ShoppingCartTableViewController"];
+//
+//    OrderHistoryTableViewController *vc2 = [self.weakStoryBoard instantiateViewControllerWithIdentifier:@"OrderHistoryTableViewController"];
+//
+//    
+//    if(indexPath.row == 0) {
+//        //[self.weakNavigationController pushViewController:vc0 animated:YES];
+//        [self.weakNavigationController popToRootViewControllerAnimated:YES];
+//    }else if (indexPath.row == 1) {
+//        [self.weakNavigationController pushViewController:vc1 animated:YES];
+//    }else if (indexPath.row == 2) {
+//        [self.weakNavigationController pushViewController:vc1 animated:NO];
+//        [self.weakNavigationController pushViewController:vc2 animated:YES];
+//    }else{
+//        
+//    }
     
     //[self.delegate sideBarDidSelectButtonAtIndex:indexPath.row];
 }

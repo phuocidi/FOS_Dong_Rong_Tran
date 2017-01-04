@@ -7,12 +7,8 @@
 //
 
 #import "SideBarTableViewController.h"
-#import "ViewController.h"
-
 //--------------------------------------
 @interface SideBarTableViewController ()
-
-
 
 @end
 
