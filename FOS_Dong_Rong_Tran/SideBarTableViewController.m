@@ -1,6 +1,6 @@
 //
 //  SideBarTableViewController.m
-//  ecommerce
+//  FOS_Dong_Rong_Tran
 //
 //  Created by Huu Tran on 12/25/16.
 //  Copyright © 2016 rjtcompuquest. All rights reserved.
@@ -36,12 +36,15 @@
     
     if(!cell){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"sidebarCell"];
+        
         cell.backgroundColor = [UIColor clearColor];
-        cell.textLabel.textColor = [UIColor darkTextColor];
-        
+        cell.textLabel.textColor = [UIColor whiteColor];
+        cell.textLabel.font = [UIFont fontWithName:@"Georgia-Bold " size:22.0];
         UIView * selectedView = [[UIView alloc] initWithFrame: CGRectMake(0.0, 0.0, cell.frame.size.width, cell.frame.size.height)];
-        selectedView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
         
+        
+        // Madison 44, 62, 80
+        selectedView.backgroundColor =[UIColor colorWithRed:44.0/255.0 green:62.0/255.0 blue:80.0/255.0 alpha:1];
         cell.selectedBackgroundView = selectedView;
     }
     

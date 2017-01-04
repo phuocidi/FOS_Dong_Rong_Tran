@@ -1,6 +1,6 @@
 //
 //  SideBar.m
-//  ecommerce
+//  FOS_Dong_Rong_Tran
 //
 //  Created by Huu Tran on 12/25/16.
 //  Copyright © 2016 rjtcompuquest. All rights reserved.
@@ -17,7 +17,6 @@
 //-----------------------------
 @implementation SideBar
 
-
 -(instancetype ) init {
     if(self==[super init]){
         self.barWidth = 150.0;
@@ -33,7 +32,7 @@
 
 -(instancetype) initWIthSourceView:(UIView*)sourceView menuItem:(NSArray*)menuItem {
     if(self==[super init]){
-        self.barWidth = 150.0;
+        self.barWidth = 200.0;
         self.sideBarTableViewTopInset= 65.0;
         self.sideBarContainerView = [[UIView alloc] init];
         self.sideBarTableViewController = [[SideBarTableViewController alloc] init];
@@ -72,7 +71,8 @@
     self.sideBarTableViewController.tableView.frame = self.sideBarContainerView.bounds;
     self.sideBarTableViewController.tableView.clipsToBounds = NO;
     self.sideBarTableViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.sideBarTableViewController.tableView.backgroundColor = [UIColor clearColor];
+    self.sideBarTableViewController.tableView.backgroundColor = [UIColor colorWithRed:44.0/255.0 green:62.0/255.0 blue:80.0/255.0 alpha:1];
+;
     self.sideBarTableViewController.tableView.scrollsToTop = NO;
     self.sideBarTableViewController.tableView.contentInset = UIEdgeInsetsMake(self.sideBarTableViewTopInset, 0, 0, 0);
     
