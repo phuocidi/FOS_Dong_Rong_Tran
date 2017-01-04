@@ -40,9 +40,13 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    NSLog(@"%@", self.orderId);
+    
     self.webService = [WebService sharedInstance];
     self.shoppingList = [[NSMutableArray alloc] init];
+}
+
+- (void)setputTableView {
+    NSLog(@"%@", self.orderId);
     
     for (int i = 0; i < self.orderId.count; i ++) {
         [self.webService checkComfirmID:self.orderId[i] completionHandler:^(NSArray *data) {
@@ -56,7 +60,6 @@
             }
         }];
     }
-    
 }
 
 UIImageView* (^separatorV)(void) = ^{

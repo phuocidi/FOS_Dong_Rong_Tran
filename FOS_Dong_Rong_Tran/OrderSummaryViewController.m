@@ -13,6 +13,7 @@
 #import "SQLiteModel.h"
 #import "CartModel.h"
 #import "Cart.h"
+#import "User.h"
 #import "Webservice.h"
 #import "OrderDetailViewController.h"
 
@@ -48,8 +49,6 @@
     self.cartModel = [[CartModel alloc] init];
     self.cartList = [[NSMutableArray alloc] init];
     self.webService = [WebService sharedInstance];
-    
-//    [self.cartModel createCart:1 name:@"Hard Code" category:@"Hard Code" add:@"Hard Code" number:1 date:@"Hard Code" price:1];
     NSArray *allUsers = [self.cartModel allUsers];
     for (NSDictionary *dic in allUsers) {
         Cart *cart = [self createCartModel:dic];
@@ -73,20 +72,22 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"CheckOut"]) {
         OrderDetailViewController *destinationVC = [segue destinationViewController];
-        
+        User *user = [User sharedInstance];
         // Send Order
         NSMutableArray *orderIds = [[NSMutableArray alloc] init];
-        for (Cart *cart in self.cartList) {
-            [self.webService sendOrderWithMobile:[NSString stringWithFormat:@"%d", cart.phone] category:cart.category orderName:cart.name orderQuantity:[NSString stringWithFormat:@"%d", cart.numberOfNeed] totalCost:[NSString stringWithFormat:@"%.2f", cart.price] orderAddress:self.DeliveryAddress.text completionHandler:^(NSString *order_id) {
+        
+        for (int i = 0; i < self.cartList.count; i ++) {
+            Cart *cart = self.cartList[i];
+            [self.webService sendOrderWithMobile:user.phone category:cart.category orderName:cart.name orderQuantity:[NSString stringWithFormat:@"%d", cart.numberOfNeed] totalCost:[NSString stringWithFormat:@"%.2f", cart.price] orderAddress:self.DeliveryAddress.text completionHandler:^(NSString *order_id) {
                 NSLog(@"%@", order_id);
                 [orderIds addObject:order_id];
+                if (i == self.cartList.count - 1) {
+                    destinationVC.orderId = orderIds;
+                    [destinationVC setputTableView];
+                }
             }];
         }
-        destinationVC.orderId = orderIds;
-        
-//        // Remove later
-//        NSArray *orderid = @[@"12222252", @"12222253"];
-//        destinationVC.orderId = orderid;
+        [self.cartModel deleteAllFood];
     }
     
 }
@@ -122,7 +123,6 @@
     cart.name = food[@"food_name"];
     cart.price = [food[@"food_price"] intValue];
     cart.numberOfNeed = [food[@"numberOfNeed"] intValue];
-    cart.phone = [food[@"user_phone"] intValue];
     return cart;
 }
 

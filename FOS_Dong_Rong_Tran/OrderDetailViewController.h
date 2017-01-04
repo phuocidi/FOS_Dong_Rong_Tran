@@ -12,4 +12,6 @@
 
 @property (strong, nonatomic) NSArray *orderId;
 
+- (void)setputTableView;
+
 @end

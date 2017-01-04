@@ -11,6 +11,7 @@
 #import "LoginViewController.h"
 #import "UserModel.h"
 #import "Webservice.h"
+#import "User.h"
 
 
 //// Pass parameters for registration like "user_name=aamir" ," user_email=aa@gmail.com" , “user_phone=55565454", " user_password=7011”, “user_add=Delhi"

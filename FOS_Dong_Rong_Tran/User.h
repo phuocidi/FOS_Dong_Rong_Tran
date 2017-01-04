@@ -10,10 +10,11 @@
 
 @interface User : NSObject
 
-@property(readwrite, nonatomic) int phone;
++( instancetype )sharedInstance;
+
+@property(strong, nonatomic) NSString *phone;
 @property(strong, nonatomic) NSString *name;
 @property(strong, nonatomic) NSString *email;
-@property(strong, nonatomic) NSString *password;
 @property(strong, nonatomic) NSString *address;
 @property(readwrite, nonatomic) double longitude;
 @property(readwrite, nonatomic) double latitude;

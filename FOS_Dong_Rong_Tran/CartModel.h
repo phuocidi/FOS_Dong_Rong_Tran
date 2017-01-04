@@ -40,6 +40,7 @@
 -(BOOL)saveUser: (Cart *)user;
 
 -(BOOL)deleteUser:(Cart *)user;
+-(BOOL)deleteAllFood;
 
 @end
 
