@@ -120,20 +120,25 @@
     else
         result.annotation = annotation;
     result.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-//    pin.pinColor = MKPinAnnotationColorRed;
-    UIImage* image = nil;
-    if( [annotation.title isEqualToString: @"My Location" ] )
-        image = [ UIImage imageNamed: @"myLocation" ];
+
+//    UIImage* image = nil;
+    if( [annotation.title isEqualToString: @"My Location" ] ) {
+        result.pinTintColor = [MKPinAnnotationView purplePinColor];
+        result.draggable = YES;
+        result.animatesDrop = YES;
+    }
     else
-        image = [ UIImage imageNamed: @"restaurant" ];
-    result.image = image;
+            result.pinTintColor = [MKPinAnnotationView redPinColor];
+//    result.image = image;
     result.canShowCallout = YES;
-    result.draggable = YES;
+    
     return result;
 }
 
 #pragma mark - pin draggable
-//-(void)mapviewdra
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view didChangeDragState:(MKAnnotationViewDragState)newState fromOldState:(MKAnnotationViewDragState)oldState {
+    
+}
 
 
 - (void)didReceiveMemoryWarning {
