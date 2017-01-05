@@ -56,6 +56,8 @@
             [ self.mapView removeAnnotation: self.myAnnotation ];
         }
         self.myAnnotation = [ Annotation annotationWithLatitude: coordinate.latitude longitude:coordinate.longitude title:@"My Location" subtitle:@"subtitle"];
+//        self.myAnnotation.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+//        self.myAnnotation.canShowCallout = YES;
         [ self.mapView addAnnotation: self.myAnnotation ];
     }
 }
@@ -69,10 +71,13 @@
     ( ( AppDelegate* )[ UIApplication sharedApplication ].delegate ).locationChanged = self;
     float ASPECTRATIONOFMAPKIT = self.mapView.frame.size.width / self.mapView.frame.size.height;
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance( _coordinate, 0.5 * METERS_PER_MILE, 0.5 * METERS_PER_MILE * ASPECTRATIONOFMAPKIT );
+    
+    
     [ self.mapView setRegion: region ];
     [ self.mapView addAnnotation: [ Annotation annotationWithLatitude: 39.281516 longitude:-76.580806 title:@"Title1" subtitle:@"subtitle"] ];
     [ self.mapView addAnnotation: [ Annotation annotationWithLatitude: 39.3 longitude:-76.580806 title:@"Title2" subtitle:@"subtitle"] ];
     [ self.mapView addAnnotation: [ Annotation annotationWithLatitude: 39.33 longitude:-76.580806 title:@"Title3" subtitle:@"subtitle"] ];
+    
     self.mapView.mapType = MKMapTypeStandard;
     
 
@@ -90,19 +95,32 @@
 {
     view.selected = YES;
     NSLog(@"select an annotation");
-    FoodMenuViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodMenuViewController"];
+//    FoodMenuViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodMenuViewController"];
+//    
+//    [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - click title
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    NSLog(@"calloutAccessoryControlTapped");
+        FoodMenuViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodMenuViewController"];
     
-    [self.navigationController pushViewController:vc animated:YES];
+        [self.navigationController pushViewController:vc animated:YES];
 }
 
 
 - (nullable MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
-    MKAnnotationView* result = [ mapView dequeueReusableAnnotationViewWithIdentifier: @"Markers" ];
+//    MKAnnotationView* result = [ mapView dequeueReusableAnnotationViewWithIdentifier: @"Markers" ];
+    MKPinAnnotationView *result = (MKPinAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier: @"asdf"];
     if( result == nil )
-        result = [ [ MKAnnotationView alloc ] initWithAnnotation: annotation reuseIdentifier:@"Markers" ];
+        result = [ [ MKPinAnnotationView alloc ] initWithAnnotation: annotation reuseIdentifier:@"Markers" ];
     else
         result.annotation = annotation;
+    result.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+//    pin.pinColor = MKPinAnnotationColorRed;
     UIImage* image = nil;
     if( [annotation.title isEqualToString: @"My Location" ] )
         image = [ UIImage imageNamed: @"myLocation" ];
@@ -110,8 +128,12 @@
         image = [ UIImage imageNamed: @"restaurant" ];
     result.image = image;
     result.canShowCallout = YES;
+    result.draggable = YES;
     return result;
 }
+
+#pragma mark - pin draggable
+-(void)mapviewdra
 
 
 - (void)didReceiveMemoryWarning {

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9BD70261166082793E35867CD572426D9149FC84",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9BD70261166082793E35867CD572426D9149FC84" : 9223372036854775807,
+    "5964D1D89B219B36BD458539C48B86E1E1D7BA6F" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "315DA4A0-503B-4E3E-BB45-D62EB20F701D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9BD70261166082793E35867CD572426D9149FC84" : "FOS_Dong_Rong_Tran\/",
+    "5964D1D89B219B36BD458539C48B86E1E1D7BA6F" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "FOS_Dong_Rong_Tran",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "FOS_Dong_Rong_Tran.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/YupengDong\/Objective-C.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5964D1D89B219B36BD458539C48B86E1E1D7BA6F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/phuocidi\/FOS_Dong_Rong_Tran",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9BD70261166082793E35867CD572426D9149FC84"
+    }
+  ]
+}
