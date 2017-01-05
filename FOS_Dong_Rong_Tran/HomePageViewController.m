@@ -133,7 +133,7 @@
 }
 
 #pragma mark - pin draggable
--(void)mapviewdra
+//-(void)mapviewdra
 
 
 - (void)didReceiveMemoryWarning {
