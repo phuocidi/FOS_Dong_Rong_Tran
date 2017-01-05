@@ -13,6 +13,7 @@
 #import "FoodMenuViewController.h"
 #import "SideBar.h"
 #import "SideBarDelegate.h"
+#import "User.h"
 
 #define METERS_PER_MILE     1609.34
 #define EPSILON             0.000001
@@ -106,6 +107,11 @@
 {
     NSLog(@"calloutAccessoryControlTapped");
         FoodMenuViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodMenuViewController"];
+    
+    // Add location to User Model
+    User *user = [User sharedInstance];
+    user.latitude = _coordinate.latitude;
+    user.longitude = _coordinate.longitude;
     
         [self.navigationController pushViewController:vc animated:YES];
 }
