@@ -322,8 +322,8 @@ UIImageView* (^separatorView)(void) = ^{
     NSLog(@"Payment Cancel !!");
     // The payment was canceled; dismiss the PayPalPaymentViewController.
     
-//    [self sendOrder];
-//    [self removePaymentOptionsButton];
+    [self sendOrder];
+    [self removePaymentOptionsButton];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

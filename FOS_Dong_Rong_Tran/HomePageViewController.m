@@ -11,20 +11,18 @@
 #import "Annotation.h"
 #import "AppDelegate.h"
 #import "FoodMenuViewController.h"
-#import "SideBar.h"
-#import "SideBarDelegate.h"
 #import "User.h"
+#import  "UIViewController+AMSlideMenu.h"
+
 
 #define METERS_PER_MILE     1609.34
 #define EPSILON             0.000001
 
-@interface HomePageViewController () < MKMapViewDelegate, LocationChanged , SideBarDelegate>
+@interface HomePageViewController () < MKMapViewDelegate, LocationChanged>
 {
-    BOOL isSideBarOpen;
     CLLocationCoordinate2D _coordinate;
 }
 @property ( strong )Annotation* myAnnotation;
-@property (strong, nonnull) SideBar* sideBar;
 @end
 //---------------------------------------------
 @implementation HomePageViewController
@@ -37,10 +35,6 @@
         return TRUE;
     }
     return FALSE;
-}
-- (IBAction)sideBarClicked:(UIBarButtonItem *)sender {
-    [self.sideBar showSideBar:isSideBarOpen];
-    isSideBarOpen = !(isSideBarOpen);
 }
 
 
@@ -80,17 +74,6 @@
     [ self.mapView addAnnotation: [ Annotation annotationWithLatitude: 39.33 longitude:-76.580806 title:@"Title3" subtitle:@"subtitle"] ];
     
     self.mapView.mapType = MKMapTypeStandard;
-    
-
-    // self.sideBar.sideBarTableViewController. = self.navigationController;
-    self.sideBar.delegate = self;
-    self.sideBar = [[SideBar alloc] initWIthSourceView:self.view menuItem:@[@"Home", @"Menu",@"Track your order", @"Order Details",@"Order History", @"Account"] ];
-    
-    [self.navigationController popToRootViewControllerAnimated:NO];
-    self.sideBar.weakNavigationController = self.navigationController;
-    self.sideBar.weakStoryBoard = self.storyboard;
-    isSideBarOpen = NO;
-
 }
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
@@ -106,14 +89,15 @@
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     NSLog(@"calloutAccessoryControlTapped");
-        FoodMenuViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodMenuViewController"];
     
     // Add location to User Model
     User *user = [User sharedInstance];
     user.latitude = _coordinate.latitude;
     user.longitude = _coordinate.longitude;
     
-    [self.navigationController pushViewController:vc animated:YES];
+    AMSlideMenuMainViewController *mainVC = [self mainSlideMenu];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+    [mainVC openContentViewControllerForMenu:AMSlideMenuLeft atIndexPath:indexPath];
 }
 
 

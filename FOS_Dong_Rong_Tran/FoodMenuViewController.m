@@ -14,6 +14,7 @@
 #import "ImageDownloader.h"
 #import "OrderSummaryViewController.h"
 #import "CartModel.h"
+#import  "UIViewController+AMSlideMenu.h"
 // --------------------------------
 @interface FoodMenuViewController () <UITableViewDelegate, UITableViewDataSource>
 {
@@ -170,8 +171,10 @@
     return 350.0;
 }
 - (IBAction)toSummary:(id)sender {
-    OrderSummaryViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"OrderSummaryViewController"];
-    [self.navigationController pushViewController:vc animated:YES];
+    
+    AMSlideMenuMainViewController *mainVC = [self mainSlideMenu];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:4 inSection:0];
+    [mainVC openContentViewControllerForMenu:AMSlideMenuLeft atIndexPath:indexPath];
 }
 
 @end
