@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "PayPalMobile.h"
 
 
 extern CLLocationManager* locationManager( )
@@ -43,6 +44,7 @@ extern CLLocationManager* locationManager( )
     self.manager = [ [ CLLocationManager alloc ] init ];
     self.manager.delegate = self;
     [ self.manager requestAlwaysAuthorization ];
+    [PayPalMobile initializeWithClientIdsForEnvironments:@{PayPalEnvironmentSandbox : @"AVL04iyZxgRxlKsnepyRZXQQSJVl8qARtR-BGMQO7JbAYte__hVgdSxqiMIVcRuG9x9IIDr79OvJn0IB"}];
     return YES;
 }
 

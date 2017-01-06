@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PayPalMobile.h"
+#import "PayPalConfiguration.h"
+#import "PayPalPaymentViewController.h"
 
-@interface OrderSummaryViewController : UIViewController
+@interface OrderSummaryViewController : UIViewController<PayPalPaymentDelegate>
 
 @end

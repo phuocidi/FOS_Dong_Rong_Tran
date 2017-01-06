@@ -38,26 +38,18 @@
     // Do any additional setup after loading the view.
 }
 
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:YES];
-    
-    self.webService = [WebService sharedInstance];
-    self.shoppingList = [[NSMutableArray alloc] init];
-}
-
 - (void)setputTableView {
     NSLog(@"%@", self.orderId);
-    
+    self.webService = [WebService sharedInstance];
+    self.shoppingList = [[NSMutableArray alloc] init];
     for (int i = 0; i < self.orderId.count; i ++) {
         [self.webService checkComfirmID:self.orderId[i] completionHandler:^(NSArray *data) {
             Cart *cart = [self createCartModel:data[0]];
             [self.shoppingList addObject:cart];
-            if (i == self.orderId.count - 1) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    self.deliveryAddress.text = cart.address;
-                    [self.tableView reloadData];
-                });
-            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.deliveryAddress.text = cart.address;
+                [self.tableView reloadData];
+            });
         }];
     }
 }
