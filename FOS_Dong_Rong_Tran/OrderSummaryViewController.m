@@ -57,9 +57,12 @@
     self.user = [User sharedInstance];
     NSLog(@"lat: %f\n lon: %f",self.user.latitude, self.user.longitude);
     [self reverseLocation:self.user.latitude withLongitude:self.user.longitude];
+    
+    [self setupPaymentOptionsView];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     if ([segue.identifier isEqualToString:@"CheckOut"]) {
         OrderDetailViewController *destinationVC = [segue destinationViewController];
         
@@ -80,6 +83,12 @@
         [self.cartModel deleteAllFood];
     }
     
+}
+
+- (void)setupPaymentOptionsView {
+    UIView *paymentOptionsView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 -150, self.view.frame.size.height/2-75, 300, 150)];
+    paymentOptionsView.backgroundColor = [UIColor redColor];
+    [self.view addSubview:paymentOptionsView];
 }
 
 - (void)changeNumberOfNeed:(UIButton *)sender {
