@@ -15,6 +15,7 @@
 #import "OrderSummaryViewController.h"
 #import "CartModel.h"
 #import  "UIViewController+AMSlideMenu.h"
+
 // --------------------------------
 @interface FoodMenuViewController () <UITableViewDelegate, UITableViewDataSource>
 {
@@ -24,7 +25,6 @@
 @property (weak, nonatomic) IBOutlet UITableView * tableView;
 @property (strong, nonatomic) SingleLineSegmentedControl * segmentedControl;
 @property (retain, nonatomic) NSMutableArray * datasource;
-
 @end
 
 // --------------------------------
@@ -46,8 +46,9 @@
     
     choice = [Constant foodKeyCategoryVeg];
     [self updateDatasource:[Constant foodKeyCategoryVeg]];
+// need model to pass restaurant name
 
-    
+    self.navigationItem.title = @"Any Restaurant";
 }
 
 - (void) handleSegmentControl:(UISegmentedControl*)sender {
@@ -65,6 +66,7 @@
     
 
 }
+
 
 - (void) updateDatasource:(NSString*) choice {
     [[WebService sharedInstance] getFoodMenu:choice completionHandler:^(NSArray *data) {

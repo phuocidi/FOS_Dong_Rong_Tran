@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		070E11AA1E20119B00A7A652 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 070E11A91E20119B00A7A652 /* Restaurant.m */; };
+		070E11AD1E20227400A7A652 /* RestaurantManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 070E11AC1E20227400A7A652 /* RestaurantManager.m */; };
 		07379E8D1E19997E0094F49D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 07379E8C1E19997E0094F49D /* libsqlite3.tbd */; };
 		07379E901E199CFC0094F49D /* OrderSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07379E8F1E199CFC0094F49D /* OrderSummaryViewController.m */; };
 		07379E941E19BD730094F49D /* FoodTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07379E931E19BD730094F49D /* FoodTableViewCell.m */; };
@@ -67,6 +69,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		070E11A81E20119B00A7A652 /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
+		070E11A91E20119B00A7A652 /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
+		070E11AB1E20227400A7A652 /* RestaurantManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantManager.h; sourceTree = "<group>"; };
+		070E11AC1E20227400A7A652 /* RestaurantManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantManager.m; sourceTree = "<group>"; };
 		07379E8C1E19997E0094F49D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		07379E8E1E199CFC0094F49D /* OrderSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderSummaryViewController.h; sourceTree = "<group>"; };
 		07379E8F1E199CFC0094F49D /* OrderSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderSummaryViewController.m; sourceTree = "<group>"; };
@@ -442,6 +448,10 @@
 				0EF9D7E81E198F2A005E64C7 /* Cart.m */,
 				0EF9D7E91E198F2A005E64C7 /* User.h */,
 				0EF9D7EA1E198F2A005E64C7 /* User.m */,
+				070E11A81E20119B00A7A652 /* Restaurant.h */,
+				070E11A91E20119B00A7A652 /* Restaurant.m */,
+				070E11AB1E20227400A7A652 /* RestaurantManager.h */,
+				070E11AC1E20227400A7A652 /* RestaurantManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -579,8 +589,10 @@
 				0EF9D7FB1E19AB4A005E64C7 /* SingleLineUITextField.m in Sources */,
 				0EF9D7E61E198EFF005E64C7 /* UserModel.m in Sources */,
 				0EEAA1031E1900A200946EE1 /* WelcomeViewController.m in Sources */,
+				070E11AD1E20227400A7A652 /* RestaurantManager.m in Sources */,
 				07379EBF1E1A15670094F49D /* RecentOrderViewController.m in Sources */,
 				0EAFBF4C1E1F5C880085AF5B /* AMSlideMenuMainViewController.m in Sources */,
+				070E11AA1E20119B00A7A652 /* Restaurant.m in Sources */,
 				0EEAA0F81E16FBA600946EE1 /* WebserviceProvider.m in Sources */,
 				0EF9D7E51E198EFF005E64C7 /* SQLiteModel.m in Sources */,
 				07379E9A1E19BD890094F49D /* TotalTableViewCell.m in Sources */,

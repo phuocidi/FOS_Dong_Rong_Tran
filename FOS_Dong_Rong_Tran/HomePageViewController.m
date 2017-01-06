@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "FoodMenuViewController.h"
 #import "User.h"
+#import "Restaurant.h"
 #import  "UIViewController+AMSlideMenu.h"
 
 
@@ -22,7 +23,8 @@
 {
     CLLocationCoordinate2D _coordinate;
 }
-@property ( strong )Annotation* myAnnotation;
+@property ( strong )MKPointAnnotation* myCurrentLocation;
+@property(strong, nonatomic) NSArray *nearby;
 @end
 //---------------------------------------------
 @implementation HomePageViewController
@@ -46,14 +48,18 @@
         float ASPECTRATIONOFMAPKIT = self.mapView.frame.size.width / self.mapView.frame.size.height;
         MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance( _coordinate, 0.5 * METERS_PER_MILE, 0.5 * METERS_PER_MILE * ASPECTRATIONOFMAPKIT );
         [ self.mapView setRegion: region animated: YES ];
-        if( self.myAnnotation != nil )
+        if( self.myCurrentLocation != nil )
         {
-            [ self.mapView removeAnnotation: self.myAnnotation ];
+            [ self.mapView removeAnnotation: self.myCurrentLocation ];
         }
-        self.myAnnotation = [ Annotation annotationWithLatitude: coordinate.latitude longitude:coordinate.longitude title:@"My Location" subtitle:@"subtitle"];
+        
+       // self.myAnnotation = [ Annotation annotationWithLatitude: coordinate.latitude longitude:coordinate.longitude title:@"My Location" subtitle:@"subtitle"];
+        self.myCurrentLocation = [[MKPointAnnotation alloc] init];
+        self.myCurrentLocation.coordinate = _coordinate;
+        
 //        self.myAnnotation.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 //        self.myAnnotation.canShowCallout = YES;
-        [ self.mapView addAnnotation: self.myAnnotation ];
+        [ self.mapView addAnnotation: self.myCurrentLocation ];
     }
 }
 
@@ -69,9 +75,15 @@
     
     
     [ self.mapView setRegion: region ];
-    [ self.mapView addAnnotation: [ Annotation annotationWithLatitude: 39.281516 longitude:-76.580806 title:@"Title1" subtitle:@"subtitle"] ];
-    [ self.mapView addAnnotation: [ Annotation annotationWithLatitude: 39.3 longitude:-76.580806 title:@"Title2" subtitle:@"subtitle"] ];
-    [ self.mapView addAnnotation: [ Annotation annotationWithLatitude: 39.33 longitude:-76.580806 title:@"Title3" subtitle:@"subtitle"] ];
+    
+    
+    self.nearby = [Restaurant getAllRestaurant];
+    
+    for (Restaurant *restaurant in self.nearby) {
+//        [ self.mapView addAnnotation: [ Annotation annotationWithLatitude: [restaurant.latitude doubleValue] longitude:[restaurant.longitude doubleValue] title:restaurant.name subtitle:restaurant.name] ];
+        
+        [self.mapView addAnnotation:[[Annotation alloc]initWithRestaurant: restaurant ]];
+    }
     
     self.mapView.mapType = MKMapTypeStandard;
 }
@@ -79,6 +91,11 @@
 {
     view.selected = YES;
     NSLog(@"select an annotation");
+    NSLog(@"%@",view.annotation);
+    [self.nearby indexOfObject: view.annotation];
+    Annotation * annotation = view.annotation;
+    
+    NSLog(@"%@", annotation.restaurant);
 //    FoodMenuViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodMenuViewController"];
 //    
 //    [self.navigationController pushViewController:vc animated:YES];
@@ -135,6 +152,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 
 @end
