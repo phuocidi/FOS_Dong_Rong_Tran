@@ -549,16 +549,25 @@ static NSMutableArray *allInstances;
     self.leftMenu.tableView.scrollsToTop = NO;
     self.rightMenu.tableView.scrollsToTop = NO;
     self.leftMenu.tableView.backgroundColor = [[UIColor colorWithPatternImage:[UIImage imageNamed:@"login_bg_2"]] colorWithAlphaComponent:0.5];
+    
 //    CGFloat borderOffset = 10.0;
-//    
-//    
-//    UIVisualEffectView * blurView = [[UIVisualEffectView alloc] initWithEffect: [UIBlurEffect effectWithStyle:UIBlurEffectStyleProminent]];
+//    UIVisualEffectView * blurView = [[UIVisualEffectView alloc] initWithEffect: [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight]];
 //    
 //    CGRect bound = [[UIScreen mainScreen] bounds];
 //    CGFloat height = bound.size.height;
 //    blurView.frame = CGRectMake([self leftMenuWidth] - borderOffset, 0, borderOffset, height);
 //    
+//    
+//    UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:blurView.bounds];
+//    blurView.layer.masksToBounds = NO;
+//    blurView.layer.shadowColor = [UIColor blackColor].CGColor;
+//    blurView.layer.shadowOffset = CGSizeMake(0.0f, 5.0f);
+//    blurView.layer.shadowOpacity = 0.5f;
+//    blurView.layer.shadowPath = shadowPath.CGPath;
+//    
+//    
 //    [self.leftMenu.tableView addSubview:blurView];
+
 }
 
 /*----------------------------------------------------*/

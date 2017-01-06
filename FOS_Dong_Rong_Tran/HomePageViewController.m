@@ -12,6 +12,8 @@
 #import "AppDelegate.h"
 #import "FoodMenuViewController.h"
 #import "User.h"
+#import  "UIViewController+AMSlideMenu.h"
+
 
 #define METERS_PER_MILE     1609.34
 #define EPSILON             0.000001
@@ -87,14 +89,15 @@
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     NSLog(@"calloutAccessoryControlTapped");
-        FoodMenuViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodMenuViewController"];
     
     // Add location to User Model
     User *user = [User sharedInstance];
     user.latitude = _coordinate.latitude;
     user.longitude = _coordinate.longitude;
     
-    [self.navigationController pushViewController:vc animated:YES];
+    AMSlideMenuMainViewController *mainVC = [self mainSlideMenu];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    [mainVC openContentViewControllerForMenu:AMSlideMenuLeft atIndexPath:indexPath];
 }
 
 

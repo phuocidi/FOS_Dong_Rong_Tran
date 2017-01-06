@@ -7,7 +7,7 @@
 //
 
 #import "MainVC.h"
-
+#import  "UIViewController+AMSlideMenu.h"
 @interface MainVC ()
 
 @end
@@ -22,19 +22,19 @@
 - (NSString*) segueIdentifierForIndexPathInLeftMenu:(NSIndexPath *)indexPath {
     NSString * identifier;
     switch (indexPath.row) {
-        case 0:
+        case 1:
             identifier = @"homePageSegue";
             break;
-        case 1:
+        case 2:
             identifier = @"foodMenuSegue";
             break;
-        case 2:
+        case 3:
             identifier = @"orderSummarySegue";
             break;
-        case 3:
+        case 4:
             identifier = @"checkOutSegue";
             break;
-        case 4:
+        case 5:
             identifier = @"orderHistorySegue";
             break;
     }
@@ -54,7 +54,19 @@
 }
 
 - (void) configureSlideLayer:(CALayer *)layer {
-    layer.shadowOffset = CGSizeMake(-0.5f, 0.5f);
+    
+    AMSlideMenuMainViewController *mainVC = [self mainSlideMenu];
+    
+    layer.shadowColor = [[UIColor whiteColor] CGColor];
+    layer.shadowOffset = CGSizeMake(0.0f,0.0f);
+    layer.shadowOpacity = 1.0f;
+    layer.shadowRadius = 4.0f;
+    CGRect shadowRect = CGRectInset(mainVC.leftMenu.view.bounds, -4, -50);  // inset top/bottom
+    layer.shadowPath = [[UIBezierPath bezierPathWithRect:shadowRect] CGPath];
+}
+
+- (CGFloat)maxDarknessWhileLeftMenu {
+    return 0.4;
 }
 
 
