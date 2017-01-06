@@ -154,6 +154,8 @@ UIImageView* (^separatorView)(void) = ^{
     [self.paymentOptionsView addSubview:payWithCash];
     [self.paymentOptionsView addSubview:cancel];
     
+    // Add Constraint for this three button
+    
     [paypal.topAnchor constraintEqualToAnchor:self.paymentOptionsView.topAnchor constant:+4].active = true;
     [paypal.centerXAnchor constraintEqualToAnchor:self.paymentOptionsView.centerXAnchor].active = true;
     [paypal.widthAnchor constraintEqualToAnchor:self.paymentOptionsView.widthAnchor constant:-8].active = true;
