@@ -58,6 +58,7 @@
     NSLog(@"lat: %f\n lon: %f",self.user.latitude, self.user.longitude);
     [self reverseLocation:self.user.latitude withLongitude:self.user.longitude];
     
+    
     [self setupPaymentOptionsView];
 }
 
@@ -83,6 +84,9 @@
         [self.cartModel deleteAllFood];
     }
     
+}
+
+- (IBAction)choosePaymentOptionButton:(id)sender {
 }
 
 - (void)setupPaymentOptionsView {
