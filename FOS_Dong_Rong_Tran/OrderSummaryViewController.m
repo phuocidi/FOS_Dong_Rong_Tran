@@ -36,6 +36,7 @@
 @property (readwrite, nonatomic) double containerCharges;
 @property (readwrite, nonatomic) double orderTotal;
 @property (weak, nonatomic) IBOutlet UIButton *checkOut;
+@property (weak, nonatomic) IBOutlet UIButton *choosePaymentOptionsBtn;
 
 
 @end
@@ -58,8 +59,8 @@
     NSLog(@"lat: %f\n lon: %f",self.user.latitude, self.user.longitude);
     [self reverseLocation:self.user.latitude withLongitude:self.user.longitude];
     
+    [self.choosePaymentOptionsBtn addTarget:self action:@selector(choosePaymentOptionButton:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self setupPaymentOptionsView];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -86,8 +87,20 @@
     
 }
 
-- (IBAction)choosePaymentOptionButton:(id)sender {
+- (void)choosePaymentOptionButton:(UIButton *)sender {
+    
 }
+
+//- (IBAction)choosePaymentOptionButton:(UIButton *)sender {
+//    
+//    [UIView animateWithDuration:1 animations:^{
+//        [self setupPaymentOptionsView];
+//    }];
+//    
+//    [UIView animateWithDuration:1 animations:^{
+//        sender.frame = CGRectMake(sender.frame.origin.x + self.view.frame.size.width, sender.frame.origin.y, sender.frame.size.width, sender.frame.size.height);
+//    }];
+//}
 
 - (void)setupPaymentOptionsView {
     UIView *paymentOptionsView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 -150, self.view.frame.size.height/2-75, 300, 150)];

@@ -592,10 +592,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbg-pa-uZC">
                                 <rect key="frame" x="4" y="619" width="367" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="choosePaymentOptionButton:" destination="2gT-Yt-FPv" eventType="touchUpInside" id="LxY-Lu-Abw"/>
-                                </connections>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Choose Payment Options">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -623,6 +623,7 @@
                     <connections>
                         <outlet property="DeliveryAddress" destination="gEw-9f-ySj" id="33j-xm-tMN"/>
                         <outlet property="checkOut" destination="pmb-N3-JQV" id="Oy3-lj-Lxy"/>
+                        <outlet property="choosePaymentOptionsBtn" destination="kbg-pa-uZC" id="seg-1W-cGz"/>
                         <outlet property="tableView" destination="mwJ-6O-sQN" id="2aT-ui-ZvJ"/>
                         <outlet property="titleImageView" destination="1s9-O8-Yld" id="0rf-7Y-f6Z"/>
                     </connections>
