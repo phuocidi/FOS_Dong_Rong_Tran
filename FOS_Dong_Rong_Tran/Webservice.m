@@ -59,7 +59,7 @@
 
 -( void )getFoodMenu:( NSString*)foodCategoryType completionHandler:(void(^)(NSArray* data)) completionBlock
 {    
-    foodCategoryType = [foodCategoryType stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    foodCategoryType = [foodCategoryType stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     NSDictionary * dictParameter = [NSDictionary dictionaryWithObjectsAndKeys:foodCategoryType, @"food_category", nil];
     [self.provider asyncWebserviceCall:@"fos_food.php" withDic:dictParameter completionHandler:^(NSString * responseMsg) {
         
@@ -132,18 +132,18 @@
 -( void )sendOrderWithMobile:(NSString*)mobileNumber category:(NSString*)foodCategoryType orderName:(NSString*)orderName orderQuantity:(NSString*)orderQuantity totalCost:(NSString*)totalCost orderAddress:(NSString*) orderAddress completionHandler:(void(^)(NSString* order_id))completionBlock
 {
     // clean parameter
-    mobileNumber = [mobileNumber stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    foodCategoryType = [foodCategoryType stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    orderName = [orderName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    orderQuantity = [orderQuantity stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    totalCost = [totalCost stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    orderAddress = [orderAddress stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+//    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+//    foodCategoryType = [foodCategoryType stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+//    orderName = [orderName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+//    orderQuantity = [orderQuantity stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+//    totalCost = [totalCost stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+//    orderAddress = [orderAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     
     NSDateFormatter * dateFormatter  = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
     NSDate * now = [NSDate date];
     NSString * dateStr = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:now]];
-    dateStr = [dateStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+//    dateStr = [dateStr stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     NSLog(@"%@", dateStr);
     
     NSDictionary * dictParameter = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -170,7 +170,7 @@
 -( void )checkOrderHistoryWithMobile:(NSString*)mobileNumber completionHandler:(void(^)(NSArray* data))completionBlock
 {
     // clean parameter
-    mobileNumber = [mobileNumber stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     
     NSDictionary * dictParameter = [NSDictionary dictionaryWithObjectsAndKeys:
                                     mobileNumber, [Constant orderRecentKeyMobile],
@@ -195,7 +195,7 @@
 -( void )checkOrderStatusID:(NSString*)orderID completionHandler:(void(^)(NSArray* data))completionBlock
 {
     // clean parameter
-    orderID = [orderID stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    orderID = [orderID stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     
     NSDictionary * dictParameter = [NSDictionary dictionaryWithObjectsAndKeys:
                                     orderID, [Constant orderStatusKeyID],
@@ -219,7 +219,7 @@
 -( void )checkComfirmID:(NSString*)orderID completionHandler:(void(^)(NSArray* data))completionBlock
 {
     // clean parameter
-    orderID = [orderID stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    orderID = [orderID stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     
     NSDictionary * dictParameter = [NSDictionary dictionaryWithObjectsAndKeys:
                                     orderID, [Constant orderStatusKeyID],

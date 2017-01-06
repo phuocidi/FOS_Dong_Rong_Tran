@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GS7-mh-pr9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GS7-mh-pr9">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -579,18 +579,18 @@
                                     <outlet property="delegate" destination="2gT-Yt-FPv" id="aXi-t9-8NO"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="My Location" borderStyle="roundedRect" placeholder="Delivery Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gEw-9f-ySj">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Delivery Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gEw-9f-ySj">
                                 <rect key="frame" x="0.0" y="554" width="375" height="50"/>
                                 <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="0cf-6h-7DK"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="qF7-f8-nXv" firstAttribute="top" secondItem="pmb-N3-JQV" secondAttribute="bottom" constant="8" id="0Lh-zC-fon"/>
                             <constraint firstItem="1s9-O8-Yld" firstAttribute="width" secondItem="0Bo-OZ-FS7" secondAttribute="width" id="5pg-mg-Cjk"/>
@@ -1021,48 +1021,43 @@
                                     <outlet property="delegate" destination="wtG-nl-6eF" id="asz-3Q-Y3Y"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Delivery Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="100-qi-AD5">
-                                <rect key="frame" x="0.0" y="411" width="375" height="50"/>
-                                <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="8hj-Kn-UWx"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a UILabel, need to discuss whether can change at here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaF-Jd-tqN">
-                                <rect key="frame" x="-0.5" y="469" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="558" width="375" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Vgf-GP-qxp"/>
+                                    <constraint firstAttribute="height" constant="60" id="Vgf-GP-qxp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MapKit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGZ-zK-Llx">
-                                <rect key="frame" x="0.0" y="527" width="375" height="132"/>
-                                <color key="backgroundColor" red="1" green="0.38912415150000002" blue="0.17421842930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
-                                <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZW-Ho-Ufd">
+                                <rect key="frame" x="123" y="529" width="129" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1eA-rL-41p">
+                                <rect key="frame" x="-0.5" y="427" width="375" height="94"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">I cannot get location when check out. Cause when i send order to server, the length of address is too short. "OrderDeliverAdd":"39.281516-7"</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="MGZ-zK-Llx" firstAttribute="top" secondItem="xaF-Jd-tqN" secondAttribute="bottom" constant="8" id="Mlf-df-VLG"/>
-                            <constraint firstItem="100-qi-AD5" firstAttribute="top" secondItem="amR-Li-paV" secondAttribute="bottom" constant="5" id="R8E-FG-SGq"/>
+                            <constraint firstItem="1eA-rL-41p" firstAttribute="top" secondItem="amR-Li-paV" secondAttribute="bottom" constant="21" id="1Gy-P3-F8i"/>
+                            <constraint firstItem="xaF-Jd-tqN" firstAttribute="width" secondItem="4RA-T3-zwg" secondAttribute="width" id="3kw-Uh-nQH"/>
+                            <constraint firstItem="xaF-Jd-tqN" firstAttribute="top" secondItem="6ZW-Ho-Ufd" secondAttribute="bottom" constant="8" id="5hD-iu-1NQ"/>
+                            <constraint firstItem="1eA-rL-41p" firstAttribute="centerX" secondItem="4RA-T3-zwg" secondAttribute="centerX" id="Kl9-C2-JLa"/>
                             <constraint firstItem="amR-Li-paV" firstAttribute="width" secondItem="4RA-T3-zwg" secondAttribute="width" id="VrS-fR-51o"/>
-                            <constraint firstItem="ORs-zg-TJH" firstAttribute="top" secondItem="MGZ-zK-Llx" secondAttribute="bottom" constant="8" id="Yfu-cP-0RY"/>
+                            <constraint firstItem="xaF-Jd-tqN" firstAttribute="centerX" secondItem="4RA-T3-zwg" secondAttribute="centerX" id="Y8r-jD-Dfs"/>
+                            <constraint firstItem="6ZW-Ho-Ufd" firstAttribute="centerX" secondItem="4RA-T3-zwg" secondAttribute="centerX" id="Zfa-XX-3Nk"/>
+                            <constraint firstItem="1eA-rL-41p" firstAttribute="width" secondItem="4RA-T3-zwg" secondAttribute="width" id="bWZ-PP-oBu"/>
+                            <constraint firstItem="ORs-zg-TJH" firstAttribute="top" secondItem="xaF-Jd-tqN" secondAttribute="bottom" constant="49" id="cP2-se-PAL"/>
                             <constraint firstItem="amR-Li-paV" firstAttribute="centerX" secondItem="4RA-T3-zwg" secondAttribute="centerX" id="dQM-tS-y3W"/>
-                            <constraint firstItem="xaF-Jd-tqN" firstAttribute="width" secondItem="100-qi-AD5" secondAttribute="width" id="ekG-hS-2mw"/>
-                            <constraint firstItem="xaF-Jd-tqN" firstAttribute="top" secondItem="100-qi-AD5" secondAttribute="bottom" constant="8" id="fMD-12-rDv"/>
-                            <constraint firstItem="xaF-Jd-tqN" firstAttribute="centerX" secondItem="100-qi-AD5" secondAttribute="centerX" id="lR0-TZ-gsG"/>
-                            <constraint firstItem="MGZ-zK-Llx" firstAttribute="width" secondItem="4RA-T3-zwg" secondAttribute="width" id="m8J-zy-Pcg"/>
-                            <constraint firstItem="100-qi-AD5" firstAttribute="width" secondItem="amR-Li-paV" secondAttribute="width" id="nJ3-Xr-Uxz"/>
-                            <constraint firstItem="100-qi-AD5" firstAttribute="centerX" secondItem="amR-Li-paV" secondAttribute="centerX" id="pbB-Jw-Tqa"/>
+                            <constraint firstItem="6ZW-Ho-Ufd" firstAttribute="top" secondItem="1eA-rL-41p" secondAttribute="bottom" constant="8" id="dR9-Gz-vZ8"/>
                             <constraint firstItem="amR-Li-paV" firstAttribute="top" secondItem="wK8-wg-mkF" secondAttribute="bottom" constant="-64" id="uZr-0l-Gvq"/>
-                            <constraint firstItem="MGZ-zK-Llx" firstAttribute="centerX" secondItem="4RA-T3-zwg" secondAttribute="centerX" id="zoH-G8-cGP"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1072,7 +1067,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kux-Ap-qDB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3452" y="-575"/>
+            <point key="canvasLocation" x="3452" y="-575.26236881559225"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="mk0-Kr-V32">

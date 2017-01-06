@@ -16,6 +16,7 @@
 #import "User.h"
 #import "Webservice.h"
 #import "OrderDetailViewController.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface OrderSummaryViewController () <UITextFieldDelegate>
 
@@ -23,12 +24,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextField *DeliveryAddress;
-// Remove later
-@property (strong, nonatomic) SQLiteModel *sql;
 @property (strong, nonatomic) CartModel *cartModel;
 @property (strong, nonatomic) WebService *webService;
 @property (strong, nonatomic) OrderDetailViewController *orderDetailVC;
 @property (strong, nonatomic) NSMutableArray *cartList;
+@property (strong, nonatomic) User *user;
 @property (readwrite, nonatomic) double subTotal;
 @property (readwrite, nonatomic) double tax;
 @property (readwrite, nonatomic) double discount;
@@ -45,7 +45,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.sql = [SQLiteModel sharedInstance];
     self.cartModel = [[CartModel alloc] init];
     self.cartList = [[NSMutableArray alloc] init];
     self.webService = [WebService sharedInstance];
@@ -55,30 +54,21 @@
         [self.cartList addObject:cart];
         NSLog(@"%@", dic);
     }
-    
-}
-
-// Delete
-- (IBAction)checkOut:(UIButton *)sender {
-    // Send Order
-    
-    for (Cart *cart in self.cartList) {
-        [self.webService sendOrderWithMobile:[NSString stringWithFormat:@"%d", cart.phone] category:cart.category orderName:cart.name orderQuantity:[NSString stringWithFormat:@"%d", cart.numberOfNeed] totalCost:[NSString stringWithFormat:@"%.2f", cart.price] orderAddress:self.DeliveryAddress.text completionHandler:^(NSString *order_id) {
-            NSLog(@"%@", order_id);
-        }];
-    }
+    self.user = [User sharedInstance];
+    NSLog(@"lat: %f\n lon: %f",self.user.latitude, self.user.longitude);
+    [self reverseLocation:self.user.latitude withLongitude:self.user.longitude];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"CheckOut"]) {
         OrderDetailViewController *destinationVC = [segue destinationViewController];
-        User *user = [User sharedInstance];
+        
         // Send Order
         NSMutableArray *orderIds = [[NSMutableArray alloc] init];
         
         for (int i = 0; i < self.cartList.count; i ++) {
             Cart *cart = self.cartList[i];
-            [self.webService sendOrderWithMobile:user.phone category:cart.category orderName:cart.name orderQuantity:[NSString stringWithFormat:@"%d", cart.numberOfNeed] totalCost:[NSString stringWithFormat:@"%.2f", cart.price] orderAddress:self.DeliveryAddress.text completionHandler:^(NSString *order_id) {
+            [self.webService sendOrderWithMobile:self.user.phone category:cart.category orderName:cart.name orderQuantity:[NSString stringWithFormat:@"%d", cart.numberOfNeed] totalCost:[NSString stringWithFormat:@"%.2f", cart.price] orderAddress:self.DeliveryAddress.text completionHandler:^(NSString *order_id) {
                 NSLog(@"%@", order_id);
                 [orderIds addObject:order_id];
                 if (i == self.cartList.count - 1) {
@@ -132,6 +122,28 @@ UIImageView* (^separatorView)(void) = ^{
     view.translatesAutoresizingMaskIntoConstraints = false;
     return view;
 };
+
+#pragma mark - Reverse Geocode Location
+
+- (void)reverseLocation:(double) latitude withLongitude:(double) longitude {
+    CLLocation *newLocation = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        if(error) {
+            NSLog(@"geocode failed with error: %@", error);
+            return;
+            
+        }
+        if(placemarks && placemarks.count >0) {
+            CLPlacemark *placemark = placemarks[0];
+            NSDictionary *addressDictionary = placemark.addressDictionary;
+            NSArray *addressLines = addressDictionary[@"FormattedAddressLines"];
+            
+            self.DeliveryAddress.text = [NSString localizedStringWithFormat:@"%@, %@, %@",addressLines[0], addressLines[1], addressLines[2]];
+            
+        }
+    }];
+}
 
 #pragma mark - Table View Data Source
 

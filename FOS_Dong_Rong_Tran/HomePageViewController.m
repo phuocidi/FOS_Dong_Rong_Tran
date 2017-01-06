@@ -113,7 +113,7 @@
     user.latitude = _coordinate.latitude;
     user.longitude = _coordinate.longitude;
     
-        [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
