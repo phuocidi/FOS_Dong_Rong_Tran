@@ -37,6 +37,10 @@
 @property (readwrite, nonatomic) double orderTotal;
 @property (weak, nonatomic) IBOutlet UIButton *checkOut;
 @property (weak, nonatomic) IBOutlet UIButton *choosePaymentOptionsBtn;
+@property (strong, nonatomic) UIView *paymentOptionsView;
+@property (strong, nonatomic) NSMutableArray *orderIds;
+// Paypal
+@property (nonatomic, strong, readwrite) PayPalConfiguration *payPalConfiguration;
 
 
 @end
@@ -61,52 +65,39 @@
     
     [self.choosePaymentOptionsBtn addTarget:self action:@selector(choosePaymentOptionButton:) forControlEvents:UIControlEventTouchUpInside];
     
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if ([segue.identifier isEqualToString:@"CheckOut"]) {
-        OrderDetailViewController *destinationVC = [segue destinationViewController];
-        
-        // Send Order
-        NSMutableArray *orderIds = [[NSMutableArray alloc] init];
-        
-        for (int i = 0; i < self.cartList.count; i ++) {
-            Cart *cart = self.cartList[i];
-            [self.webService sendOrderWithMobile:self.user.phone category:cart.category orderName:cart.name orderQuantity:[NSString stringWithFormat:@"%d", cart.numberOfNeed] totalCost:[NSString stringWithFormat:@"%.2f", cart.price] orderAddress:self.DeliveryAddress.text completionHandler:^(NSString *order_id) {
-                NSLog(@"%@", order_id);
-                [orderIds addObject:order_id];
-                if (i == self.cartList.count - 1) {
-                    destinationVC.orderId = orderIds;
-                    [destinationVC setputTableView];
-                }
-            }];
-        }
-        [self.cartModel deleteAllFood];
-    }
+    _payPalConfiguration = [[PayPalConfiguration alloc] init];
+    _payPalConfiguration.acceptCreditCards = YES;
+    _payPalConfiguration.merchantName = @"FOS";
+    _payPalConfiguration.merchantPrivacyPolicyURL = [NSURL URLWithString:@"https://www.paypal.com/webapps/mpp/ua/privacy-full"];
+    _payPalConfiguration.merchantUserAgreementURL = [NSURL URLWithString:@"https://www.paypal.com/webapps/mpp/ua/useragreement-full"];
+    _payPalConfiguration.languageOrLocale = [NSLocale preferredLanguages][0];
+    _payPalConfiguration.payPalShippingAddressOption = PayPalShippingAddressOptionPayPal;
     
 }
 
-- (void)choosePaymentOptionButton:(UIButton *)sender {
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
     
+    [PayPalMobile preconnectWithEnvironment:PayPalEnvironmentNoNetwork];
 }
 
-//- (IBAction)choosePaymentOptionButton:(UIButton *)sender {
-//    
-//    [UIView animateWithDuration:1 animations:^{
-//        [self setupPaymentOptionsView];
-//    }];
-//    
-//    [UIView animateWithDuration:1 animations:^{
-//        sender.frame = CGRectMake(sender.frame.origin.x + self.view.frame.size.width, sender.frame.origin.y, sender.frame.size.width, sender.frame.size.height);
-//    }];
-//}
-
-- (void)setupPaymentOptionsView {
-    UIView *paymentOptionsView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 -150, self.view.frame.size.height/2-75, 300, 150)];
-    paymentOptionsView.backgroundColor = [UIColor redColor];
-    [self.view addSubview:paymentOptionsView];
+- (Cart *)createCartModel:(NSDictionary *) food {
+    Cart *cart = [[Cart alloc] init];
+    cart.id = [food[@"id"] intValue];
+    cart.category = food[@"food_category"];
+    cart.date = food[@"food_date"];
+    cart.name = food[@"food_name"];
+    cart.price = [food[@"food_price"] intValue];
+    cart.numberOfNeed = [food[@"numberOfNeed"] intValue];
+    return cart;
 }
+
+UIImageView* (^separatorView)(void) = ^{
+    UIImageView *view = [[UIImageView alloc] init];
+    view.image = [UIImage imageNamed:@"seperatorLine"];
+    view.translatesAutoresizingMaskIntoConstraints = false;
+    return view;
+};
 
 - (void)changeNumberOfNeed:(UIButton *)sender {
     Cart *cart = [self.cartList objectAtIndex:sender.tag];
@@ -131,23 +122,209 @@
     }
 }
 
-- (Cart *)createCartModel:(NSDictionary *) food {
-    Cart *cart = [[Cart alloc] init];
-    cart.id = [food[@"id"] intValue];
-    cart.category = food[@"food_category"];
-    cart.date = food[@"food_date"];
-    cart.name = food[@"food_name"];
-    cart.price = [food[@"food_price"] intValue];
-    cart.numberOfNeed = [food[@"numberOfNeed"] intValue];
-    return cart;
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"CheckOut"]) {
+        OrderDetailViewController *destinationVC = [segue destinationViewController];
+        destinationVC.orderId = self.orderIds;
+        [destinationVC setputTableView];
+    }
+    
 }
 
-UIImageView* (^separatorView)(void) = ^{
-    UIImageView *view = [[UIImageView alloc] init];
-    view.image = [UIImage imageNamed:@"seperatorLine"];
-    view.translatesAutoresizingMaskIntoConstraints = false;
-    return view;
-};
+#pragma mark - Create Payment Options
+
+- (void)choosePaymentOptionButton:(UIButton *)sender {
+    
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [self setupPaymentOptionsView];
+    } completion:nil];
+}
+
+- (void)setupPaymentOptionsView {
+    self.paymentOptionsView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 -150, self.view.frame.size.height/2-75, 300, 150)];
+    self.paymentOptionsView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0];
+    [self.view addSubview:self.paymentOptionsView];
+    
+    UIButton *paypal = [UIButton buttonWithType:UIButtonTypeSystem];
+    UIButton *payWithCash = [UIButton buttonWithType:UIButtonTypeSystem];
+    UIButton *cancel =  [UIButton buttonWithType:UIButtonTypeSystem];
+    
+    [self.paymentOptionsView addSubview:paypal];
+    [self.paymentOptionsView addSubview:payWithCash];
+    [self.paymentOptionsView addSubview:cancel];
+    
+    [paypal.topAnchor constraintEqualToAnchor:self.paymentOptionsView.topAnchor constant:+4].active = true;
+    [paypal.centerXAnchor constraintEqualToAnchor:self.paymentOptionsView.centerXAnchor].active = true;
+    [paypal.widthAnchor constraintEqualToAnchor:self.paymentOptionsView.widthAnchor constant:-8].active = true;
+    [paypal.heightAnchor constraintEqualToConstant:46].active = true;
+    
+    [payWithCash.centerXAnchor constraintEqualToAnchor:self.paymentOptionsView.centerXAnchor].active = true;
+    [payWithCash.centerYAnchor constraintEqualToAnchor:self.paymentOptionsView.centerYAnchor].active = true;
+    [payWithCash.widthAnchor constraintEqualToAnchor:self.paymentOptionsView.widthAnchor constant:-8].active = true;
+    [payWithCash.heightAnchor constraintEqualToConstant:46].active = true;
+    
+    [cancel.bottomAnchor constraintEqualToAnchor:self.paymentOptionsView.bottomAnchor constant:-4].active = true;
+    [cancel.centerXAnchor constraintEqualToAnchor:self.paymentOptionsView.centerXAnchor].active = true;
+    [cancel.widthAnchor constraintEqualToAnchor:self.paymentOptionsView.widthAnchor constant:-8].active = true;
+    [cancel.heightAnchor constraintEqualToConstant:46].active = true;
+    
+    [paypal setBackgroundImage:[UIImage imageNamed:@"PayPal"] forState:UIControlStateNormal];
+    [payWithCash setBackgroundImage:[UIImage imageNamed:@"Cash"] forState:UIControlStateNormal];
+    [cancel setBackgroundImage:[UIImage imageNamed:@"Cancel"] forState:UIControlStateNormal];
+    
+    paypal.translatesAutoresizingMaskIntoConstraints = false;
+    payWithCash.translatesAutoresizingMaskIntoConstraints = false;
+    cancel.translatesAutoresizingMaskIntoConstraints = false;
+    
+    paypal.tag = 1;
+    payWithCash.tag = 2;
+    cancel.tag = 3;
+    
+    [paypal addTarget:self action:@selector(paymentOptionsClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [payWithCash addTarget:self action:@selector(paymentOptionsClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [cancel addTarget:self action:@selector(paymentOptionsClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+- (void)paymentOptionsClicked:(UIButton *)sender {
+    
+    switch (sender.tag) {
+        case 1:
+            NSLog(@" Paypay");
+            [self removePaymentOptionsView];
+            [self payWithPayPal];
+            break;
+        case 2:
+            NSLog(@" Pay With Cash");
+            [self removePaymentOptionsView];
+            [self payWithCashAlert];
+            break;
+        case 3:
+            NSLog(@" Cancel");
+            [self removePaymentOptionsView];
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+
+- (void)removePaymentOptionsView {
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
+        self.paymentOptionsView.frame = CGRectMake(self.view.frame.size.width, self.view.frame.size.height/2-75, 300, 150);
+    } completion:nil];
+}
+
+- (void)removePaymentOptionsButton {
+    [UIView animateWithDuration:1 animations:^{
+        self.choosePaymentOptionsBtn.frame = CGRectMake(self.view.frame.size.width, self.choosePaymentOptionsBtn.frame.origin.y, self.choosePaymentOptionsBtn.frame.size.width, self.choosePaymentOptionsBtn.frame.size.height);
+    }];
+}
+
+- (void)payWithCashAlert {
+    UIAlertController* alert =
+    [UIAlertController alertControllerWithTitle:@"Pay With Cash"
+                                        message:@"Please Pay with Casher."
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* cancelAction =
+    [UIAlertAction actionWithTitle:@"Cancel"
+                             style:UIAlertActionStyleCancel
+                           handler:nil];
+    
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)payWithPayPal {
+    NSMutableArray *itemsList = [[NSMutableArray alloc] init];
+    for (Cart *cart in self.cartList) {
+        NSString *price = [NSString stringWithFormat:@"%.2f", cart.price/cart.numberOfNeed];
+        PayPalItem *item = [PayPalItem itemWithName:cart.name withQuantity:cart.numberOfNeed withPrice:[NSDecimalNumber decimalNumberWithString:price] withCurrency:@"USD" withSku:[NSString stringWithFormat:@"SKU-%@", cart.name]];
+        [itemsList addObject:item];
+    }
+    
+    NSDecimalNumber *subtotal = [PayPalItem totalPriceForItems:itemsList];
+    NSDecimalNumber *shipping = [[NSDecimalNumber alloc] initWithString:@"0.00"];
+    NSDecimalNumber *tax = [subtotal decimalNumberByMultiplyingBy:[[NSDecimalNumber alloc] initWithString:@"0.06"]];
+    
+    PayPalPaymentDetails *paymentDetails = [PayPalPaymentDetails paymentDetailsWithSubtotal:subtotal withShipping:shipping withTax:tax];
+    NSDecimalNumber *total = [[subtotal decimalNumberByAdding:shipping] decimalNumberByAdding:tax];
+    
+    // Create a PayPalPayment
+    PayPalPayment *payment = [[PayPalPayment alloc] init];
+    
+    // Amount, currency, and description
+    payment.amount = total;
+    payment.currencyCode = @"USD";
+    payment.shortDescription = @"Food Ordering";
+    payment.items = itemsList;
+    payment.paymentDetails = paymentDetails;
+    payment.payeeEmail = @"yr@gmail.com";
+    
+    payment.intent = PayPalPaymentIntentSale;
+    
+    //    payment.shippingAddress = address; // a previously-created PayPalShippingAddress object
+    
+    if (!payment.processable) {
+        // If, for example, the amount was negative or the shortDescription was empty, then
+        // this payment would not be processable. You would want to handle that here.
+    }
+    
+    
+    
+    // Create a PayPalPaymentViewController.
+    PayPalPaymentViewController *paymentViewController;
+    paymentViewController = [[PayPalPaymentViewController alloc] initWithPayment:payment
+                                                                   configuration:self.payPalConfiguration
+                                                                        delegate:self];
+    
+    // Present the PayPalPaymentViewController.
+    [self presentViewController:paymentViewController animated:YES completion:nil];
+}
+
+- (void)sendOrder {
+    // Send Order
+    self.orderIds = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < self.cartList.count; i ++) {
+        Cart *cart = self.cartList[i];
+        [self.webService sendOrderWithMobile:self.user.phone category:cart.category orderName:cart.name orderQuantity:[NSString stringWithFormat:@"%d", cart.numberOfNeed] totalCost:[NSString stringWithFormat:@"%.2f", cart.price] orderAddress:self.DeliveryAddress.text completionHandler:^(NSString *order_id) {
+            NSLog(@"%@", order_id);
+            [self.orderIds addObject:order_id];
+            [self.tableView reloadData];
+        }];
+    }
+    [self.cartModel deleteAllFood];
+}
+
+#pragma mark - PayPalPaymentDelegate methods
+
+- (void)payPalPaymentViewController:(PayPalPaymentViewController *)paymentViewController
+                 didCompletePayment:(PayPalPayment *)completedPayment {
+    
+    NSLog(@"Payment Success !!");
+    // Payment was processed successfully; send to server for verification and fulfillment.
+    //    [self verifyCompletedPayment:completedPayment];
+    
+    [self sendOrder];
+    [self removePaymentOptionsButton];
+    // Dismiss the PayPalPaymentViewController.
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)payPalPaymentDidCancel:(PayPalPaymentViewController *)paymentViewController {
+    
+    NSLog(@"Payment Cancel !!");
+    // The payment was canceled; dismiss the PayPalPaymentViewController.
+    
+//    [self sendOrder];
+//    [self removePaymentOptionsButton];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 #pragma mark - Reverse Geocode Location
 
