@@ -96,7 +96,7 @@
     user.longitude = _coordinate.longitude;
     
     AMSlideMenuMainViewController *mainVC = [self mainSlideMenu];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
     [mainVC openContentViewControllerForMenu:AMSlideMenuLeft atIndexPath:indexPath];
 }
 

@@ -22,6 +22,9 @@
 - (NSString*) segueIdentifierForIndexPathInLeftMenu:(NSIndexPath *)indexPath {
     NSString * identifier;
     switch (indexPath.row) {
+        case 0:
+            identifier = @"homePageSegue";
+            break;
         case 1:
             identifier = @"homePageSegue";
             break;
@@ -29,13 +32,10 @@
             identifier = @"foodMenuSegue";
             break;
         case 3:
-            identifier = @"orderSummarySegue";
+            identifier = @"orderHistorySegue";
             break;
         case 4:
-            identifier = @"checkOutSegue";
-            break;
-        case 5:
-            identifier = @"orderHistorySegue";
+            identifier = @"orderSummarySegue";
             break;
     }
     

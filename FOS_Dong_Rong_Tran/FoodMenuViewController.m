@@ -173,7 +173,7 @@
 - (IBAction)toSummary:(id)sender {
     
     AMSlideMenuMainViewController *mainVC = [self mainSlideMenu];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:4 inSection:0];
     [mainVC openContentViewControllerForMenu:AMSlideMenuLeft atIndexPath:indexPath];
 }
 
