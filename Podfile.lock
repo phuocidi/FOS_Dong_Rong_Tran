@@ -1,0 +1,18 @@
+PODS:
+  - AMPopTip (1.4.1)
+  - HexColors (2.2.1)
+  - TSMessages (0.9.12):
+    - HexColors (~> 2.2.0)
+
+DEPENDENCIES:
+  - AMPopTip
+  - TSMessages
+
+SPEC CHECKSUMS:
+  AMPopTip: 65ce21ac23607020e6b5b4e261b8b76df7190987
+  HexColors: abfd172e329dab59888614ccba6f216cec59289d
+  TSMessages: c8cc7b80f2a833af533872cd02010cac061532cc
+
+PODFILE CHECKSUM: 2f01bf3a244b0850f833a37c52f3fbe35effb421
+
+COCOAPODS: 1.1.1
