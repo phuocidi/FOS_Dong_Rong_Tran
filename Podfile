@@ -6,5 +6,6 @@ target 'FOS_Dong_Rong_Tran' do
   # use_frameworks!
 
   # Pods for FOS_Dong_Rong_Tran
-
+    pod 'AMPopTip'
+    pod "TSMessages"
 end
