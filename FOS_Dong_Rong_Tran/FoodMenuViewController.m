@@ -38,15 +38,24 @@
     
     NSArray *items = @[@"Veg menu", @"Non-veg menu"];
     self.segmentedControl = [[SingleLineSegmentedControl alloc] initWithItems:items];
-    self.segmentedControl.frame = CGRectMake(10, 64, self.view.frame.size.width - 20, 35);
+    self.segmentedControl.frame = CGRectMake(10, 40, self.view.frame.size.width-20, 40);
     self.segmentedControl.selectedSegmentIndex = 0;
     [self.segmentedControl addTarget:self action:@selector(handleSegmentControl:) forControlEvents: UIControlEventValueChanged];
-    [self.view addSubview: self.segmentedControl];
-    self.datasource = [NSMutableArray array];
     
+
+    
+    [self.view addSubview: self.segmentedControl];
+    
+    
+    // supress tableview top margin spaces
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    self.datasource = [NSMutableArray array];
     choice = [Constant foodKeyCategoryVeg];
     [self updateDatasource:[Constant foodKeyCategoryVeg]];
-// need model to pass restaurant name
+
+    // TODO: need model to pass restaurant name
 
     self.navigationItem.title = @"Any Restaurant";
 }

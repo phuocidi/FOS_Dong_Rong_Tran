@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "orangeShadowButton.png",
+      "filename" : "blueButtonBig.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "orangeShadowButton-1.png",
+      "filename" : "blueButtonBig-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "orangeShadowButton-2.png",
+      "filename" : "blueButtonBig-2.png",
       "scale" : "3x"
     }
   ],

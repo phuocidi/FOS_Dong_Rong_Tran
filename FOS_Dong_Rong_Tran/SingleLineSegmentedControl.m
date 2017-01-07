@@ -26,13 +26,19 @@ if (self) {
 // Set divider images
     
     
+//        NSDictionary *attributes = [NSDictionary dictionaryWithObject:font
+//                                                               forKey:NSFontAttributeName];
+//        [self.segmentedControl setTitleTextAttributes:attributes
+//                                        forState:UIControlStateNormal];
+    UIFont *font = [UIFont boldSystemFontOfSize:17.0f];
+    
     UIColor *grayColor = [UIColor grayColor];
-    NSDictionary *attributes = [NSDictionary dictionaryWithObjects:@[grayColor] forKeys:@[NSForegroundColorAttributeName]];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjects:@[grayColor,font] forKeys:@[NSForegroundColorAttributeName,NSFontAttributeName]];
     [self setTitleTextAttributes:attributes
                                forState:UIControlStateNormal];
     
     UIColor *darkTextColor = [UIColor darkTextColor];
-    NSDictionary *attributes2 = [NSDictionary dictionaryWithObjects:@[darkTextColor] forKeys:@[NSForegroundColorAttributeName]];
+    NSDictionary *attributes2 = [NSDictionary dictionaryWithObjects:@[darkTextColor,font] forKeys:@[NSForegroundColorAttributeName,NSFontAttributeName]];
     [self setTitleTextAttributes:attributes2
                                forState:UIControlStateSelected];
     [self setTintColor:[UIColor clearColor]];
