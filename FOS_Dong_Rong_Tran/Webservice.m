@@ -155,7 +155,6 @@
                                     orderAddress,[Constant orderKeyAddress],
                                     dateStr,[Constant orderKeyDate],nil];
     
-    
     [self.provider asyncWebserviceCall:@"order_request.php" withDic:dictParameter completionHandler:^(NSString * responseMsg) {
         
         NSString * order_id = [[ responseMsg componentsSeparatedByString:@":"] lastObject];
@@ -165,7 +164,6 @@
         }
     }];
 }
-
 
 -( void )checkOrderHistoryWithMobile:(NSString*)mobileNumber completionHandler:(void(^)(NSArray* data))completionBlock
 {
@@ -239,4 +237,25 @@
     }];
 }
 
+-( void )resetPassWordByPhone:(NSString*)phone oldPassword:(NSString *)oldPassword newPassword:(NSString *)newPassword completionHandler:(void(^)(NSArray* data))completionBlock
+{
+    // clean parameter
+    NSDictionary * dictParameter = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    phone, @"user_phone",
+                                    oldPassword, @"user_password",
+                                    newPassword, @"newpassword",
+                                    nil];
+    
+    [self.provider asyncWebserviceCall:@"fos_reset_pass.php" withDic:dictParameter completionHandler:^(NSString * responseMsg) {
+        id jsonOject = [NSJSONSerialization JSONObjectWithData:[responseMsg dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        
+        NSArray * dataArray;
+        if ([jsonOject isKindOfClass:[NSDictionary class]]) {
+            dataArray = [ ((NSDictionary*)jsonOject) objectForKey: @"msg"];
+        }
+        if (completionBlock) {
+            completionBlock (dataArray);
+        }
+    }];
+}
 @end

@@ -8,10 +8,12 @@
 
 #import "LoginViewController.h"
 #import "SingleLineUITextField.h"
-#import "HomeViewController.h"
+#import "HomePageViewController.h"
 #import "ResetPasswordViewController.h"
 #import "WebService.h"
 #import "UserModel.h"
+#import "TWMessageBarManager.h"
+#import "AMPopTip.h"
 
 @interface LoginViewController () <UITextFieldDelegate>
 {
@@ -36,7 +38,7 @@
     self.mobileField.textColor = [UIColor whiteColor];
     self.passwordField.textColor = [UIColor whiteColor];
     
-    self.doneButton.layer.cornerRadius = self.doneButton.layer.frame.size.height/2;
+    
     
     
 }
@@ -59,7 +61,17 @@
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField{
-    [textField resignFirstResponder];
+    NSInteger nextTag = textField.tag + 1;
+    // Try to find next responder
+    UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
+    if (nextResponder) {
+        // Found next responder, so set it.
+        [nextResponder becomeFirstResponder];
+    } else {
+        // Not found, so remove keyboard.
+        [textField resignFirstResponder];
+    }
+    
     return YES;
 }
 
@@ -108,18 +120,24 @@
 */
 
 - (BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    BOOL __block tempBool = NO;
     if ([identifier isEqualToString:@"loginToHomeSegue"]) {
         User *user = [User sharedInstance];
         user.phone = self.mobileField.text;
         
         [[WebService sharedInstance] loginByPhone:self.mobileField.text userPassword:self.passwordField.text completionHandler:^(BOOL successful) {
-            tempBool= successful;
-            UserModel * userModel = [[UserModel alloc] init];
-            NSMutableArray* array =  [userModel allUsers];
+            if (successful) {
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"Login successfully!"
+                                                               description:@""
+                                                                      type:TWMessageBarMessageTypeSuccess
+                                                                  duration:1.0 ];
+            } else {
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"Login falied!"
+                                                               description:@"please try again"
+                                                                      type:TWMessageBarMessageTypeError duration:1.0];
+            }
         }];
     }
-    return (tempBool)?tempBool:YES;
+    return YES;
 }
 
 #pragma mark - Navigation

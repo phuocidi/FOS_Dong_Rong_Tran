@@ -12,11 +12,15 @@
 #import "UserModel.h"
 #import "Webservice.h"
 #import "User.h"
-
+#import "TWMessageBarManager.h"
+#import "AMPopTip.h"
+#import "AppDelegate.h"
 
 //// Pass parameters for registration like "user_name=aamir" ," user_email=aa@gmail.com" , “user_phone=55565454", " user_password=7011”, “user_add=Delhi"
 @interface RegisterViewController () <UITextFieldDelegate>
-
+{
+    BOOL areFieldsValid;
+}
 @property (weak, nonatomic) IBOutlet SingleLineUITextField * userNameField;
 @property (weak, nonatomic) IBOutlet SingleLineUITextField * userEmailField;
 @property (weak, nonatomic) IBOutlet SingleLineUITextField * userPhoneField;
@@ -32,6 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.registerButton.layer.cornerRadius = self.registerButton.layer.frame.size.height/2;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,7 +57,17 @@
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField{
-    [textField resignFirstResponder];
+    NSInteger nextTag = textField.tag + 1;
+    // Try to find next responder
+    UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
+    if (nextResponder) {
+        // Found next responder, so set it.
+        [nextResponder becomeFirstResponder];
+    } else {
+        // Not found, so remove keyboard.
+        [textField resignFirstResponder];
+    }
+    
     return YES;
 }
 
@@ -78,18 +93,91 @@
     
     [[WebService sharedInstance] registerByPhone:self.userPhoneField.text userName:userName userEmail:userEmail userPassword:password address:address completionHandler:^(BOOL successful) {
         if (successful) {
-            [userManager createUser:user_phone name:userName email:userEmail password:password add:address longtitude:-88.2024 latitude:41.5359];
+            AppDelegate * appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            CGFloat longitude =  appDelegate.manager.location.coordinate.longitude;
+            CGFloat latitude = appDelegate.manager.location.coordinate.latitude;
+            [userManager createUser:user_phone name:userName email:userEmail password:password add:address longtitude:longitude latitude:latitude];
             
-
+            [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"Register successfully!"
+                                                           description:@""
+                                                                  type:TWMessageBarMessageTypeSuccess
+                                                              duration:1.0 ];
             dispatch_async(dispatch_get_main_queue(), ^{
                 LoginViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
                 [self.navigationController pushViewController:vc animated:YES];
             });
+
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"Register falied!"
+                                                                                                                   description:@"Mobile number already exist"
+                                                                                                                          type:TWMessageBarMessageTypeError];});
             
+
         }
     }];
-    
+}
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSString * str = [NSString stringWithFormat:@"%@%@", textField.text, string];
+    
+    // Check password field
+    if (textField.tag == 3) {
+        NSString *regex = @"^(?=.{8,})(?=.*[0-9])(?=.*[a-zA-Z])([@#$%^&=a-zA-Z0-9_-]+)$";
+        
+        NSPredicate *passwordTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+        
+        BOOL isValid = [passwordTest evaluateWithObject:textField.text];
+        if(!isValid) {
+            [(SingleLineUITextField*)textField setError:YES message:@"Need 8 characters, Must contain at least one lower case letter, one upper case letter, one digit and one special character"];
+            areFieldsValid = NO;
+            return YES;
+        }
+        
+    }
+    
+    // Mobile phone length is 10-13
+    if(textField.tag == 2 ){
+        if(str.length <10 || str.length>13) {
+            [(SingleLineUITextField*)textField setError:YES message:@"Mobile phone must contains 10-13 numbers"];
+            areFieldsValid = NO;
+            return YES;
+        }
+        
+    }
+    
+    //Email field
+    
+    if (textField.tag == 4){
+        NSString *emailReg = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+        NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailReg];
+        BOOL isValid = [emailTest evaluateWithObject:textField.text];
+        if (! isValid) {
+            [(SingleLineUITextField*)textField setError:YES message:@"Invalid email format"];
+            areFieldsValid = NO;
+            return YES;
+        }
+    }
+    
+    // General validation
+    if (str.length < 3){
+        [(SingleLineUITextField*)textField setError:YES message:@"Must contains more than 3 characters"];
+        areFieldsValid = NO;
+        return YES;
+    }
+    
+    if ( [str containsString:@" "]) {
+        if( textField.tag!= 5 || textField.tag != 6 ){
+            [(SingleLineUITextField*)textField setError:YES message:@"Can not have space"];
+            areFieldsValid = NO;
+            return YES;
+        }
+        
+    }
+    
+    [(SingleLineUITextField*)textField setError:NO message:nil];
+    areFieldsValid = YES;
+    return YES;
 }
 
 @end

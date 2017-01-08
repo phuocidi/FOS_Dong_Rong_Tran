@@ -7,5 +7,5 @@ target 'FOS_Dong_Rong_Tran' do
 
   # Pods for FOS_Dong_Rong_Tran
     pod 'AMPopTip'
-    pod "TSMessages"
+    pod 'TWMessageBarManager'
 end

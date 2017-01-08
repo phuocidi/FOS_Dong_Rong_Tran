@@ -33,6 +33,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    
     self.tableView.separatorColor = [UIColor clearColor];
     
     
@@ -60,6 +62,7 @@
     self.navigationItem.title = @"Any Restaurant";
 }
 
+#pragma mark - segmented control
 - (void) handleSegmentControl:(UISegmentedControl*)sender {
 
     switch (sender.selectedSegmentIndex) {
@@ -76,15 +79,14 @@
 
 }
 
-
 - (void) updateDatasource:(NSString*) choice {
     [[WebService sharedInstance] getFoodMenu:choice completionHandler:^(NSArray *data) {
         self.datasource = [NSMutableArray arrayWithArray: data];
         dispatch_async(dispatch_get_main_queue(), ^{
             
             [UIView transitionWithView: self.tableView
-                              duration: 0.4f
-                               options: UIViewAnimationOptionTransitionCrossDissolve
+                              duration: 0.8f
+                               options: UIViewAnimationOptionTransitionCurlUp
                             animations: ^(void)
              {
                  [self.tableView reloadData];

@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "AMPopTip.h"
+#import "AMPopTip.h"
 
 @interface SingleLineUITextField : UITextField
 
 @property BOOL error;
 @property (copy, nonatomic)NSString * message;
-//@property (strong, nonatomic) AMPopTip* popTip;
+@property (strong, nonatomic) AMPopTip* popTip;
 @property (strong, nonatomic) UIImageView * imgViewError;
 
 - (instancetype) init;

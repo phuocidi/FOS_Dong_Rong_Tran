@@ -70,14 +70,6 @@ if (self) {
                   barMetrics:UIBarMetricsDefault];
     
     [self setTintColor: [UIColor clearColor]];
-    
-    
-//    [self setContentPositionAdjustment:UIOffsetMake(dividerImageWidth / 2, 0)
-//                        forSegmentType:UISegmentedControlSegmentLeft
-//                            barMetrics:UIBarMetricsDefault];
-//    [self setContentPositionAdjustment:UIOffsetMake(- dividerImageWidth / 2, 0)
-//                        forSegmentType:UISegmentedControlSegmentRight
-//                            barMetrics:UIBarMetricsDefault];
 }
     return self;
 }

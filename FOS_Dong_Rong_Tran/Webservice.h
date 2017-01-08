@@ -18,5 +18,5 @@
 -( void )loginByPhone:(NSString*)mobilePhone userPassword:(NSString *)userPassword completionHandler:(void(^)(BOOL successful))completionBlock;
 
 -( void)registerByPhone:(NSString*)mobilePhone userName:(NSString*)userName userEmail:(NSString*)userEmail userPassword:(NSString*)userPassword address:(NSString*) address completionHandler:(void(^)(BOOL successful))completionBlock;
-
+-( void )resetPassWordByPhone:(NSString*)phone oldPassword:(NSString *)oldPassword newPassword:(NSString *)newPassword completionHandler:(void(^)(NSArray* data))completionBlock;
 @end

@@ -1,18 +1,15 @@
 PODS:
   - AMPopTip (1.4.1)
-  - HexColors (2.2.1)
-  - TSMessages (0.9.12):
-    - HexColors (~> 2.2.0)
+  - TWMessageBarManager (1.8.1)
 
 DEPENDENCIES:
   - AMPopTip
-  - TSMessages
+  - TWMessageBarManager
 
 SPEC CHECKSUMS:
   AMPopTip: 65ce21ac23607020e6b5b4e261b8b76df7190987
-  HexColors: abfd172e329dab59888614ccba6f216cec59289d
-  TSMessages: c8cc7b80f2a833af533872cd02010cac061532cc
+  TWMessageBarManager: fd84e7948ba7968a2b5d9454859135761214ec56
 
-PODFILE CHECKSUM: 2f01bf3a244b0850f833a37c52f3fbe35effb421
+PODFILE CHECKSUM: e07cfa9c356af212f66d743d4859d3c3c36b42a3
 
 COCOAPODS: 1.1.1

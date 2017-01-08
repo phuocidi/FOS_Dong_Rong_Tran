@@ -15,7 +15,6 @@ extern CLLocationManager* locationManager( )
     return [ ( ( AppDelegate* )[ [ UIApplication sharedApplication ] delegate ] ) manager ];
 }
 
-
 @interface AppDelegate () < CLLocationManagerDelegate >
 
 @end

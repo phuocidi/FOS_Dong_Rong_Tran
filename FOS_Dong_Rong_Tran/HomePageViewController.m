@@ -15,7 +15,6 @@
 #import "Restaurant.h"
 #import  "UIViewController+AMSlideMenu.h"
 
-
 #define METERS_PER_MILE     1609.34
 #define EPSILON             0.000001
 

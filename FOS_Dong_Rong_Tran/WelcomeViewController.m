@@ -17,6 +17,8 @@
 @property (copy, atomic) NSArray <UIImage *> *bgImages;
 @property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
+@property (weak, nonatomic) IBOutlet UIImageView *brandIV;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 
@@ -40,12 +42,14 @@
                                    userInfo:nil
                                     repeats:YES];
     
-    self.registerButton.layer.cornerRadius = 3;
+    self.registerButton.layer.cornerRadius = 3.0;
     self.registerButton.layer.masksToBounds = YES;
-    
+
     // motion effect
-    [self applyMotionEffectToView:self.bgImageView magnitude:10];
-    [self applyMotionEffectToView:self.registerButton magnitude:-20];
+    [self applyMotionEffectToView:self.bgImageView magnitude:15];
+    [self applyMotionEffectToView:self.registerButton magnitude:-30];
+    [self applyMotionEffectToView:self.loginButton magnitude:-30];
+    [self applyMotionEffectToView:self.brandIV magnitude:-30];
 }
 
 - (void)didReceiveMemoryWarning {
