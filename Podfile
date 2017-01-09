@@ -8,6 +8,5 @@ target 'FOS_Dong_Rong_Tran' do
   # Pods for FOS_Dong_Rong_Tran
     pod 'AMPopTip'
     pod 'TWMessageBarManager'
-    pod 'M13ProgressSuite', '~> 1.2'
     pod 'CBZSplashView', '~> 1.0.0'
 end
