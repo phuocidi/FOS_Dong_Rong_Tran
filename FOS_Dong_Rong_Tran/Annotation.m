@@ -20,6 +20,7 @@
     if(self = [super init]) {
         self.restaurant = restaurant;
         self.title = [NSString stringWithString: self.restaurant.name];
+        self.subtitle = [NSString stringWithString: self.restaurant.address];
         self.coordinate = CLLocationCoordinate2DMake([self.restaurant.latitude doubleValue], [self.restaurant.longitude doubleValue]);
     }
     return self;

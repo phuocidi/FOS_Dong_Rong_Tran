@@ -36,7 +36,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.registerButton.layer.cornerRadius = self.registerButton.layer.frame.size.height/2;
+
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    //CGFloat screenHeight = screenRect.size.height;
+    UIToolbar * toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f,0.0f,screenWidth,50.0f)];
+    [toolbar setTintColor: [UIColor darkGrayColor]];
     
+    UIBarButtonItem * doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(userDidFinishEditingDatePickerField:)];
+    // space bar
+    UIBarButtonItem * space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    [toolbar setItems:[NSArray arrayWithObjects:space, doneBtn, nil]];
+    
+    // Customize keyboard
+    [self.userPhoneField setInputAccessoryView:toolbar];
+    
+}
+
+- (void) userDidFinishEditingDatePickerField:(id)sender {
+    [self textFieldShouldReturn:self.userPhoneField];
 }
 
 - (void)didReceiveMemoryWarning {

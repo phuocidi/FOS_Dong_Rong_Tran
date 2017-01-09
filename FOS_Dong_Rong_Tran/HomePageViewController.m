@@ -1,3 +1,4 @@
+
 //
 //  ViewController.m
 //  Mapkit
@@ -15,11 +16,12 @@
 #import "Restaurant.h"
 #import  "UIViewController+AMSlideMenu.h"
 #import "Constant.h"
+#import "RestaurantManager.h"
 
 #define METERS_PER_MILE     1609.34
 #define EPSILON             0.000001
 
-@interface HomePageViewController () < MKMapViewDelegate, LocationChanged, NSURLSessionDataDelegate, NSURLSessionDelegate, NSURLSessionTaskDelegate>
+@interface HomePageViewController () < MKMapViewDelegate, LocationChanged>
 {
     CLLocationCoordinate2D _coordinate;
 }
@@ -53,12 +55,13 @@
             [ self.mapView removeAnnotation: self.myCurrentLocation ];
         }
         
-       // self.myAnnotation = [ Annotation annotationWithLatitude: coordinate.latitude longitude:coordinate.longitude title:@"My Location" subtitle:@"subtitle"];
+        // self.myAnnotation = [ Annotation annotationWithLatitude: coordinate.latitude longitude:coordinate.longitude title:@"My Location" subtitle:@"subtitle"];
         self.myCurrentLocation = [[MKPointAnnotation alloc] init];
         self.myCurrentLocation.coordinate = _coordinate;
+        self.myCurrentLocation.title = @"My Location";
         
-//        self.myAnnotation.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-//        self.myAnnotation.canShowCallout = YES;
+        //        self.myAnnotation.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        //        self.myAnnotation.canShowCallout = YES;
         [ self.mapView addAnnotation: self.myCurrentLocation ];
     }
 }
@@ -76,14 +79,32 @@
     
     [ self.mapView setRegion: region ];
     
+    self.nearby = [[RestaurantManager sharedInstance] allRestaurant];
     
-    self.nearby = [Restaurant getAllRestaurant];
-    
-    for (Restaurant *restaurant in self.nearby) {
-//        [ self.mapView addAnnotation: [ Annotation annotationWithLatitude: [restaurant.latitude doubleValue] longitude:[restaurant.longitude doubleValue] title:restaurant.name subtitle:restaurant.name] ];
+    if (self.nearby.count) {
+        for (Restaurant *restaurant in self.nearby) {
+            
+            [self.mapView addAnnotation:[[Annotation alloc]initWithRestaurant: restaurant ]];
+        }
+    }else {
+        AppDelegate * appDelegate = (AppDelegate *) [ [UIApplication sharedApplication] delegate];
+        CLLocationManager *manager = [appDelegate manager];
         
-        [self.mapView addAnnotation:[[Annotation alloc]initWithRestaurant: restaurant ]];
+        CGFloat lat = manager.location.coordinate.latitude;
+        CGFloat lng = manager.location.coordinate.longitude;
+        
+        NSString * latitude = [NSString stringWithFormat:@"%0.6f", lat];
+        NSString * longitude = [NSString stringWithFormat:@"%0.6f", lng];
+        
+        [[RestaurantManager sharedInstance] nearByRestaurantsByLatitude:latitude longitude:longitude radius:@"800" query:nil completionHandler:^(NSMutableArray *dataArray) {
+            self.nearby = [[RestaurantManager sharedInstance] allRestaurant];
+            for (Restaurant *restaurant in self.nearby) {
+                
+                [self.mapView addAnnotation:[[Annotation alloc]initWithRestaurant: restaurant ]];
+            }
+        }];
     }
+    
     
     self.mapView.mapType = MKMapTypeStandard;
 }
@@ -93,12 +114,16 @@
     NSLog(@"select an annotation");
     NSLog(@"%@",view.annotation);
     [self.nearby indexOfObject: view.annotation];
-    Annotation * annotation = view.annotation;
+    MKPointAnnotation * annotation = view.annotation;
     
-    NSLog(@"%@", annotation.restaurant);
-//    FoodMenuViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodMenuViewController"];
-//    
-//    [self.navigationController pushViewController:vc animated:YES];
+    if ( ![annotation.title isEqualToString:@"My Location"]) {
+        [RestaurantManager sharedInstance].currentRestaurant = [((Annotation*)annotation) restaurant];
+    }
+    
+    //NSLog(@"%@", annotation.restaurant);
+    //    FoodMenuViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FoodMenuViewController"];
+    //
+    //    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - click title
@@ -120,26 +145,33 @@
 
 - (nullable MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
-//    MKAnnotationView* result = [ mapView dequeueReusableAnnotationViewWithIdentifier: @"Markers" ];
-    MKPinAnnotationView *result = (MKPinAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier: @"asdf"];
-    if( result == nil )
-        result = [ [ MKPinAnnotationView alloc ] initWithAnnotation: annotation reuseIdentifier:@"Markers" ];
-    else
-        result.annotation = annotation;
-    result.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 
-//    UIImage* image = nil;
     if( [annotation.title isEqualToString: @"My Location" ] ) {
+        MKPinAnnotationView *result = (MKPinAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier: @"asdf"];
+        if( result == nil )
+            result = [ [ MKPinAnnotationView alloc ] initWithAnnotation: annotation reuseIdentifier:@"Markers" ];
+        else
+            result.annotation = annotation;
+        result.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        
         result.pinTintColor = [MKPinAnnotationView purplePinColor];
         result.draggable = YES;
         result.animatesDrop = YES;
+        result.canShowCallout = YES;
+        return result;
     }
-    else
-            result.pinTintColor = [MKPinAnnotationView redPinColor];
-//    result.image = image;
-    result.canShowCallout = YES;
-    
-    return result;
+    else{
+        MKAnnotationView *result = (MKAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier: @"restaurant"];
+        if( result == nil )
+            result = [ [ MKAnnotationView alloc ] initWithAnnotation: annotation reuseIdentifier:@"restaurant" ];
+        else
+        result.annotation = annotation;
+        result.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        result.draggable = YES;
+        result.image = [UIImage imageNamed:@"restaurantMarker"];
+        result.canShowCallout = YES;
+        return result;
+    }
 }
 
 #pragma mark - pin draggable
@@ -187,19 +219,6 @@
     NSURLSessionDataTask * task = [session dataTaskWithURL:queryURL];
     [task resume];
 }
-
-//- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler {
-//    completionHandler(NSURLSessionResponseAllow);
-//    
-//    progressBar.progress=0.0f;
-//    _downloadSize=[response expectedContentLength];
-//    _dataToDownload=[[NSMutableData alloc]init];
-//}
-//
-//- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
-//    [_dataToDownload appendData:data];
-//    progressBar.progress=[ _dataToDownload length ]/_downloadSize;
-//}
 
 
 @end

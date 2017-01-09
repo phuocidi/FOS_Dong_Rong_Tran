@@ -15,6 +15,8 @@
 #import "OrderSummaryViewController.h"
 #import "CartModel.h"
 #import  "UIViewController+AMSlideMenu.h"
+#import "RestaurantManager.h"
+#import "TWMessageBarManager.h"
 
 // --------------------------------
 @interface FoodMenuViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -33,10 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
     self.tableView.separatorColor = [UIColor clearColor];
-    
     
     NSArray *items = @[@"Veg menu", @"Non-veg menu"];
     self.segmentedControl = [[SingleLineSegmentedControl alloc] initWithItems:items];
@@ -44,10 +43,7 @@
     self.segmentedControl.selectedSegmentIndex = 0;
     [self.segmentedControl addTarget:self action:@selector(handleSegmentControl:) forControlEvents: UIControlEventValueChanged];
     
-
-    
     [self.view addSubview: self.segmentedControl];
-    
     
     // supress tableview top margin spaces
     self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -59,7 +55,8 @@
 
     // TODO: need model to pass restaurant name
 
-    self.navigationItem.title = @"Any Restaurant";
+    self.navigationItem.title = ([RestaurantManager sharedInstance].currentRestaurant)? [RestaurantManager sharedInstance].currentRestaurant.name : @"";
+
 }
 
 #pragma mark - segmented control
@@ -128,8 +125,9 @@
     cell.buyNowButton.tag = indexPath.row;
     [cell.buyNowButton addTarget:self action:@selector(orderButtonCicked:) forControlEvents: UIControlEventTouchUpInside];
     
-    //cell.buyNowButton.userInteractionEnabled = NO;
-    //[cell.contentView addSubview: cell.buyNowButton];
+    [cell.buyNowButton setTitleColor:[UIColor darkGrayColor]
+                   forState:UIControlStateHighlighted];
+
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSDictionary * item = (NSDictionary *) self.datasource[indexPath.row];
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -153,19 +151,22 @@
                                                         }
                                                    });
                                                 }];
-    
-//    [[ImageDownloader sharedInstance] fetchImage:urlStr completionHandler:^(NSData *image) {
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            cell.foodImageView.image = [UIImage imageWithData:image];
-//        });
-//        
-//    }];
-    
     return cell;
 }
 
 - (void) orderButtonCicked: (UIButton*) sender {
     NSLog(@"sender.tag");
+
+        [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"Sucess"
+                                                       description:@"order is placed"
+                                                              type:TWMessageBarMessageTypeSuccess];
+
+    [UIView animateWithDuration:0.2 animations:^{
+        sender.transform = CGAffineTransformMakeScale(1.1, 1.1);
+    } completion:^(BOOL finished) {
+        sender.transform = CGAffineTransformIdentity;
+    }];
+    
     NSDictionary * item = [self.datasource objectAtIndex:sender.tag];
     NSString* add = @"Chicago";
     

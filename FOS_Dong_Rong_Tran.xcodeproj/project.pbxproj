@@ -348,6 +348,8 @@
 				0EEAA0F11E16FB7100946EE1 /* WebService */,
 				0E33A8351E16E99A005CD961 /* Main.storyboard */,
 				0E33A8381E16E99A005CD961 /* Assets.xcassets */,
+				0E170D911E1C1564003A162E /* AppDelegate.h */,
+				0E170D921E1C1564003A162E /* AppDelegate.m */,
 				0E33A82C1E16E99A005CD961 /* Supporting Files */,
 				0758FDF61E16F14300BFCF88 /* login.png */,
 				074921D81E1F3E2F005BF0E5 /* PayPalMobile */,
@@ -358,8 +360,6 @@
 		0E33A82C1E16E99A005CD961 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0E170D911E1C1564003A162E /* AppDelegate.h */,
-				0E170D921E1C1564003A162E /* AppDelegate.m */,
 				0E33A83A1E16E99A005CD961 /* LaunchScreen.storyboard */,
 				0E33A83D1E16E99A005CD961 /* Info.plist */,
 				0E33A8321E16E99A005CD961 /* ViewController.h */,

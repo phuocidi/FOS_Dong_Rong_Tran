@@ -1,15 +1,21 @@
 PODS:
   - AMPopTip (1.4.1)
+  - CBZSplashView (1.0.0)
+  - M13ProgressSuite (1.2.9)
   - TWMessageBarManager (1.8.1)
 
 DEPENDENCIES:
   - AMPopTip
+  - CBZSplashView (~> 1.0.0)
+  - M13ProgressSuite (~> 1.2)
   - TWMessageBarManager
 
 SPEC CHECKSUMS:
   AMPopTip: 65ce21ac23607020e6b5b4e261b8b76df7190987
+  CBZSplashView: 9ce4cba22024476ff4a97d6433e7347da6376016
+  M13ProgressSuite: ea9f7263e73e9215e6849dfa54e29ee0ad6a145c
   TWMessageBarManager: fd84e7948ba7968a2b5d9454859135761214ec56
 
-PODFILE CHECKSUM: e07cfa9c356af212f66d743d4859d3c3c36b42a3
+PODFILE CHECKSUM: 5d63a3284b48960b956e3a2f9e459c36e5a7d111
 
 COCOAPODS: 1.1.1

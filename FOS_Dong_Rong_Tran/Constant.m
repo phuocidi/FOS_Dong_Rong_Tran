@@ -81,7 +81,7 @@ static NSString* const fourSquareVersionKey = @"v";
 + (NSString*) orderStatusKey {return orderStatusKey;}
 
 + (NSString*) fourSquareOauthParam {return fourSquareOauthKey;}
-+ (NSString*) fourSquareTokenStr {return fourSquareOauthKey;}
++ (NSString*) fourSquareTokenStr {return fourSquareOAuthToken;}
 + (NSString*) fourSquareVersionStr {return fourSquareVersionAPI;}
 + (NSString*) fourSquareVersionParam {return fourSquareVersionKey;}
 + (NSString*) fourSquareCategoryParam{return fourSquareCategoryKey;}

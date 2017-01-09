@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Restaurant.h"
+#import "Constant.h"
 
 @interface RestaurantManager : NSObject
 
+@property (retain, nonatomic) NSMutableArray <Restaurant*> *allRestaurant;
+@property (retain, nonatomic) Restaurant* currentRestaurant;
++ (instancetype) sharedInstance;
+- (void) nearByRestaurantsByLatitude:(NSString *)latitude longitude:(NSString *)longitude radius:(NSString*) radius query:(NSString *) query completionHandler:(void (^)(NSMutableArray* dataArray))completionBlock;
 @end

@@ -10,10 +10,10 @@
 
 @interface Restaurant : NSObject
 
-@property(strong, nonatomic) NSString *latitude;
-@property(strong, nonatomic) NSString *longitude;
-@property(strong, nonatomic) NSString *name;
-
-+ (NSArray *)getAllRestaurant;
+@property(copy, nonatomic) NSString *latitude;
+@property(copy, nonatomic) NSString *longitude;
+@property(copy, nonatomic) NSString *name;
+@property(copy, nonatomic) NSString *address;
+@property(copy, nonatomic) NSString *distance;
 
 @end

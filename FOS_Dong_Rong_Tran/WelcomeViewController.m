@@ -9,6 +9,10 @@
 #import "WelcomeViewController.h"
 #import "RegisterViewController.h"
 #import "LoginViewController.h"
+#import "RestaurantManager.h"
+#import "AppDelegate.h"
+#import "CBZSplashView.h"
+
 //----------------------------------
 @interface WelcomeViewController ()
 {
@@ -27,6 +31,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"hasLauched"]) {
+        UIImage *icon = [UIImage imageNamed:@"brand_logo"];
+        UIColor *color = [UIColor orangeColor];
+        CBZSplashView *splashView = [CBZSplashView splashViewWithIcon:icon backgroundColor:color];
+        
+        // customize duration, icon size, or icon color here;
+        splashView.animationDuration = 2.0;
+        [self.view addSubview:splashView];
+        [splashView startAnimation];
+    }
+    
     UIImage * image0 = [UIImage imageNamed:@"login_bg_0"];
     UIImage * image1 = [UIImage imageNamed:@"login_bg_1"];
     UIImage * image2 = [UIImage imageNamed:@"login_bg_2"];
@@ -50,6 +66,20 @@
     [self applyMotionEffectToView:self.registerButton magnitude:-30];
     [self applyMotionEffectToView:self.loginButton magnitude:-30];
     [self applyMotionEffectToView:self.brandIV magnitude:-30];
+    
+    
+    AppDelegate * appDelegate = (AppDelegate *) [ [UIApplication sharedApplication] delegate];
+    CLLocationManager *manager = [appDelegate manager];
+    
+    CGFloat lat = manager.location.coordinate.latitude;
+    CGFloat lng = manager.location.coordinate.longitude;
+    
+    NSString * latitude = [NSString stringWithFormat:@"%0.6f", lat];
+    NSString * longitude = [NSString stringWithFormat:@"%0.6f", lng];
+    
+    [[RestaurantManager sharedInstance] nearByRestaurantsByLatitude:latitude longitude:longitude radius:@"800" query:nil completionHandler:^(NSMutableArray *dataArray) {
+        NSLog(@"%@", dataArray);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -113,5 +143,7 @@
     LoginViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+
 
 @end

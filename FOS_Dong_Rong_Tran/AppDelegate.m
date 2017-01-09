@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "PayPalMobile.h"
-
+#import "RestaurantManager.h"
 
 extern CLLocationManager* locationManager( )
 {
@@ -39,6 +39,9 @@ extern CLLocationManager* locationManager( )
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"hasLauched"];
+    
     // Override point for customization after application launch.
     self.manager = [ [ CLLocationManager alloc ] init ];
     self.manager.delegate = self;
@@ -52,6 +55,7 @@ extern CLLocationManager* locationManager( )
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"hasLauched"];
 }
 
 
@@ -68,6 +72,7 @@ extern CLLocationManager* locationManager( )
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
 }
 
 
