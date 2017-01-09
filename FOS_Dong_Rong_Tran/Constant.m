@@ -39,6 +39,15 @@ static NSString* const orderRecentKeyDate =  @"OrderDate";
 static NSString* const orderStatusKeyID =  @"order_id";
 static NSString* const orderStatusKey =  @"Order Detail";
 
+static NSString* const fourSquareCategoryId = @"4d4b7105d754a06374d81259";
+static NSString* const fourSquareCategoryKey =  @"categoryId";
+static NSString* const fourSquareOauthKey = @"oauth_token";
+static NSString* const fourSquareOAuthToken = @"FNN31VDGWRFGXXWGLXODLHEOLJGO2WEJ3EP0GQSG0RSH1U3D";
+static NSString* const fourSquareVersionAPI = @"20170108";
+static NSString* const fourSquareVersionKey = @"v";
+
+
+
 @implementation Constant
 + (NSString *)  foodKey { return foodKey; }
 + (NSString*) foodKeyID { return foodKeyID; }
@@ -71,4 +80,10 @@ static NSString* const orderStatusKey =  @"Order Detail";
 + (NSString*) orderStatusKeyID {return orderStatusKeyID;}
 + (NSString*) orderStatusKey {return orderStatusKey;}
 
++ (NSString*) fourSquareOauthParam {return fourSquareOauthKey;}
++ (NSString*) fourSquareTokenStr {return fourSquareOauthKey;}
++ (NSString*) fourSquareVersionStr {return fourSquareVersionAPI;}
++ (NSString*) fourSquareVersionParam {return fourSquareVersionKey;}
++ (NSString*) fourSquareCategoryParam{return fourSquareCategoryKey;}
++ (NSString*) fourSquareCategoryIdStr{return fourSquareCategoryId;}
 @end

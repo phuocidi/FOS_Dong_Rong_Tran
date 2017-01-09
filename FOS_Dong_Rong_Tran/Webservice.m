@@ -35,10 +35,9 @@
 //If "OrderStatus":"3" its means Delivered
 
 
-@interface WebService( )
+@interface WebService( ) 
 
 @property ( nonatomic, retain ) id < WebserviceCommunication > provider;
-
 @end
 
 @implementation WebService
@@ -258,4 +257,7 @@
         }
     }];
 }
+
+
+
 @end

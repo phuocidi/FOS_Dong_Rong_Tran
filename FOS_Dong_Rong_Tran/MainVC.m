@@ -43,7 +43,7 @@
 }
 
 - (void) configureLeftMenuButton:(UIButton *)button {
-    button.frame = CGRectMake(4, 4, 40, 40);
+    button.frame = CGRectMake(8, 8, 30, 30);
     [button setImage:[UIImage imageNamed:@"menu"] forState:UIControlStateNormal];
     [button setTintColor:[UIColor whiteColor]];
 }

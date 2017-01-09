@@ -14,11 +14,12 @@
 #import "User.h"
 #import "Restaurant.h"
 #import  "UIViewController+AMSlideMenu.h"
+#import "Constant.h"
 
 #define METERS_PER_MILE     1609.34
 #define EPSILON             0.000001
 
-@interface HomePageViewController () < MKMapViewDelegate, LocationChanged>
+@interface HomePageViewController () < MKMapViewDelegate, LocationChanged, NSURLSessionDataDelegate, NSURLSessionDelegate, NSURLSessionTaskDelegate>
 {
     CLLocationCoordinate2D _coordinate;
 }
@@ -152,6 +153,53 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) nearByRestaurantsByLatitude:(NSString *)latitude longitude:(NSString *)longitude radius:(NSString*) radius query:(NSString *) query
+{
+    
+    NSMutableString * urlStr = [NSMutableString  stringWithString: @"https://api.foursquare.com/v2/venues/search?"];
+    
+    
+    NSString *tempRadius = (radius) ? radius : @"2000";
+    NSString * ll = [NSString stringWithFormat:@"%@,%@", latitude, longitude];
+    NSString *tempQuery = (query) ? query : @"restaurant";
+    NSDictionary * parameters = [NSDictionary dictionaryWithObjectsAndKeys:ll, @"ll",
+                                 tempRadius,@"radius",
+                                 [Constant fourSquareCategoryIdStr],[Constant fourSquareCategoryParam],
+                                 tempQuery, @"query",
+                                 [Constant fourSquareTokenStr], [Constant fourSquareOauthParam],
+                                 [Constant fourSquareVersionStr], [Constant fourSquareVersionParam],
+                                 nil];
+    
+    for (NSString* key in parameters ) {
+        [urlStr stringByAppendingString: [parameters objectForKey:key]];
+        [urlStr stringByAppendingString:@"&"];
+    }
+    
+    NSURL * queryURL  = [NSURL URLWithString:[urlStr substringToIndex:(urlStr.length - 1)] ];
+    
+    NSLog(@"\n\n%@", queryURL.absoluteString );
+    
+    // Session and download
+    
+    NSURLSessionConfiguration * config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    NSURLSession * session = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
+    
+    NSURLSessionDataTask * task = [session dataTaskWithURL:queryURL];
+    [task resume];
+}
+
+//- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler {
+//    completionHandler(NSURLSessionResponseAllow);
+//    
+//    progressBar.progress=0.0f;
+//    _downloadSize=[response expectedContentLength];
+//    _dataToDownload=[[NSMutableData alloc]init];
+//}
+//
+//- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
+//    [_dataToDownload appendData:data];
+//    progressBar.progress=[ _dataToDownload length ]/_downloadSize;
+//}
 
 
 @end

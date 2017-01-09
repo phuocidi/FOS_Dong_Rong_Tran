@@ -41,4 +41,13 @@
 
 + (NSString*) orderStatusKeyID;
 + (NSString*) orderStatusKey;
+
+
++ (NSString*) fourSquareOauthParam ;
++ (NSString*) fourSquareTokenStr ;
++ (NSString*) fourSquareVersionStr ;
++ (NSString*) fourSquareVersionParam ;
++ (NSString*) fourSquareCategoryParam;
++ (NSString*) fourSquareCategoryIdStr;
+
 @end
