@@ -59,7 +59,8 @@
 -( void )getFoodMenu:( NSString*)foodCategoryType completionHandler:(void(^)(NSArray* data)) completionBlock
 {    
     foodCategoryType = [foodCategoryType stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-    NSDictionary * dictParameter = [NSDictionary dictionaryWithObjectsAndKeys:foodCategoryType, @"food_category", nil];
+    NSDictionary * dictParameter = [NSDictionary dictionaryWithObjectsAndKeys:foodCategoryType, @"food_category",
+    @"delhi",@"city", nil];
     [self.provider asyncWebserviceCall:@"fos_food.php" withDic:dictParameter completionHandler:^(NSString * responseMsg) {
         
         id jsonObject = [ NSJSONSerialization JSONObjectWithData: [ responseMsg dataUsingEncoding: NSUTF8StringEncoding ] options:NSJSONReadingAllowFragments error:nil ];
